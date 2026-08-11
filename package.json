@@ -4,6 +4,7 @@
   "private": true,
   "description": "Pharos University Hemodialysis Digitization & Clinical Decision Support Astro Portal (AY 2026/2027)",
   "scripts": {
+    "postinstall": "npm install --prefix dashboard",
     "dev": "npm run dev --prefix dashboard",
     "build": "npm run build --prefix dashboard",
     "preview": "npm run preview --prefix dashboard",
