@@ -1,0 +1,243 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="System Architecture & Technical Blueprint | Dual Shield" activePage="architecture">
+
+	<!-- SECTION 1: HEADER -->
+	<section class="pt-16 pb-16 bg-canvas border-b border-stone-200/80 relative z-10">
+		<div class="max-w-7xl mx-auto px-6">
+			<div class="flex items-center gap-3 mb-4">
+				<span class="px-3 py-1 rounded-full bg-accent/10 text-accent font-mono text-xs font-bold uppercase tracking-wider">
+					TECHNICAL SPECIFICATION
+				</span>
+				<span class="font-mono text-xs text-stone-500">OFFLINE-FIRST EDGE ARCHITECTURE</span>
+			</div>
+			
+			<h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-dark font-bold max-w-4xl tracking-tight mb-4">
+				Edge Hardware & <span class="italic font-normal text-accent">FHIR-Compliant</span> Intelligence Engine.
+			</h1>
+
+			<p class="text-stone-600 text-lg md:text-xl font-sans max-w-3xl leading-relaxed font-light">
+				A rigorous technical blueprint detailing how offline-first hardware and standardized FHIR schemas power the decision support and unit quality modules.
+			</p>
+		</div>
+	</section>
+
+	<!-- SECTION 2: HARDWARE SPECIFICATION (Edge Layer) -->
+	<section class="py-24 bg-canvas-muted/50 relative z-10 border-b border-stone-200">
+		<div class="max-w-7xl mx-auto px-6">
+			
+			<div class="mb-16">
+				<span class="font-mono text-xs uppercase tracking-widest text-accent-teal font-bold">EDGE HARDWARE LAYER</span>
+				<h2 class="font-serif text-3xl sm:text-4xl text-dark mt-2 font-bold">
+					Four Bedside Physical Modules
+				</h2>
+				<p class="text-stone-600 text-sm font-sans mt-2 font-light max-w-2xl">
+					Standalone microcontroller-driven bedside hardware units communicating locally via low-latency MQTT over isolated unit LAN.
+				</p>
+			</div>
+
+			<!-- 4 Hardware Cards -->
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+				
+				<!-- Module 1: Biometric Registration -->
+				<div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
+					<div class="flex items-center gap-4 mb-6">
+						<div class="w-12 h-12 rounded-2xl bg-sky-50 text-accent flex items-center justify-center text-xl font-bold">
+							<i class="fa-solid fa-fingerprint"></i>
+						</div>
+						<div>
+							<div class="font-mono text-[11px] text-stone-400 font-bold uppercase">MODULE 01</div>
+							<h3 class="font-serif text-2xl font-bold text-dark">Biometric Registration & Shift Scheduling</h3>
+						</div>
+					</div>
+					<p class="text-stone-600 text-sm leading-relaxed font-light mb-4">
+						Optical fingerprint scanner integrated with a local embedded SQLite database for instant patient identification at bed arrival.
+					</p>
+					<ul class="space-y-2 font-mono text-xs text-stone-700 bg-stone-50 p-4 rounded-2xl border border-stone-200">
+						<li>• <strong>Shift Queue Rules:</strong> Automated station assignment based on nurse ratio.</li>
+						<li>• <strong>Audio Feedback:</strong> Distinct chime tones distinguishing patient arrival vs staff override.</li>
+						<li>• <strong>Offline Caching:</strong> Stores 500+ local biometric hashes during network drops.</li>
+					</ul>
+				</div>
+
+				<!-- Module 2: Weight & Sensor IV Alert System -->
+				<div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
+					<div class="flex items-center gap-4 mb-6">
+						<div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl font-bold">
+							<i class="fa-solid fa-weight-scale"></i>
+						</div>
+						<div>
+							<div class="font-mono text-[11px] text-stone-400 font-bold uppercase">MODULE 02</div>
+							<h3 class="font-serif text-2xl font-bold text-dark">Weight & Sensor-Based IV Alert System</h3>
+						</div>
+					</div>
+					<p class="text-stone-600 text-sm leading-relaxed font-light mb-4">
+						Precision load-cell strain gauge sensors continuously tracking IV bag infusion mass to prevent air embolism and line blockage.
+					</p>
+					<ul class="space-y-2 font-mono text-xs text-stone-700 bg-stone-50 p-4 rounded-2xl border border-stone-200">
+						<li>• <strong>Mass Tracking:</strong> Real-time drip rate calculation (±0.5g precision).</li>
+						<li>• <strong>Line Stall Trigger:</strong> Visual strobe & audio buzzer if infusion halts prematurely.</li>
+						<li>• <strong>Empty State Alarm:</strong> 5-minute pre-empty notification to nurse terminal.</li>
+					</ul>
+				</div>
+
+				<!-- Module 3: Wireless Auto-Injection Module -->
+				<div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
+					<div class="flex items-center gap-4 mb-6">
+						<div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl font-bold">
+							<i class="fa-solid fa-syringe"></i>
+						</div>
+						<div>
+							<div class="font-mono text-[11px] text-stone-400 font-bold uppercase">MODULE 03</div>
+							<h3 class="font-serif text-2xl font-bold text-dark">Wireless Auto-Injection Module</h3>
+						</div>
+					</div>
+					<p class="text-stone-600 text-sm leading-relaxed font-light mb-4">
+						Closed-loop automated heparin/epogen delivery concept verifying patient identity and scheduled administration windows before release.
+					</p>
+					<ul class="space-y-2 font-mono text-xs text-stone-700 bg-stone-50 p-4 rounded-2xl border border-stone-200">
+						<li>• <strong>2-Factor Verification:</strong> Nurse badge scan + doctor digital signature check.</li>
+						<li>• <strong>Schedule Locks:</strong> Solenoid valve lock preventing early or duplicate dosage.</li>
+						<li>• <strong>Audit Logging:</strong> Timestamped dose log broadcast to FHIR record store.</li>
+					</ul>
+				</div>
+
+				<!-- Module 4: Machine Telemetry Bridge -->
+				<div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
+					<div class="flex items-center gap-4 mb-6">
+						<div class="w-12 h-12 rounded-2xl bg-teal-50 text-accent-teal flex items-center justify-center text-xl font-bold">
+							<i class="fa-solid fa-network-wired"></i>
+						</div>
+						<div>
+							<div class="font-mono text-[11px] text-stone-400 font-bold uppercase">MODULE 04</div>
+							<h3 class="font-serif text-2xl font-bold text-dark">Machine Telemetry Bridge</h3>
+						</div>
+					</div>
+					<p class="text-stone-600 text-sm leading-relaxed font-light mb-4">
+						Direct RS-232 serial and Ethernet interface capturing live machine parameters directly from dialyzer units (e.g. Fresenius 4008S).
+					</p>
+					<ul class="space-y-2 font-mono text-xs text-stone-700 bg-stone-50 p-4 rounded-2xl border border-stone-200">
+						<li>• <strong>Parameters Streamed:</strong> Transmembrane Pressure (TMP), Blood Flow Rate (Qb), Dialysate Flow (Qd).</li>
+						<li>• <strong>Sampling Rate:</strong> 1 Hz continuous polling with local packet smoothing.</li>
+						<li>• <strong>Zero Manual Entry:</strong> Eliminates paper transcription of machine numbers.</li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- SECTION 3: SOFTWARE & INTELLIGENCE ENGINE (Tabbed Architecture Layout) -->
+	<section class="py-24 bg-canvas relative z-10" x-data="{ activeTab: 'fhir' }">
+		<div class="max-w-7xl mx-auto px-6">
+			
+			<div class="mb-12">
+				<span class="font-mono text-xs uppercase tracking-widest text-accent font-bold">SOFTWARE LAYER</span>
+				<h2 class="font-serif text-3xl sm:text-4xl text-dark mt-2 font-bold">
+					Software & Intelligence Engine
+				</h2>
+				<p class="text-stone-600 text-sm font-sans mt-2 font-light max-w-2xl">
+					Explore the 4 core software modules driving clinical decision support and unit surveillance.
+				</p>
+			</div>
+
+			<!-- Interactive Alpine Tabs Navigation -->
+			<div class="flex flex-wrap gap-2 mb-8 border-b border-stone-200 pb-4">
+				<button @click="activeTab = 'fhir'" x-bind:class="activeTab === 'fhir' ? 'bg-dark text-canvas shadow-sm' : 'bg-stone-100 text-stone-600 hover:text-dark'" class="px-6 py-3 rounded-full text-xs font-mono font-bold transition-all">
+					Tab 1: Global FHIR Store
+				</button>
+				<button @click="activeTab = 'nurse'" x-bind:class="activeTab === 'nurse' ? 'bg-dark text-canvas shadow-sm' : 'bg-stone-100 text-stone-600 hover:text-dark'" class="px-6 py-3 rounded-full text-xs font-mono font-bold transition-all">
+					Tab 2: Nurse Terminal
+				</button>
+				<button @click="activeTab = 'doctor'" x-bind:class="activeTab === 'doctor' ? 'bg-dark text-canvas shadow-sm' : 'bg-stone-100 text-stone-600 hover:text-dark'" class="px-6 py-3 rounded-full text-xs font-mono font-bold transition-all">
+					Tab 3: Doctor Console
+				</button>
+				<button @click="activeTab = 'quality'" x-bind:class="activeTab === 'quality' ? 'bg-dark text-canvas shadow-sm' : 'bg-stone-100 text-stone-600 hover:text-dark'" class="px-6 py-3 rounded-full text-xs font-mono font-bold transition-all">
+					Tab 4: Ward Quality Module
+				</button>
+			</div>
+
+			<!-- Tab 1: Global FHIR-Compliant Store -->
+			<div x-show="activeTab === 'fhir'" x-transition class="bg-white p-8 sm:p-12 rounded-3xl border border-stone-200 shadow-sm">
+				<div class="max-w-3xl">
+					<span class="font-mono text-xs text-accent font-bold uppercase tracking-wider">STANDARDIZED DATA ARCHITECTURE</span>
+					<h3 class="font-serif text-3xl font-bold text-dark mt-2 mb-4">Global FHIR-Compliant Store (HL7 v4)</h3>
+					<p class="text-stone-600 text-base leading-relaxed font-light mb-6">
+						Built on HL7 FHIR Release 4 JSON schemas (`Patient`, `Observation`, `DeviceMetric`, `MedicationRequest`). Utilizes a dual-database architecture: local SQLite edge nodes for immediate offline bedside rendering, paired with asynchronous PostgreSQL cloud synchronization when network connectivity is restored.
+					</p>
+
+					<div class="bg-slate-950 text-sky-400 p-6 rounded-2xl font-mono text-xs overflow-x-auto leading-relaxed border border-slate-800">
+						<div class="text-slate-500">// FHIR DeviceMetric JSON Schema Preview</div>
+						<div>&#123;</div>
+						<div class="pl-4">"resourceType": <span class="text-amber-300">"DeviceMetric"</span>,</div>
+						<div class="pl-4">"id": <span class="text-amber-300">"bedside-dialysate-tmp-04"</span>,</div>
+						<div class="pl-4">"type": &#123; <span class="text-amber-300">"text": "Transmembrane Pressure"</span> &#125;,</div>
+						<div class="pl-4">"unit": &#123; <span class="text-amber-300">"coding": [&#123; "code": "mm[Hg]" &#125;]</span> &#125;,</div>
+						<div class="pl-4">"operationalStatus": <span class="text-emerald-400">"on"</span>,</div>
+						<div class="pl-4">"measurementFrequency": <span class="text-amber-300">"1 Hz"</span></div>
+						<div>&#125;</div>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- Tab 2: Nurse Operations Terminal -->
+			<div x-show="activeTab === 'nurse'" x-transition class="bg-white p-8 sm:p-12 rounded-3xl border border-stone-200 shadow-sm">
+				<div class="max-w-3xl">
+					<span class="font-mono text-xs text-accent-teal font-bold uppercase tracking-wider">BEDSIDE OPERATIONS</span>
+					<h3 class="font-serif text-3xl font-bold text-dark mt-2 mb-4">Nurse Operations Terminal</h3>
+					<p class="text-stone-600 text-base leading-relaxed font-light mb-6">
+						Touch-optimized counter-mounted and mobile nursing interface displaying an active shift bed matrix, automated doctor order execution queues, medication timing timers, and 1-tap incident logging.
+					</p>
+
+					<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono text-xs">
+						<div class="bg-stone-50 p-4 rounded-xl border border-stone-200">
+							<strong class="text-dark">ACTIVE BED MATRIX:</strong>
+							<p class="text-stone-600 mt-1">At-a-glance status grid for 12 beds showing real-time vitals & risk scores.</p>
+						</div>
+						<div class="bg-stone-50 p-4 rounded-xl border border-stone-200">
+							<strong class="text-dark">1-TAP INCIDENT LOG:</strong>
+							<p class="text-stone-600 mt-1">Instant timestamped logging of patient dizziness, cramping, or line issues.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Tab 3: Doctor Clinical Console -->
+			<div x-show="activeTab === 'doctor'" x-transition class="bg-white p-8 sm:p-12 rounded-3xl border border-stone-200 shadow-sm">
+				<div class="max-w-3xl">
+					<span class="font-mono text-xs text-purple-600 font-bold uppercase tracking-wider">LONGITUDINAL DECISION SUPPORT</span>
+					<h3 class="font-serif text-3xl font-bold text-dark mt-2 mb-4">Doctor Clinical Console</h3>
+					<p class="text-stone-600 text-base leading-relaxed font-light mb-6">
+						Comprehensive longitudinal trend analytics visualizing multi-month dry weight trajectories, hemoglobin trends, and adequacy markers (Kt/V). Features dynamic dry weight recalibration tools and MedGemma renal dosage safety checks.
+					</p>
+
+					<div class="bg-purple-50/50 p-6 rounded-2xl border border-purple-100 font-mono text-xs text-stone-700">
+						<div class="text-purple-700 font-bold mb-2">[DYNAMIC DRY WEIGHT RECALIBRATION MODEL]</div>
+						<p>Calculates interdialytic weight gain (IDWG) velocity across 12 sequential sessions to differentiate fluid retention from actual tissue loss.</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Tab 4: Systemic Unit Quality Module -->
+			<div x-show="activeTab === 'quality'" x-transition class="bg-white p-8 sm:p-12 rounded-3xl border border-stone-200 shadow-sm">
+				<div class="max-w-3xl">
+					<span class="font-mono text-xs text-accent-rose font-bold uppercase tracking-wider">WARD-LEVEL SURVEILLANCE</span>
+					<h3 class="font-serif text-3xl font-bold text-dark mt-2 mb-4">Systemic Unit Quality Module</h3>
+					<p class="text-stone-600 text-base leading-relaxed font-light mb-6">
+						A real-time cross-station anomaly detection engine that monitors collective telemetry across all active beds to flag electrolyte drops, water purification failures, and equipment defects before widespread harm occurs.
+					</p>
+
+					<div class="bg-rose-50 p-6 rounded-2xl border border-rose-100 font-mono text-xs text-rose-800">
+						<div class="font-bold mb-1"><i class="fa-solid fa-triangle-exclamation"></i> CROSS-STATION ANOMALY RULE:</div>
+						<p>If >= 3 adjacent stations display a simultaneous conductivity drop > 0.5 mS/cm, trigger immediate ward-wide water treatment loop alarm.</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+</Layout>

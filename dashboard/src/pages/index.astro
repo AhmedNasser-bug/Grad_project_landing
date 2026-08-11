@@ -1,0 +1,436 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="The Dual Shield for Hemodialysis | Egyptian Clinical Intelligence Architecture" activePage="home">
+
+	<!-- SECTION 1: HERO VIEWPORT (The Dual Shield Pitch) -->
+	<section class="relative pt-12 pb-24 lg:pt-20 lg:pb-32 overflow-hidden z-10">
+		<div class="max-w-7xl mx-auto px-6">
+			
+			<!-- Status & Truth Badges -->
+			<div class="flex flex-wrap items-center gap-3 mb-8">
+				<span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent font-mono text-xs font-semibold">
+					<span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+					Blueprint & Field Survey Stage
+				</span>
+				<span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-teal/10 border border-accent-teal/20 text-accent-teal font-mono text-xs font-semibold">
+					<i class="fa-solid fa-hospital-user text-[10px]"></i>
+					Seeking 1st Clinical Partner
+				</span>
+				<span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-stone-200/80 border border-stone-300 text-stone-700 font-mono text-xs">
+					HL7 FHIR Architecture
+				</span>
+			</div>
+
+			<!-- Main Heading (Virtual Wellbeing Hub Inspo: Mixed Serif & Italic Typography) -->
+			<div class="max-w-5xl mb-10">
+				<h1 class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-dark leading-[0.95] tracking-tight mb-6">
+					The <span class="italic font-normal text-accent underline decoration-accent/30 decoration-wavy decoration-2">Dual Shield</span> for Hemodialysis.
+					<span class="block mt-2 font-serif font-light text-stone-700">Anticipating <span class="italic font-normal text-accent-teal">Patient Risk</span>.</span>
+					<span class="block font-serif font-normal text-dark">Safeguarding the <span class="italic font-semibold text-dark">Ward</span>.</span>
+				</h1>
+
+				<p class="text-stone-600 text-lg md:text-xl font-sans max-w-3xl leading-relaxed font-light">
+					Beyond record-keeping: an architectural framework designed to map individual patient risk trajectories while calculating real-time ward safety scores to catch complications before they happen.
+				</p>
+			</div>
+
+			<!-- Hero Action Buttons -->
+			<div class="flex flex-wrap items-center gap-4 mb-16">
+				<a href="#dual-shield-pillars" class="bg-dark hover:bg-stone-800 text-canvas px-8 py-4 rounded-full text-xs font-semibold uppercase tracking-wider transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 inline-flex items-center gap-3">
+					<span>Explore the Dual Shield</span>
+					<i class="fa-solid fa-arrow-down text-accent"></i>
+				</a>
+				<a href="/journal" class="bg-white hover:bg-stone-100 text-dark border border-stone-300 px-8 py-4 rounded-full text-xs font-semibold uppercase tracking-wider transition-all inline-flex items-center gap-3">
+					<span>Read the Field Journal</span>
+					<i class="fa-solid fa-book-open text-stone-500"></i>
+				</a>
+			</div>
+
+			<!-- Visual Canvas Backplate: Telemetry Node Mockup -->
+			<div class="relative rounded-3xl overflow-hidden border border-stone-300/80 bg-white shadow-2xl p-6 sm:p-10">
+				<div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-stone-200 pb-6 mb-8 gap-4">
+					<div>
+						<div class="font-mono text-xs text-stone-400 uppercase tracking-widest">REAL-TIME SHIELD OBSERVABILITY</div>
+						<div class="font-serif text-2xl font-bold text-dark mt-1">Ward Telemetry & Individual Patient Baseline</div>
+					</div>
+					<div class="flex items-center gap-3">
+						<span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 font-mono text-xs font-semibold">
+							● 12 Bed Stations Connected
+						</span>
+						<span class="px-3 py-1 rounded-full bg-sky-50 text-sky-700 border border-sky-200 font-mono text-xs">
+							Ward Safety: 98.4 / 100
+						</span>
+					</div>
+				</div>
+
+				<!-- Dual Stream Interactive Visualization Cards -->
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+					<!-- Per-Patient Live Stream -->
+					<div class="p-6 rounded-2xl bg-stone-50 border border-stone-200/80">
+						<div class="flex justify-between items-center mb-4">
+							<span class="font-mono text-xs font-bold text-accent uppercase">PER-PATIENT SHIELD // STATION #04</span>
+							<span class="font-mono text-xs text-stone-500">Bed 04 • Ahmed M.</span>
+						</div>
+						<div class="space-y-3">
+							<div class="flex justify-between items-center text-xs font-mono py-2 border-b border-stone-200">
+								<span class="text-stone-600">Dynamic Dry Weight Trajectory:</span>
+								<span class="font-bold text-dark">72.4 kg (-0.2 kg drift)</span>
+							</div>
+							<div class="flex justify-between items-center text-xs font-mono py-2 border-b border-stone-200">
+								<span class="text-stone-600">Intradialytic Hypotension (IDH) Risk:</span>
+								<span class="font-bold text-emerald-600">LOW (0.12 Prob @ t+45m)</span>
+							</div>
+							<div class="flex justify-between items-center text-xs font-mono py-2">
+								<span class="text-stone-600">Ultrafiltration Rate (UFR):</span>
+								<span class="font-bold text-dark">10.2 mL/kg/h</span>
+							</div>
+						</div>
+					</div>
+
+					<!-- Per-Unit Ward Quality Stream -->
+					<div class="p-6 rounded-2xl bg-stone-50 border border-stone-200/80">
+						<div class="flex justify-between items-center mb-4">
+							<span class="font-mono text-xs font-bold text-accent-teal uppercase">PER-UNIT SHIELD // WARD-WIDE</span>
+							<span class="font-mono text-xs text-stone-500">Alexandria Unit A</span>
+						</div>
+						<div class="space-y-3">
+							<div class="flex justify-between items-center text-xs font-mono py-2 border-b border-stone-200">
+								<span class="text-stone-600">Water Treatment Loop Conductivity:</span>
+								<span class="font-bold text-emerald-600">14.1 mS/cm (Optimal)</span>
+							</div>
+							<div class="flex justify-between items-center text-xs font-mono py-2 border-b border-stone-200">
+								<span class="text-stone-600">Dialysate pH Balance (All Beds):</span>
+								<span class="font-bold text-dark">7.38 pH</span>
+							</div>
+							<div class="flex justify-between items-center text-xs font-mono py-2">
+								<span class="text-stone-600">Cross-Station Anomaly Detector:</span>
+								<span class="font-bold text-emerald-600">0 Systemic Shifts Detected</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- SECTION 2: THE CORE USP (Per-Patient vs. Per-Unit Dual Shield) -->
+	<section id="dual-shield-pillars" class="py-24 bg-canvas-muted/60 border-y border-stone-200/80 relative z-10">
+		<div class="max-w-7xl mx-auto px-6">
+			<div class="text-center max-w-3xl mx-auto mb-16">
+				<span class="font-mono text-xs uppercase tracking-widest text-accent font-bold">THE CORE USP</span>
+				<h2 class="font-serif text-4xl sm:text-5xl text-dark mt-2 font-bold">
+					Two Interlocked Shields. <span class="italic font-normal text-stone-600">One Clinical Platform.</span>
+				</h2>
+				<p class="text-stone-600 font-sans mt-4 font-light text-lg">
+					Traditional software focuses purely on record archiving. Dual Shield provides simultaneous real-time vigilance for individual collapses and ward-wide equipment shifts.
+				</p>
+			</div>
+
+			<!-- Split-Canvas 2 Pillars -->
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+				
+				<!-- Left Pillar: Per-Patient Risk Profile -->
+				<div class="bg-white rounded-3xl p-8 sm:p-12 border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+					<div>
+						<div class="w-14 h-14 rounded-2xl bg-sky-50 text-accent flex items-center justify-center text-2xl font-bold mb-8 group-hover:scale-110 transition-transform">
+							<i class="fa-solid fa-user-shield"></i>
+						</div>
+						<div class="font-mono text-xs uppercase tracking-wider text-accent font-bold mb-2">LEFT PILLAR</div>
+						<h3 class="font-serif text-3xl font-bold text-dark mb-4">The Per-Patient Risk Profile</h3>
+						<p class="text-stone-600 text-base leading-relaxed font-light mb-8">
+							Designed to track individual baseline shifts, calculate dynamic dry weight trajectories, and predict Intradialytic Hypotension (IDH) 15–75 minutes before a patient collapses.
+						</p>
+
+						<ul class="space-y-3 font-sans text-sm text-stone-700 mb-8">
+							<li class="flex items-start gap-3">
+								<i class="fa-solid fa-check text-accent mt-1"></i>
+								<span><strong>Intradialytic Hypotension Early Warning:</strong> RNN models alerting nurses before systolic drop occurs.</span>
+							</li>
+							<li class="flex items-start gap-3">
+								<i class="fa-solid fa-check text-accent mt-1"></i>
+								<span><strong>Dynamic Dry Weight Recalibration:</strong> Detecting fluid overload vs muscle atrophy across sequential sessions.</span>
+							</li>
+							<li class="flex items-start gap-3">
+								<i class="fa-solid fa-check text-accent mt-1"></i>
+								<span><strong>MedGemma Prescription Interception:</strong> Catching unadjusted renal medication dosages before administration.</span>
+							</li>
+						</ul>
+					</div>
+
+					<div class="pt-6 border-t border-stone-100 flex items-center justify-between text-xs font-mono text-stone-500">
+						<span>FOCUS: INDIVIDUAL SAFETY</span>
+						<a href="/architecture" class="text-accent font-bold hover:underline">View FHIR Specs &rarr;</a>
+					</div>
+				</div>
+
+				<!-- Right Pillar: Per-Unit Quality Score -->
+				<div class="bg-white rounded-3xl p-8 sm:p-12 border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+					<div>
+						<div class="w-14 h-14 rounded-2xl bg-teal-50 text-accent-teal flex items-center justify-center text-2xl font-bold mb-8 group-hover:scale-110 transition-transform">
+							<i class="fa-solid fa-building-shield"></i>
+						</div>
+						<div class="font-mono text-xs uppercase tracking-wider text-accent-teal font-bold mb-2">RIGHT PILLAR</div>
+						<h3 class="font-serif text-3xl font-bold text-dark mb-4">The Per-Unit Quality Score</h3>
+						<p class="text-stone-600 text-base leading-relaxed font-light mb-8">
+							A ward-level shield that monitors collective telemetry across all active beds to flag electrolyte drops, water purification failures, and machine defects before widespread harm occurs.
+						</p>
+
+						<ul class="space-y-3 font-sans text-sm text-stone-700 mb-8">
+							<li class="flex items-start gap-3">
+								<i class="fa-solid fa-check text-accent-teal mt-1"></i>
+								<span><strong>Cross-Station Anomaly Detector:</strong> Catching simultaneous vital shifts across multiple stations.</span>
+							</li>
+							<li class="flex items-start gap-3">
+								<i class="fa-solid fa-check text-accent-teal mt-1"></i>
+								<span><strong>Water Treatment Loop Guard:</strong> Continuous conductivity and chloramine surveillance replacing manual paper logs.</span>
+							</li>
+							<li class="flex items-start gap-3">
+								<i class="fa-solid fa-check text-accent-teal mt-1"></i>
+								<span><strong>Equipment Defect Isolation:</strong> Identifying dialyzer membrane degradation before patient exposure.</span>
+							</li>
+						</ul>
+					</div>
+
+					<div class="pt-6 border-t border-stone-100 flex items-center justify-between text-xs font-mono text-stone-500">
+						<span>FOCUS: WARD-WIDE PROTECTION</span>
+						<a href="/architecture" class="text-accent-teal font-bold hover:underline">View Ward Specs &rarr;</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- SECTION 3: THE UNMONITORED REALITY (Scrollytelling Split-Screen) -->
+	<section class="py-24 bg-canvas relative z-10">
+		<div class="max-w-7xl mx-auto px-6">
+			
+			<div class="mb-16">
+				<span class="font-mono text-xs uppercase tracking-widest text-accent-rose font-bold">FIELD SURVEY EVIDENCE</span>
+				<h2 class="font-serif text-4xl sm:text-5xl text-dark mt-2 font-bold max-w-3xl">
+					The Unmonitored Reality: <span class="italic font-normal text-stone-600">Paper Charts vs. Digital Vigilance</span>
+				</h2>
+			</div>
+
+			<!-- Scrollytelling Split Grid -->
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+				
+				<!-- Left Column: Text Narrative (2 Real Failure Modes) -->
+				<div class="lg:col-span-6 space-y-12">
+					
+					<!-- Failure Mode 1 -->
+					<div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-sm relative">
+						<div class="w-8 h-8 rounded-full bg-rose-100 text-rose-600 font-mono font-bold text-xs flex items-center justify-center mb-4">
+							01
+						</div>
+						<h3 class="font-serif text-2xl font-bold text-dark mb-3">Failure Mode 1: The Silent Ward Failure</h3>
+						<p class="text-stone-600 text-base leading-relaxed font-light mb-4">
+							How unrecognized mineral drops spread across multiple patients when logs remain trapped on separate physical paper charts.
+						</p>
+						<p class="text-xs text-stone-500 font-mono leading-normal bg-stone-50 p-4 rounded-xl border border-stone-200">
+							<strong>Field Audit Finding:</strong> In unassisted paper units, a water purification failure or chloramine leak can affect 6–10 beds simultaneously before any individual chart indicates an anomaly.
+						</p>
+					</div>
+
+					<!-- Failure Mode 2 -->
+					<div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-sm relative">
+						<div class="w-8 h-8 rounded-full bg-rose-100 text-rose-600 font-mono font-bold text-xs flex items-center justify-center mb-4">
+							02
+						</div>
+						<h3 class="font-serif text-2xl font-bold text-dark mb-3">Failure Mode 2: The Human Blindspot</h3>
+						<p class="text-stone-600 text-base leading-relaxed font-light mb-4">
+							How nurse fatigue and high patient-to-nurse ratios (up to 1:6 in Egyptian public units) cause subtle, critical vital drops to slip past unassisted eyes.
+						</p>
+						<p class="text-xs text-stone-500 font-mono leading-normal bg-stone-50 p-4 rounded-xl border border-stone-200">
+							<strong>Field Audit Finding:</strong> Nurses spend an average of 25 minutes per 4-hour session filling physical flowsheets by hand—time taken directly away from bedside patient observation.
+						</p>
+					</div>
+
+				</div>
+
+				<!-- Right Column: Visual Scrubbing Warning Cards -->
+				<div class="lg:col-span-6 sticky top-28 space-y-6">
+					
+					<!-- Warning State Card -->
+					<div class="bg-dark text-canvas p-8 rounded-3xl border border-stone-800 shadow-2xl relative overflow-hidden">
+						<div class="flex justify-between items-center mb-6">
+							<span class="font-mono text-xs text-rose-400 font-bold uppercase tracking-wider">
+								<i class="fa-solid fa-triangle-exclamation mr-1"></i> UNMONITORED PAPER STATE
+							</span>
+							<span class="font-mono text-xs text-stone-400">TRADITIONAL UNIT</span>
+						</div>
+
+						<div class="space-y-4 mb-6">
+							<div class="bg-stone-900/80 p-4 rounded-xl border border-stone-800 font-mono text-xs">
+								<div class="text-stone-400">PAPER VITAL LOG ENTRY:</div>
+								<div class="text-stone-200 mt-1">10:15 AM — BP 110/70 (Handwritten on paper)</div>
+								<div class="text-rose-400 mt-1">STATUS: Unchecked until 11:15 AM rounds (60m delay)</div>
+							</div>
+							<div class="bg-stone-900/80 p-4 rounded-xl border border-stone-800 font-mono text-xs">
+								<div class="text-stone-400">CROSS-BED WATER SURVEILLANCE:</div>
+								<div class="text-rose-400 mt-1">NO AUTOMATED TELEMETRY — Manual chlorine strip test missing.</div>
+							</div>
+						</div>
+
+						<div class="pt-4 border-t border-stone-800 text-xs text-stone-400 font-mono flex justify-between">
+							<span>NURSE LOAD: 6 BEDS / NURSE</span>
+							<span class="text-rose-400 font-bold">RISK EXPOSURE HIGH</span>
+						</div>
+					</div>
+
+					<!-- Transition to Clean Digital Shield Card -->
+					<div class="bg-gradient-to-br from-sky-950 to-dark text-canvas p-8 rounded-3xl border border-sky-800/50 shadow-2xl relative">
+						<div class="flex justify-between items-center mb-6">
+							<span class="font-mono text-xs text-sky-400 font-bold uppercase tracking-wider">
+								<i class="fa-solid fa-shield-halved mr-1"></i> DUAL SHIELD ACTIVE STATE
+							</span>
+							<span class="font-mono text-xs text-emerald-400">PROTECTED</span>
+						</div>
+
+						<div class="space-y-3 font-mono text-xs">
+							<div class="flex justify-between items-center py-2 border-b border-sky-900/60">
+								<span class="text-sky-200">Continuous Bedside Sensor:</span>
+								<span class="text-emerald-400 font-bold">Streaming @ 60 FPS</span>
+							</div>
+							<div class="flex justify-between items-center py-2 border-b border-sky-900/60">
+								<span class="text-sky-200">IDH Early Warning Horizon:</span>
+								<span class="text-emerald-400 font-bold">Alert Triggered @ t-30m</span>
+							</div>
+							<div class="flex justify-between items-center py-2">
+								<span class="text-sky-200">Ward Quality Index:</span>
+								<span class="text-emerald-400 font-bold">Safe (0 Anomaly Signals)</span>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- SECTION 4: FIELD SURVEY REALITY METRICS -->
+	<section class="py-20 bg-dark text-canvas relative z-10 border-y border-stone-800">
+		<div class="max-w-7xl mx-auto px-6">
+			
+			<div class="text-center max-w-3xl mx-auto mb-16">
+				<span class="font-mono text-xs uppercase tracking-widest text-accent font-bold">EMPIRICAL DATA GROUNDING</span>
+				<h2 class="font-serif text-4xl sm:text-5xl text-white mt-2 font-bold">
+					Field Survey Reality Metrics
+				</h2>
+				<p class="text-stone-400 font-sans mt-3 font-light text-base">
+					Grounded strictly in direct field survey observations across Egyptian hospital hemodialysis units.
+				</p>
+			</div>
+
+			<!-- 4-Column Grid Metrics -->
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+				
+				<div class="bg-stone-900/80 p-8 rounded-3xl border border-stone-800 text-center flex flex-col justify-between">
+					<div class="font-serif text-5xl sm:text-6xl font-bold text-accent mb-2">25 Mins</div>
+					<div class="font-mono text-xs text-stone-300 font-bold uppercase mb-2">Paperwork Overhead</div>
+					<p class="text-xs text-stone-400 leading-relaxed">
+						Average time spent per nurse per session manually charting physical flowsheets.
+					</p>
+				</div>
+
+				<div class="bg-stone-900/80 p-8 rounded-3xl border border-stone-800 text-center flex flex-col justify-between">
+					<div class="font-serif text-5xl sm:text-6xl font-bold text-rose-400 mb-2">2 Incidents</div>
+					<div class="font-mono text-xs text-stone-300 font-bold uppercase mb-2">Documented Gaps</div>
+					<p class="text-xs text-stone-400 leading-relaxed">
+						Failure modes documented during audit arising directly from paper chart communication delays.
+					</p>
+				</div>
+
+				<div class="bg-stone-900/80 p-8 rounded-3xl border border-stone-800 text-center flex flex-col justify-between">
+					<div class="font-serif text-5xl sm:text-6xl font-bold text-accent-teal mb-2">100%</div>
+					<div class="font-mono text-xs text-stone-300 font-bold uppercase mb-2">Offline Resilience</div>
+					<p class="text-xs text-stone-400 leading-relaxed">
+						Targeted offline edge capability for local unit operations during hospital internet drops.
+					</p>
+				</div>
+
+				<div class="bg-stone-900/80 p-8 rounded-3xl border border-stone-800 text-center flex flex-col justify-between">
+					<div class="font-serif text-5xl sm:text-6xl font-bold text-emerald-400 mb-2">Phase 0</div>
+					<div class="font-mono text-xs text-stone-300 font-bold uppercase mb-2">Current Status</div>
+					<p class="text-xs text-stone-400 leading-relaxed">
+						Complete system specification & field survey; seeking initial clinical unit deployment partner.
+					</p>
+				</div>
+
+			</div>
+
+		</div>
+	</section>
+
+	<!-- SECTION 5: CALL TO ACTION PANEL -->
+	<section class="py-24 bg-canvas relative z-10">
+		<div class="max-w-7xl mx-auto px-6">
+			
+			<div class="text-center max-w-2xl mx-auto mb-16">
+				<span class="font-mono text-xs uppercase tracking-widest text-accent font-bold">COLLABORATION & OUTREACH</span>
+				<h2 class="font-serif text-4xl sm:text-5xl text-dark mt-2 font-bold">
+					Join the First Clinical Deployment
+				</h2>
+			</div>
+
+			<!-- 3 Outreach Cards -->
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				
+				<!-- Card 1: Hospital Directors -->
+				<div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition-shadow">
+					<div>
+						<div class="w-12 h-12 rounded-xl bg-sky-50 text-accent flex items-center justify-center text-xl font-bold mb-6">
+							<i class="fa-solid fa-hospital"></i>
+						</div>
+						<h3 class="font-serif text-2xl font-bold text-dark mb-3">Hospital Directors</h3>
+						<p class="text-sm text-stone-600 leading-relaxed font-light mb-6">
+							Offer your hemodialysis unit as the initial pilot site for Dual Shield hardware and software deployment in Egypt.
+						</p>
+					</div>
+					<button onclick="document.getElementById('pilot-modal').classList.remove('hidden')" class="w-full bg-dark hover:bg-stone-800 text-canvas font-semibold text-xs py-3.5 rounded-xl uppercase tracking-wider transition-colors">
+						Request Unit Partnership &rarr;
+					</button>
+				</div>
+
+				<!-- Card 2: Hardware Donors -->
+				<div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition-shadow">
+					<div>
+						<div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl font-bold mb-6">
+							<i class="fa-solid fa-microchip"></i>
+						</div>
+						<h3 class="font-serif text-2xl font-bold text-dark mb-3">Hardware Donors</h3>
+						<p class="text-sm text-stone-600 leading-relaxed font-light mb-6">
+							Support bedside load-cell sensors, optical fingerprint scanners, and water conductivity probes.
+						</p>
+					</div>
+					<button onclick="document.getElementById('pilot-modal').classList.remove('hidden')" class="w-full bg-stone-100 hover:bg-stone-200 text-dark font-semibold text-xs py-3.5 rounded-xl uppercase tracking-wider transition-colors">
+						Sponsor Hardware Units &rarr;
+					</button>
+				</div>
+
+				<!-- Card 3: Engineering & Clinical Reviewers -->
+				<div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition-shadow">
+					<div>
+						<div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl font-bold mb-6">
+							<i class="fa-solid fa-user-doctor"></i>
+						</div>
+						<h3 class="font-serif text-2xl font-bold text-dark mb-3">Clinical Reviewers</h3>
+						<p class="text-sm text-stone-600 leading-relaxed font-light mb-6">
+							Review our HL7 FHIR database schemas, MedGemma dosage rules, and offline edge sync algorithms.
+						</p>
+					</div>
+					<a href="/architecture" class="w-full bg-stone-100 hover:bg-stone-200 text-dark font-semibold text-xs py-3.5 rounded-xl uppercase tracking-wider text-center transition-colors block">
+						Review Specifications &rarr;
+					</a>
+				</div>
+
+			</div>
+
+		</div>
+	</section>
+
+</Layout>

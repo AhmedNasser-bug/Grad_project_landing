@@ -1,0 +1,10 @@
+node_modules/
+.astro/
+dist/
+.env
+.env.*
+.DS_Store
+*.log
+dashboard/node_modules/
+dashboard/.astro/
+dashboard/dist/

@@ -1,0 +1,192 @@
+# Patients: 
+= Requirements
+-new patient ==> all diagnosis + Virus assesment
+-Old patient ==> BP measure and weight each session
+- Consistent monitoring
+- reliable prescriptions
+= Actions
+- Register new patient
+# Doctors:
+= Requirements:
+= Actions:
+- Prescribe medicine 
+- Analyse patient diagnosis and medical tests
+- Prescribe 
+# Nurses:
+= Actions:
+- Document patient vitals (BP, Weight, Time)
+- (Critical) Document ANY Damage happened to patient (e.g patient fainted)
+- Document vital supply chain
+- Give medications on time (time critical)
+- Critically Monitor patient state and solvents (time critical)
+
+
+Problem statement
+Patient safety is heavily time constrainted, session times and medication times are usually Loosely directed by doctors and there is a huge miscommunication problems that directly effect patient vitals
+such as:
+Mismatching medication prescription or doctors forgotting to update prescription due to the huge number of managed patients
+Or nurses simply missing medication date or vital patient notes due to paper work overhead which directly translates to Machine data loss and computer vision by nurse Or/And patient
+Doctors want a simple and SECURE Way to reach nurses or patients, Docors spend 
+and doctors must possess a reliable way to verify and update prescribed medication based on an emperical data driven approach, 
+CRITICAL: A critical risk is (for exmple) a certain collective mineral decline in patients indicates common equippment failure, these types of patterns almost always go unnoticable
+which can mitigate risks like:
+- Patient Suffocation or insant Anemia (i made that term up)
+- Collective poisoning
+- Quality assurance
+
+
+Patient Information to be Digitized
+Per-Session Records (collected by nurses at every dialysis session)
+
+Session identification
+
+Which patient, which session, the date, and which machine and nurse handled it — so that any issue can later be traced back to a specific machine or shift if patterns emerge
+
+Before the session starts
+
+Patient's weight on arrival
+The doctor-set "target" (dry) weight for that patient, and how much fluid has built up since the last session
+Blood pressure and pulse before starting
+Temperature
+
+During the session
+
+The fluid removal rate planned by the doctor versus what actually happened
+The dialysis machine's settings (salt, potassium, calcium, and bicarbonate levels in the fluid), since these should be based on the patient's history and labs rather than left generic
+Blood and dialysate flow rates
+Blood-thinner dosage
+How long the session was supposed to last versus how long it actually took
+Blood pressure checks taken during the session, not just before and after, since drops in pressure often happen mid-treatment
+Any incident that occurs — fainting, cramping, access problems, machine alarms — recorded in a way that can later be searched and counted, not just written as a note
+
+After the session
+
+Patient's weight on leaving
+Blood pressure and pulse after finishing
+How much fluid was actually removed
+Whether any complications occurred
+
+Medication given during the session
+
+What was given, what dose, and at what time
+Who administered it
+The gap between when it was supposed to be given and when it was actually given — this is the exact miscommunication problem the project is meant to solve
+Monthly Blood Test Records (ordered by doctors)
+Hemoglobin and hematocrit (used to judge anemia and oxygen needs during sessions)
+Iron levels (ferritin) and iron saturation, tracked together over months, exactly as the current manual practice already tries to do — but with automation instead of memory and paperwork
+Potassium, sodium, calcium, and phosphorus levels
+Parathyroid hormone level
+Albumin (nutrition indicator)
+Urea levels before and after dialysis, used to calculate how effective each session was
+A general dialysis-adequacy score
+Creatinine
+Bicarbonate level
+Inflammation marker, to help catch problems before they become visible symptoms
+
+
+
+Suggested solutions:
+1. Patient safety awareness system (highest priority)
+- Unreliable following of Medical Constraints
+- Dialysis Patient vitals (Dry weight trend analysis, BP Analysis, ) and track any arising or potential health issue regarding the patients
+2. Patient Data collection and automation (eliminating paper work)
+- Doctor diagnosis data collection and preprocessing
+- Automatic dalysis prescription system using AI, ML, LLMs and Data analysis to analyze the trends of each patient to Automatically notify the nurse with the details of each medication and notices 
+- All nurses know all the risks and dangers about any patient at any time due to the instant connecion with the doctors office 
+- Nurses interface (Desktop on counter or/And application)
+- (optional) Patient interface
+3. Medical diagnosis trend analysis and intelligent insights system
+- Medical analysis and pattern recognition that takes the patient data and outputs a prescription and assessments reliably and algorithmically
+4. MedGemma integration, an added layer of security and assistance for patients 
+5. An IoT integrated alert system for nurses desktop and mobile dashboards and doctor consensus system for critical decisions
+6. Anonymous Reporting mechanism for patients
+
+
+Questions:
+To doctors:
+How do you percieve the medical tests 
+What 
+What is the required paperwork and data by the hospital authority 
+How many legacy paper work would need to be processed and digitized
+To researchers:
+What Analysis you can do with the trends Of
+- Medical tests 
+- Pateint vitals
+- Session Machine data 
+
+To nurses:
+What devices are you comfortable with
+-Mobile phones (pros: easy to use, cons: unreliable)
+-Main dashboard on Counter
+What takes most time of your session
+what paper work confusion that may happen and what does it prevent
+
+
+Permissions: 5 data sets (for now), a full access to unit hardware
+Requirements
+
+
+Notes to blogger:
+Surveys and data collection
+
+
+النهاردة اتأكدت أن تحاليل الهيموجلوبين و الحديد على مدار كذا شهر ممكن تحدد المريض دا ممكن يحتاج اكسجين على الجلسة أو لا
+
+
+تمام لو ينفع بكرا بإذن الله في أي وقت ماشي عشان النهاردة معاد الجلسة بس فا بروح تعبان نوعا ما 
+
+
+و بردو دي حاجة من الحاجات اللي ممكن نحلها في المشروع بسبب الخطأ اللي بيجي من التعامل بالورقيات 
+
+اللي بيسبب أن اعدادات مكنة الغسيل بتبقا عشوائية نوعا ما و مش مبنية على تحاليل المريض أو تاريخه
+
+اللي بتسبب اني اخلص الجلسة تعبان
+
+
+Patient Information to be Digitized
+Per-Session Records (collected by nurses at every dialysis session)
+
+Session identification
+
+Which patient, which session, the date, and which machine and nurse handled it — so that any issue can later be traced back to a specific machine or shift if patterns emerge
+
+Before the session starts
+
+Patient's weight on arrival
+The doctor-set "target" (dry) weight for that patient, and how much fluid has built up since the last session
+Blood pressure and pulse before starting
+Temperature
+
+During the session
+
+The fluid removal rate planned by the doctor versus what actually happened
+The dialysis machine's settings (salt, potassium, calcium, and bicarbonate levels in the fluid), since these should be based on the patient's history and labs rather than left generic
+Blood and dialysate flow rates
+Blood-thinner dosage
+How long the session was supposed to last versus how long it actually took
+Blood pressure checks taken during the session, not just before and after, since drops in pressure often happen mid-treatment
+Any incident that occurs — fainting, cramping, access problems, machine alarms — recorded in a way that can later be searched and counted, not just written as a note
+
+After the session
+
+Patient's weight on leaving
+Blood pressure and pulse after finishing
+How much fluid was actually removed
+Whether any complications occurred
+
+Medication given during the session
+
+What was given, what dose, and at what time-
+Who administered it
+The gap between when it was supposed to be given and when it was actually given — this is the exact miscommunication problem the project is meant to solve
+Monthly Blood Test Records (ordered by doctors)
+Hemoglobin and hematocrit (used to judge anemia and oxygen needs during sessions)
+Iron levels (ferritin) and iron saturation, tracked together over months, exactly as the current manual practice already tries to do — but with automation instead of memory and paperwork
+Potassium, sodium, calcium, and phosphorus levels
+Parathyroid hormone level
+Albumin (nutrition indicator)
+Urea levels before and after dialysis, used to calculate how effective each session was
+A general dialysis-adequacy score
+Creatinine
+Bicarbonate level
+Inflammation marker, to help catch problems before they become visible symptoms

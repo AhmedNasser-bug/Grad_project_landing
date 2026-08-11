@@ -1,0 +1,79 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Field Survey & Clinical Research Blog | Pharos University">
+	<style>
+		.blog-header-nav {
+			padding: 24px 60px;
+			border-bottom: 1px solid var(--border-grid);
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			background: var(--bg-canvas);
+		}
+
+		.blog-container {
+			max-width: 900px;
+			margin: 60px auto;
+			padding: 0 24px;
+		}
+
+		.blog-tag {
+			font-family: var(--font-mono);
+			font-size: 12px;
+			font-weight: 800;
+			color: var(--accent-container);
+			letter-spacing: 0.1em;
+		}
+
+		.blog-title {
+			font-size: 42px;
+			font-weight: 900;
+			margin: 16px 0 24px;
+			line-height: 1.1;
+		}
+
+		.blog-card-item {
+			border: 1px solid var(--border-grid);
+			padding: 32px;
+			margin-bottom: 32px;
+			background: var(--bg-muted);
+		}
+
+		.blog-link {
+			display: inline-block;
+			margin-top: 16px;
+			font-family: var(--font-mono);
+			font-size: 12px;
+			font-weight: 700;
+			color: var(--accent-blue);
+			text-decoration: none;
+		}
+	</style>
+
+	<header class="blog-header-nav">
+		<div>
+			<span style="font-family: var(--font-mono); font-size: 11px; font-weight: 800; background: var(--text-primary); color: white; padding: 4px 8px;">ASTRO BLOG</span>
+			<strong style="margin-left: 12px; font-size: 14px;">Pharos University Hemodialysis Research Hub</strong>
+		</div>
+		<a href="/" style="font-family: var(--font-mono); font-size: 12px; color: var(--accent-blue); text-decoration: none;">&larr; BACK TO SCROLLTELLING LANDING</a>
+	</header>
+
+	<main class="blog-container">
+		<div class="blog-tag">FIELD SURVEY ARTICLES & CLINICAL AUDITS</div>
+		<h1 class="blog-title">Hemodialysis Unit Field Research & Incident Analysis</h1>
+		<p style="font-size: 16px; color: var(--text-muted); margin-bottom: 48px;">
+			Documenting clinical survey findings, paper vital log audits, chloramine neglect patterns, and MedGemma fine-tuning milestones.
+		</p>
+
+		<article class="blog-card-item">
+			<div style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-critical); font-weight: 700;">ARTICLE // CLINICAL AUDIT</div>
+			<h2 style="font-size: 24px; font-weight: 800; margin: 12px 0;">London & Seoul Dialysis Unit Outbreaks: Field Survey & Chloramine Neglect Patterns</h2>
+			<p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">
+				Analysis of 60+ unescalated chloramine neglect episodes identified during unit audits in Egypt. Comparing water loop conductivity failure modes against historical catastrophes in London (Hard Water Syndrome) and Seoul (Chloramine Hemolysis).
+			</p>
+			<a href="/blog/dialysis-field-survey-incidents" class="blog-link">READ FULL MDX FIELD SURVEY ARTICLE &rarr;</a>
+		</article>
+	</main>
+</Layout>

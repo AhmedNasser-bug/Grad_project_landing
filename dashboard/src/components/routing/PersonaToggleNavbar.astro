@@ -1,0 +1,204 @@
+---
+/**
+ * PersonaToggleNavbar.astro
+ * Sticky glassmorphic navigation bar with persona switcher buttons (CLINICIAN, NURSE, PATIENT).
+ * Syncs active state with UTMRouter and updates URL query parameters & localStorage.
+ */
+---
+
+<header class="swiss-nav">
+	<div class="brand-meta">
+		<span class="brand-seal">ASTRO PORTAL</span>
+		<div>
+			<div class="brand-title">Hemodialysis Decision Support Framework</div>
+			<div class="brand-advisor">Advisor: Dr. Mohamed Abdou | Office of the Dean</div>
+		</div>
+	</div>
+
+	<div class="swiss-persona-bar" id="persona-toggle-bar">
+		<button class="swiss-persona-btn active" data-role="clinician" aria-label="Switch to Clinician persona">CLINICIAN</button>
+		<button class="swiss-persona-btn" data-role="nurse" aria-label="Switch to Nurse persona">NURSE</button>
+		<button class="swiss-persona-btn" data-role="patient" aria-label="Switch to Patient persona">PATIENT</button>
+	</div>
+
+	<div class="nav-actions-group">
+		<a href="/blog" class="nav-link-blog">RESEARCH BLOG &rarr;</a>
+		<button class="btn-swiss-action" id="nav-pilot-btn">PILOT REQUEST</button>
+	</div>
+</header>
+
+<style>
+	header.swiss-nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 1000;
+		background: rgba(255, 255, 255, 0.95);
+		backdrop-filter: blur(12px);
+		border-bottom: 1px solid var(--border-grid, #E2E8F0);
+		padding: 14px 40px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.brand-meta {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+	}
+
+	.brand-seal {
+		font-family: var(--font-mono, 'JetBrains Mono', monospace);
+		font-size: 11px;
+		font-weight: 800;
+		background: var(--text-primary, #0B1C30);
+		color: white;
+		padding: 5px 10px;
+		letter-spacing: 0.05em;
+	}
+
+	.brand-title {
+		font-size: 14px;
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		color: var(--text-primary, #0B1C30);
+	}
+
+	.brand-advisor {
+		font-size: 11px;
+		color: var(--text-muted, #64748B);
+		font-family: var(--font-mono, 'JetBrains Mono', monospace);
+	}
+
+	.swiss-persona-bar {
+		display: flex;
+		border: 1px solid var(--border-grid, #E2E8F0);
+		background: var(--bg-canvas, #FFFFFF);
+	}
+
+	.swiss-persona-btn {
+		border: none;
+		background: transparent;
+		padding: 8px 20px;
+		font-family: var(--font-mono, 'JetBrains Mono', monospace);
+		font-size: 12px;
+		font-weight: 600;
+		color: var(--text-muted, #64748B);
+		cursor: pointer;
+		transition: all 0.2s ease;
+		border-right: 1px solid var(--border-grid, #E2E8F0);
+	}
+
+	.swiss-persona-btn:last-child {
+		border-right: none;
+	}
+
+	.swiss-persona-btn:hover {
+		background: rgba(37, 99, 235, 0.05);
+		color: var(--text-primary, #0B1C30);
+	}
+
+	.swiss-persona-btn.active {
+		background: var(--accent-container, #2563EB);
+		color: white;
+		font-weight: 700;
+	}
+
+	.nav-actions-group {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+	}
+
+	.nav-link-blog {
+		font-family: var(--font-mono, 'JetBrains Mono', monospace);
+		font-size: 12px;
+		font-weight: 700;
+		color: var(--accent-blue, #004AC6);
+		text-decoration: none;
+		border: 1px solid var(--accent-blue, #004AC6);
+		padding: 8px 16px;
+		transition: all 0.2s;
+	}
+
+	.nav-link-blog:hover {
+		background: var(--accent-blue, #004AC6);
+		color: white;
+	}
+
+	.btn-swiss-action {
+		background: var(--text-primary, #0B1C30);
+		color: white;
+		border: none;
+		padding: 12px 24px;
+		font-family: var(--font-mono, 'JetBrains Mono', monospace);
+		font-size: 12px;
+		font-weight: 700;
+		cursor: pointer;
+		text-decoration: none;
+		display: inline-block;
+		transition: background 0.2s;
+	}
+
+	.btn-swiss-action:hover {
+		background: var(--accent-container, #2563EB);
+	}
+
+	@media (max-width: 900px) {
+		header.swiss-nav {
+			padding: 12px 16px;
+			flex-wrap: wrap;
+			gap: 12px;
+		}
+
+		.swiss-persona-bar {
+			order: 3;
+			width: 100%;
+			justify-content: center;
+		}
+
+		.swiss-persona-btn {
+			flex: 1;
+			text-align: center;
+		}
+	}
+</style>
+
+<script>
+	import { utmRouter, type PersonaRole } from '../../lib/routing/UTMRouter';
+
+	function setupPersonaNavbar() {
+		const buttons = document.querySelectorAll<HTMLButtonElement>('.swiss-persona-btn');
+		if (!buttons.length) return;
+
+		// Handle button click events
+		buttons.forEach((btn) => {
+			btn.addEventListener('click', () => {
+				const role = btn.getAttribute('data-role') as PersonaRole | null;
+				if (role) {
+					utmRouter.setRole(role, true);
+				}
+			});
+		});
+
+		// Subscribe to router changes to sync active button highlight
+		utmRouter.subscribe((activeRole: PersonaRole) => {
+			buttons.forEach((btn) => {
+				const role = btn.getAttribute('data-role');
+				if (role === activeRole) {
+					btn.classList.add('active');
+				} else {
+					btn.classList.remove('active');
+				}
+			});
+		});
+	}
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', setupPersonaNavbar);
+	} else {
+		setupPersonaNavbar();
+	}
+</script>

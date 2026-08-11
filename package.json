@@ -1,0 +1,21 @@
+{
+  "name": "hemodialysis-digitization-portal",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pharos University Hemodialysis Digitization & Clinical Decision Support Astro Portal (AY 2026/2027)",
+  "scripts": {
+    "dev": "npm run dev --prefix dashboard",
+    "build": "npm run build --prefix dashboard",
+    "preview": "npm run preview --prefix dashboard",
+    "astro": "npm run astro --prefix dashboard"
+  },
+  "keywords": [
+    "astro",
+    "hemodialysis",
+    "clinical-decision-support",
+    "medgemma",
+    "pharos-university"
+  ],
+  "author": "Pharos University AI Engineering Team",
+  "license": "MIT"
+}

@@ -1,0 +1,188 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Field Journal & Documentary Build Log | Dual Shield" activePage="journal">
+
+	<!-- SECTION 1: MEDIA HERO -->
+	<section class="pt-16 pb-20 bg-canvas border-b border-stone-200/80 relative z-10">
+		<div class="max-w-7xl mx-auto px-6">
+			<div class="flex items-center gap-3 mb-4">
+				<span class="px-3 py-1 rounded-full bg-accent-rose/10 text-accent-rose font-mono text-xs font-bold uppercase tracking-wider">
+					DOCUMENTARY BUILD LOG
+				</span>
+				<span class="font-mono text-xs text-stone-500">FIELD NOTES & MILESTONES</span>
+			</div>
+			
+			<h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-dark font-bold max-w-4xl tracking-tight mb-6">
+				Field Journal & <span class="italic font-normal text-accent-rose">Development Log</span>.
+			</h1>
+
+			<p class="text-stone-600 text-lg md:text-xl font-sans max-w-3xl leading-relaxed font-light mb-12">
+				Documenting our hospital unit field surveys, paperwork friction audits, hardware prototyping, and public call for deployment partners.
+			</p>
+
+			<!-- Media Hero Container: Video / Notes Container -->
+			<div class="bg-dark rounded-3xl p-8 sm:p-12 border border-stone-800 text-canvas relative overflow-hidden shadow-2xl">
+				<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border-b border-stone-800 pb-6 mb-8">
+					<div>
+						<span class="font-mono text-xs text-rose-400 font-bold uppercase tracking-widest">DOCUMENTARY CONTAINER</span>
+						<h2 class="font-serif text-3xl font-bold text-white mt-1">Egyptian Clinical Unit Observation Notes</h2>
+					</div>
+					<span class="px-4 py-2 rounded-full bg-stone-900 border border-stone-800 font-mono text-xs text-stone-300">
+						<i class="fa-solid fa-file-video text-rose-400 mr-2"></i> Field Video & Audio Archive
+					</span>
+				</div>
+
+				<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+					<div class="lg:col-span-2 bg-stone-900/90 rounded-2xl p-6 sm:p-8 border border-stone-800 flex flex-col justify-center items-center text-center min-h-[320px]">
+						<div class="w-16 h-16 rounded-full bg-rose-500/20 text-rose-400 flex items-center justify-center text-2xl font-bold mb-4 animate-pulse">
+							<i class="fa-solid fa-play"></i>
+						</div>
+						<div class="font-serif text-2xl font-bold text-white mb-2">Project Overview & Field Survey Documentary</div>
+						<p class="text-xs text-stone-400 font-sans max-w-md">
+							Footage capturing paper flowsheet transcription friction, nurse interviews, and water treatment loop observation logs in Alexandria.
+						</p>
+					</div>
+
+					<div class="bg-stone-900/60 rounded-2xl p-6 border border-stone-800 font-mono text-xs space-y-4">
+						<div class="text-stone-400 border-b border-stone-800 pb-2">RAW SURVEY HIGHLIGHTS</div>
+						<div>
+							<div class="text-rose-400 font-bold">• 1:6 Nurse Ratio</div>
+							<div class="text-stone-300 mt-1">High workload causing vital delay risks.</div>
+						</div>
+						<div>
+							<div class="text-amber-400 font-bold">• 25 Mins / Session</div>
+							<div class="text-stone-300 mt-1">Manual charting time spent per patient.</div>
+						</div>
+						<div>
+							<div class="text-emerald-400 font-bold">• 60+ Unchecked Logs</div>
+							<div class="text-stone-300 mt-1">Water chlorine tests missed in paper records.</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- SECTION 2: CHRONOLOGICAL BUILD LOG (Vertical Scrollytelling Timeline) -->
+	<section class="py-24 bg-canvas-muted/50 relative z-10 border-b border-stone-200">
+		<div class="max-w-4xl mx-auto px-6">
+			
+			<div class="mb-16 text-center">
+				<span class="font-mono text-xs uppercase tracking-widest text-accent font-bold">MILESTONE PROGRESSION</span>
+				<h2 class="font-serif text-3xl sm:text-4xl text-dark mt-2 font-bold">
+					Chronological Build Log
+				</h2>
+			</div>
+
+			<!-- Vertical Scrollytelling Timeline -->
+			<div class="relative border-l-2 border-stone-300 ml-4 sm:ml-8 pl-8 sm:pl-12 space-y-16">
+				
+				<!-- Entry 01 -->
+				<div class="relative group">
+					<div class="absolute -left-[41px] sm:-left-[57px] top-0 w-6 h-6 rounded-full bg-accent border-4 border-canvas flex items-center justify-center"></div>
+					<div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-sm">
+						<div class="flex justify-between items-center mb-3">
+							<span class="font-mono text-xs text-accent font-bold">ENTRY 01 // COMPLETED</span>
+							<span class="font-mono text-xs text-stone-400">OCTOBER 2025</span>
+						</div>
+						<h3 class="font-serif text-2xl font-bold text-dark mb-3">
+							Hospital Field Survey & Paperwork Friction Mapping
+						</h3>
+						<p class="text-sm text-stone-600 font-light leading-relaxed mb-4">
+							Conducted in-person field surveys at public hemodialysis units in Alexandria. Documented nurse charting workflows, identified 25-minute paperwork overhead, and mapped communication gaps.
+						</p>
+						<div class="bg-stone-50 p-4 rounded-xl border border-stone-200 font-mono text-xs text-stone-600">
+							<strong>Raw Note Excerpt:</strong> "Nurses fill physical flowsheets by hand while monitoring up to 6 beds simultaneously. When blood pressure drops, the paper chart remains on the bedside table until the end of session."
+						</div>
+					</div>
+				</div>
+
+				<!-- Entry 02 -->
+				<div class="relative group">
+					<div class="absolute -left-[41px] sm:-left-[57px] top-0 w-6 h-6 rounded-full bg-accent-teal border-4 border-canvas flex items-center justify-center"></div>
+					<div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-sm">
+						<div class="flex justify-between items-center mb-3">
+							<span class="font-mono text-xs text-accent-teal font-bold">ENTRY 02 // COMPLETED</span>
+							<span class="font-mono text-xs text-stone-400">DECEMBER 2025</span>
+						</div>
+						<h3 class="font-serif text-2xl font-bold text-dark mb-3">
+							System Specification & Dual-Database Architecture Design
+						</h3>
+						<p class="text-sm text-stone-600 font-light leading-relaxed mb-4">
+							Finalized the HL7 FHIR v4 database schemas and engineered the local SQLite to cloud PostgreSQL asynchronous sync algorithm to ensure 100% offline edge operation.
+						</p>
+						<div class="bg-stone-50 p-4 rounded-xl border border-stone-200 font-mono text-xs text-stone-600">
+							<strong>Deliverable:</strong> Completed FHIR DeviceMetric JSON schemas, nurse terminal UI prototypes, and dry weight trajectory algorithms.
+						</div>
+					</div>
+				</div>
+
+				<!-- Entry 03 -->
+				<div class="relative group">
+					<div class="absolute -left-[41px] sm:-left-[57px] top-0 w-6 h-6 rounded-full bg-purple-600 border-4 border-canvas flex items-center justify-center"></div>
+					<div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-sm">
+						<div class="flex justify-between items-center mb-3">
+							<span class="font-mono text-xs text-purple-600 font-bold">ENTRY 03 // COMPLETED</span>
+							<span class="font-mono text-xs text-stone-400">FEBRUARY 2026</span>
+						</div>
+						<h3 class="font-serif text-2xl font-bold text-dark mb-3">
+							Hardware Circuit Diagrams & Queue Logic Engineering
+						</h3>
+						<p class="text-sm text-stone-600 font-light leading-relaxed mb-4">
+							Engineered bedside microcontroller schematics for load-cell IV sensors, optical fingerprint registration, and machine telemetry serial bridges.
+						</p>
+						<div class="bg-stone-50 p-4 rounded-xl border border-stone-200 font-mono text-xs text-stone-600">
+							<strong>Deliverable:</strong> Circuit board schematics, drip mass calibration code, and fingerprint biometrics shift queue logic.
+						</div>
+					</div>
+				</div>
+
+				<!-- Entry 04 -->
+				<div class="relative group">
+					<div class="absolute -left-[41px] sm:-left-[57px] top-0 w-6 h-6 rounded-full bg-emerald-600 border-4 border-canvas flex items-center justify-center animate-pulse"></div>
+					<div class="bg-white p-8 rounded-3xl border border-emerald-300 shadow-md">
+						<div class="flex justify-between items-center mb-3">
+							<span class="font-mono text-xs text-emerald-700 font-bold">ENTRY 04 // ACTIVE PHASE</span>
+							<span class="font-mono text-xs text-stone-400">PRESENT PHASE</span>
+						</div>
+						<h3 class="font-serif text-2xl font-bold text-dark mb-3">
+							Public Call for Deployment Partners & Clinical Reviewers
+						</h3>
+						<p class="text-sm text-stone-600 font-light leading-relaxed mb-4">
+							Releasing the Dual Shield specification publicly to engage Hospital Directors, Nephrologists, and Engineering Donors for our first clinical unit deployment site in Egypt.
+						</p>
+						<button onclick="document.getElementById('pilot-modal').classList.remove('hidden')" class="bg-dark hover:bg-stone-800 text-canvas font-semibold text-xs px-6 py-3 rounded-full uppercase tracking-wider transition-colors inline-flex items-center gap-2">
+							<span>Respond to Call for Partners</span>
+							<i class="fa-solid fa-arrow-right text-accent"></i>
+						</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- SECTION 3: DIRECT CONTACT & INQUIRY -->
+	<section class="py-24 bg-canvas relative z-10">
+		<div class="max-w-4xl mx-auto px-6">
+			<div class="bg-white p-8 sm:p-12 rounded-3xl border border-stone-200 shadow-lg text-center">
+				<span class="font-mono text-xs uppercase tracking-widest text-accent font-bold">DIRECT DIALOGUE</span>
+				<h2 class="font-serif text-3xl sm:text-4xl text-dark font-bold mt-2 mb-4">
+					Connect With the Engineering Team
+				</h2>
+				<p class="text-stone-600 text-sm font-sans max-w-xl mx-auto leading-relaxed font-light mb-8">
+					Whether you represent a hospital unit, research institution, or hardware foundation, we welcome direct dialogue regarding deployment and peer review.
+				</p>
+
+				<button onclick="document.getElementById('pilot-modal').classList.remove('hidden')" class="bg-dark hover:bg-stone-800 text-canvas px-8 py-4 rounded-full text-xs font-semibold uppercase tracking-wider shadow-md hover:shadow-lg transition-all inline-flex items-center gap-3">
+					<span>Open Dialogue Interface</span>
+					<i class="fa-solid fa-paper-plane text-accent"></i>
+				</button>
+			</div>
+		</div>
+	</section>
+
+</Layout>
