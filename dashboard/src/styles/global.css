@@ -574,3 +574,68 @@ input:focus, select:focus, textarea:focus {
   border-color: var(--accent-sky);
   box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
 }
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS MEDIA QUERIES (320px – 768px)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .container-custom,
+  .max-w-7xl,
+  .max-w-4xl,
+  .max-w-3xl,
+  .blog-container,
+  .article-body {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .card-white,
+  .card-dark,
+  article,
+  .blog-card-item {
+    padding: 1.5rem;
+    border-radius: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 7.5vw, 3.25rem);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin-bottom: 1.75rem;
+  }
+
+  .nav-header {
+    padding: 0 1rem;
+    height: 4.5rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.75rem;
+  }
+
+  .badge-chip {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.6875rem;
+  }
+
+  /* Grid fallbacks for small mobile screens */
+  .grid-2, .grid-3, .grid-4 {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
