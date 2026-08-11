@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 interface Props {
 	title: string;
 	description?: string;
@@ -28,28 +30,30 @@ const {
 	<!-- Font Awesome Icons -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	
-	<!-- Tailwind CSS CDN -->
+	<!-- Tailwind CSS CDN Fallback -->
 	<script src="https://cdn.tailwindcss.com"></script>
 	<script is:inline>
-		tailwind.config = {
-			theme: {
-				extend: {
-					colors: {
-						canvas: '#F7F7F4',
-						'canvas-muted': '#EFEFEA',
-						dark: '#0F172A',
-						'dark-surface': '#1E293B',
-						accent: '#0284C7',
-						'accent-teal': '#0D9488',
-						'accent-emerald': '#059669',
-						'accent-rose': '#E11D48',
-						glow: '#D8F3ED',
-						'glow-sky': '#E0F2FE',
-					},
-					fontFamily: {
-						serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-						sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-						mono: ['"JetBrains Mono"', 'monospace'],
+		if (typeof tailwind !== 'undefined') {
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							canvas: '#F7F7F4',
+							'canvas-muted': '#EFEFEA',
+							dark: '#0F172A',
+							'dark-surface': '#1E293B',
+							accent: '#0284C7',
+							'accent-teal': '#0D9488',
+							'accent-emerald': '#059669',
+							'accent-rose': '#E11D48',
+							glow: '#D8F3ED',
+							'glow-sky': '#E0F2FE',
+						},
+						fontFamily: {
+							serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+							sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+							mono: ['"JetBrains Mono"', 'monospace'],
+						}
 					}
 				}
 			}
@@ -146,7 +150,7 @@ const {
 					<p class="text-stone-400 text-sm max-w-md font-sans leading-relaxed mb-6">
 						An intelligent hemodialysis decision support architecture engineered for Egyptian clinical environments. Anticipating patient risk trajectories while safeguarding ward-wide safety.
 					</p>
-					<div class="flex gap-3">
+					<div class="flex flex-wrap gap-3">
 						<span class="px-3 py-1 rounded-full bg-stone-800 text-stone-300 font-mono text-[11px]">Pharos University in Alexandria</span>
 						<span class="px-3 py-1 rounded-full bg-stone-800 text-stone-300 font-mono text-[11px]">AY 2026/2027</span>
 					</div>

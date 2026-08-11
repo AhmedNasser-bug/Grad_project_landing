@@ -1,43 +1,35 @@
 @import "tailwindcss";
 
 @theme {
-  --color-canvas: #FFFFFF;
-  --color-canvas-white: #FFFFFF;
-  --color-canvas-muted: #F8FAFC;
-  --color-canvas-dark: #060D1A;
-  --color-razor-border: #E2E8F0;
-  --color-razor-grid: #E2E8F0;
-  --color-razor-dark: #1E293B;
-  --color-razor-active: #004AC6;
-  --color-slate-primary: #0B1C30;
-  --color-slate-muted: #64748B;
-  --color-slate-light: #94A3B8;
-  --color-clinical-blue: #004AC6;
-  --color-clinical-container: #2563EB;
-  --color-clinical-teal: #006B5F;
-  --color-clinical-emerald: #10B981;
-  --color-clinical-critical: #EF4444;
-  --font-sans: 'Inter', -apple-system, sans-serif;
+  --color-canvas: #F7F7F4;
+  --color-canvas-muted: #EFEFEA;
+  --color-dark: #0F172A;
+  --color-dark-surface: #1E293B;
+  --color-accent: #0284C7;
+  --color-accent-teal: #0D9488;
+  --color-accent-emerald: #059669;
+  --color-accent-rose: #E11D48;
+  --color-glow: #D8F3ED;
+  --color-glow-sky: #E0F2FE;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 
 :root {
-  --bg-canvas: #FFFFFF;
-  --bg-muted: #F8FAFC;
-  --bg-dark: #060D1A;
+  --bg-canvas: #F7F7F4;
+  --bg-muted: #EFEFEA;
+  --bg-dark: #0F172A;
   --border-grid: #E2E8F0;
   --border-dark: #1E293B;
-  --border-active: #004AC6;
-  --text-primary: #0B1C30;
+  --border-active: #0284C7;
+  --text-primary: #0F172A;
   --text-muted: #64748B;
   --text-light: #94A3B8;
-  --accent-blue: #004AC6;
-  --accent-container: #2563EB;
-  --accent-teal: #006B5F;
-  --accent-emerald: #10B981;
-  --accent-critical: #EF4444;
-  --font-sans: 'Inter', -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --accent-blue: #0284C7;
+  --accent-teal: #0D9488;
+  --accent-emerald: #059669;
+  --accent-critical: #E11D48;
 }
 
 * {
@@ -50,6 +42,6 @@ html, body {
   font-family: var(--font-sans);
   background-color: var(--bg-canvas);
   color: var(--text-primary);
-  line-height: 1.4;
+  line-height: 1.5;
   overflow-x: hidden;
 }
