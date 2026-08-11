@@ -43,4 +43,24 @@ Whenever generating task specifications (`specs/`) for lower-tier agent teams:
 5. **Design System & WAF Tokens**: Explicitly list Stitch design system tokens (`Clinical Vitality`) and WAF security/reliability guardrails.
 6. **Trust-First Epic Hierarchy**: For high-trust medical or landing page projects, structure Epics around audience role variants, visual incident storyboards, academic credentials, live MDX milestone blogs, and payment/grant checkout gates.
 
+---
+
+## Learned Architecture & Design System Directives (2026 Updated)
+
+### 1. Single-File Master Design System Architecture (`CSS-ARCH-01`)
+- **Mandate**: All visual styling, typography defaults (`h1`–`h4`, `p`), container widths (`.container-custom`), grid systems (`.grid-2`–`.grid-4`), card primitives (`.card-white`, `.card-dark`), badge chips, and form controls MUST be declared universally inside the **single shared stylesheet** (`dashboard/src/styles/global.css`).
+- **Forbidden**: Never write isolated per-page style hacks or inline CSS rules that leave subpages unstyled or inconsistent.
+
+### 2. High-Elegance Editorial Aesthetic Standards (`UI-AESTHETIC-01`)
+- **Typography Pairing**: Editorial Serif (`Cormorant Garamond`) for display headlines with italic font accents + crisp Sans-serif (`Plus Jakarta Sans`) for body copy + Monospace (`JetBrains Mono`) for telemetry data.
+- **Line-Height Hygiene**: Display `h1` titles MUST enforce `line-height: 1.08` to `1.15` with proper bottom margins to prevent text crunching or overlapping line soup.
+- **Pill Navigation & Badges**: Floating navigation pills, rounded-full badges (`0.375rem 1rem` padding), and pill CTA buttons (`0.875rem 2rem` padding).
+
+### 3. Anti-Modal Usability Directive (`UX-NO-MODAL-01`)
+- **Rule**: Avoid disruptive popup modal overlays for primary user actions (e.g. partner outreach, pilot requests). Prefer dedicated, full-page routes (e.g. `/partner`) or in-page smooth anchor sections.
+
+### 4. Vercel Monorepo Build Isolation (`VERCEL-MONO-01`)
+- **Rule**: When running an Astro subfolder monorepo (`dashboard/`), `vercel.json` MUST contain `"installCommand": "npm install --prefix dashboard"` and root `package.json` MUST include `"postinstall": "npm install --prefix dashboard"` to ensure subfolder `node_modules` binaries are available during deployment.
+
+
 
