@@ -162,6 +162,8 @@ strong {
 
 .bg-canvas            { background-color: var(--bg-canvas) !important; }
 .bg-canvas-muted      { background-color: var(--bg-canvas-muted) !important; }
+.border-canvas        { border-color: var(--bg-canvas) !important; }
+.text-canvas          { color: var(--bg-canvas) !important; }
 
 /* Opacity slash variants used on pages as bg-accent/10 etc. */
 .bg-accent\/10        { background-color: rgba(2, 132, 199, 0.1) !important; }
