@@ -1,13 +1,17 @@
 @import "tailwindcss";
 
-/* VIRTUAL WELLBEING HUB DESIGN SYSTEM TOKENS */
+/* ==========================================================================
+   VIRTUAL WELLBEING HUB MASTER DESIGN SYSTEM (MEDICALLY GROUNDED)
+   Single Shared Architectural Stylesheet for All Pages
+   ========================================================================== */
+
 :root {
   --bg-canvas: #F7F7F4;
   --bg-canvas-muted: #EFEFEA;
   --bg-card: #FFFFFF;
   --bg-dark: #0F172A;
-  --border-subtle: rgba(226, 232, 240, 0.9);
   --border-stone: #E2E8F0;
+  --border-dark: #334155;
   
   --text-dark: #0F172A;
   --text-muted: #475569;
@@ -17,6 +21,7 @@
   --accent-teal: #0D9488;
   --accent-emerald: #059669;
   --accent-rose: #E11D48;
+  --accent-purple: #9333EA;
   
   --glow-teal: rgba(216, 243, 237, 0.6);
   --glow-sky: rgba(224, 242, 254, 0.5);
@@ -41,33 +46,63 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* TYPOGRAPHY HYGIENE */
-h1, h2, h3, h4, .font-serif {
+/* --------------------------------------------------------------------------
+   1. UNIVERSAL TYPOGRAPHY DEFAULTS (APPLIED ACROSS ALL PAGES)
+   -------------------------------------------------------------------------- */
+
+h1, .h1, .hero-title, .blog-title, .article-headline {
   font-family: var(--font-serif);
-  letter-spacing: -0.02em;
-}
-
-.font-sans {
-  font-family: var(--font-sans);
-}
-
-.font-mono {
-  font-family: var(--font-mono);
-}
-
-/* HERO HEADLINE FIX */
-.hero-title {
-  font-family: var(--font-serif);
-  font-size: clamp(2.5rem, 5.5vw, 5rem);
+  font-size: clamp(2.5rem, 5vw, 4.75rem);
   line-height: 1.08;
   font-weight: 700;
   color: var(--text-dark);
-  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+
+h2, .h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.875rem, 3.5vw, 3rem);
+  line-height: 1.15;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: -0.02em;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+h3, .h3 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.35rem, 2.2vw, 1.875rem);
+  line-height: 1.25;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.75rem;
+}
+
+h4, .h4 {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-light);
+  margin-bottom: 0.75rem;
+}
+
+p, .article-body p {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  font-weight: 300;
+  margin-bottom: 1.25rem;
 }
 
 .hero-subtitle {
   font-family: var(--font-sans);
-  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
   font-weight: 300;
   color: var(--text-muted);
   line-height: 1.6;
@@ -75,21 +110,69 @@ h1, h2, h3, h4, .font-serif {
   margin-bottom: 2.5rem;
 }
 
-/* NAVIGATION & BUTTON PRIMITIVES */
-.nav-header {
+.font-serif { font-family: var(--font-serif); }
+.font-sans { font-family: var(--font-sans); }
+.font-mono { font-family: var(--font-mono); }
+
+/* --------------------------------------------------------------------------
+   2. UNIVERSAL CONTAINER & SECTION STRUCTURE
+   -------------------------------------------------------------------------- */
+
+main {
+  flex-grow: 1;
+  z-index: 10;
+  position: relative;
+}
+
+.section-padding, section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.container-custom, .max-w-7xl, .blog-container, .article-body {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.max-w-4xl {
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.max-w-3xl {
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --------------------------------------------------------------------------
+   3. UNIVERSAL NAVIGATION & FOOTER STYLING
+   -------------------------------------------------------------------------- */
+
+.nav-header, .blog-header-nav, .article-nav {
   position: sticky;
   top: 0;
   z-index: 50;
   background-color: rgba(247, 247, 244, 0.85);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-stone);
+  padding: 0 2rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .nav-container {
   max-width: 80rem;
   margin: 0 auto;
-  padding: 0 2rem;
-  height: 5rem;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -105,7 +188,7 @@ h1, h2, h3, h4, .font-serif {
   border: 1px solid var(--border-stone);
 }
 
-.nav-link-item {
+.nav-link-item, .blog-header-nav a, .article-nav a {
   padding: 0.5rem 1.25rem;
   border-radius: 9999px;
   font-size: 0.8125rem;
@@ -121,14 +204,20 @@ h1, h2, h3, h4, .font-serif {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-.btn-primary {
+/* --------------------------------------------------------------------------
+   4. UNIVERSAL BUTTON & ACTION PRIMITIVES
+   -------------------------------------------------------------------------- */
+
+.btn-primary, button[type="submit"] {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.75rem;
   background-color: var(--bg-dark);
   color: #FFFFFF;
   padding: 0.875rem 2rem;
   border-radius: 9999px;
+  font-family: var(--font-sans);
   font-size: 0.8125rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -140,7 +229,7 @@ h1, h2, h3, h4, .font-serif {
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
-.btn-primary:hover {
+.btn-primary:hover, button[type="submit"]:hover {
   background-color: #1E293B;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(0,0,0,0.12);
@@ -149,11 +238,13 @@ h1, h2, h3, h4, .font-serif {
 .btn-secondary {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.75rem;
   background-color: #FFFFFF;
   color: var(--text-dark);
   padding: 0.875rem 2rem;
   border-radius: 9999px;
+  font-family: var(--font-sans);
   font-size: 0.8125rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -169,8 +260,11 @@ h1, h2, h3, h4, .font-serif {
   border-color: #CBD5E1;
 }
 
-/* BADGES & CHIPS */
-.badge-chip {
+/* --------------------------------------------------------------------------
+   5. UNIVERSAL BADGES & STATUS CHIPS
+   -------------------------------------------------------------------------- */
+
+.badge-chip, .blog-tag, .article-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -179,6 +273,8 @@ h1, h2, h3, h4, .font-serif {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
 }
 
 .badge-sky {
@@ -199,17 +295,21 @@ h1, h2, h3, h4, .font-serif {
   color: var(--text-dark);
 }
 
-/* CARD PRIMITIVES & LAYOUT GRID */
-.card-white {
+/* --------------------------------------------------------------------------
+   6. UNIVERSAL CARD PRIMITIVES (WHITE & DARK CARDS)
+   -------------------------------------------------------------------------- */
+
+.card-white, article, .blog-card-item {
   background-color: #FFFFFF;
   border-radius: 1.5rem;
   border: 1px solid var(--border-stone);
   padding: 2.5rem;
+  margin-bottom: 2rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
   transition: all 0.3s ease;
 }
 
-.card-white:hover {
+.card-white:hover, article:hover, .blog-card-item:hover {
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
 }
 
@@ -217,10 +317,25 @@ h1, h2, h3, h4, .font-serif {
   background-color: var(--bg-dark);
   color: #FFFFFF;
   border-radius: 1.5rem;
-  border: 1px solid #1E293B;
+  border: 1px solid var(--border-dark);
   padding: 2.5rem;
+  margin-bottom: 2rem;
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
+
+.callout-box {
+  background-color: var(--bg-canvas-muted);
+  border-left: 4px solid var(--accent-sky);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   7. UNIVERSAL GRID LAYOUTS
+   -------------------------------------------------------------------------- */
 
 .grid-2 {
   display: grid;
@@ -264,14 +379,24 @@ h1, h2, h3, h4, .font-serif {
   }
 }
 
-.section-padding {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
+/* --------------------------------------------------------------------------
+   8. UNIVERSAL FORM INPUT STYLING
+   -------------------------------------------------------------------------- */
+
+input[type="text"], input[type="email"], select, textarea {
+  width: 100%;
+  padding: 0.875rem 1.25rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-stone);
+  background-color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--text-dark);
+  outline: none;
+  transition: border-color 0.2s ease;
 }
 
-.container-custom {
-  max-width: 80rem;
-  margin: 0 auto;
-  padding-left: 2rem;
-  padding-right: 2rem;
+input[type="text"]:focus, input[type="email"]:focus, select:focus, textarea:focus {
+  border-color: var(--accent-sky);
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
 }
