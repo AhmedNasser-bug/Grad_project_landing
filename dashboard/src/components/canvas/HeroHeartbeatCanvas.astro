@@ -1,0 +1,167 @@
+---
+/**
+ * HeroHeartbeatCanvas.astro
+ * Algorithmic p5.js Heartbeat Canvas placed behind Hero text.
+ * Dynamically morphs waveform and shifts color palette according to section criticality:
+ * - Stable / Normal: Clinical Blue (#004AC6) / Emerald (#10B981)
+ * - Caution / Outbreak: Warm Amber (#F59E0B)
+ * - Critical Alert: Medical Red (#EF4444)
+ * Engineered to be comfy to the eye with soft ambient aura blending and sub-pixel smoothness.
+ */
+
+interface Props {
+  initialCriticality?: number; // 0 to 100
+  initialBpm?: number;
+  className?: string;
+}
+
+const { initialCriticality = 15, initialBpm = 72, className = '' } = Astro.props;
+---
+
+<div class={`relative w-full h-full min-h-[420px] overflow-hidden rounded-2xl bg-[#0B1C30] ${className}`}>
+  <!-- p5.js Ambient Canvas Container -->
+  <div id="p5-hero-heartbeat-container" class="absolute inset-0 w-full h-full pointer-events-none opacity-85"></div>
+
+  <!-- Hero Section Slot / Text Overlay -->
+  <div class="relative z-10 flex flex-col items-center justify-center h-full px-6 py-16 text-center text-white">
+    <slot />
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js" is:inline></script>
+
+<script is:inline define:vars={{ initialCriticality, initialBpm }}>
+  (function () {
+    if (typeof window === 'undefined') return;
+
+    let p5Instance = null;
+
+    function initP5Heartbeat() {
+      const container = document.getElementById('p5-hero-heartbeat-container');
+      if (!container || typeof p5 === 'undefined') return;
+
+      const sketch = (p) => {
+        let criticality = initialCriticality;
+        let bpm = initialBpm;
+        let xPos = 0;
+        let points = [];
+        let timeStep = 0;
+
+        p.setup = function () {
+          const w = container.clientWidth || window.innerWidth;
+          const h = container.clientHeight || 450;
+          let canvas = p.createCanvas(w, h);
+          canvas.parent(container);
+          p.frameRate(60);
+          p.background(11, 28, 48);
+        };
+
+        p.windowResized = function () {
+          const w = container.clientWidth;
+          const h = container.clientHeight;
+          if (w > 0 && h > 0) {
+            p.resizeCanvas(w, h);
+            p.background(11, 28, 48);
+          }
+        };
+
+        p.draw = function () {
+          // Comfy ambient trail fading for text readability
+          p.background(11, 28, 48, 32);
+
+          let critNorm = criticality / 100.0;
+          let baseColor, glowColor;
+
+          if (critNorm < 0.4) {
+            let t = critNorm / 0.4;
+            baseColor = p.lerpColor(p.color(16, 185, 129), p.color(0, 74, 198), t);
+            glowColor = p.color(0, 74, 198, 80);
+          } else if (critNorm < 0.75) {
+            let t = (critNorm - 0.4) / 0.35;
+            baseColor = p.lerpColor(p.color(0, 74, 198), p.color(245, 158, 11), t);
+            glowColor = p.color(245, 158, 11, 100);
+          } else {
+            let t = (critNorm - 0.75) / 0.25;
+            baseColor = p.lerpColor(p.color(245, 158, 11), p.color(239, 68, 68), t);
+            glowColor = p.color(239, 68, 68, 130);
+          }
+
+          // Subtle ECG Background Grid
+          p.stroke(255, 255, 255, 10);
+          p.strokeWeight(1);
+          for (let x = 0; x < p.width; x += 40) p.line(x, 0, x, p.height);
+          for (let y = 0; y < p.height; y += 40) p.line(0, y, p.width, y);
+
+          // Advance scanner position
+          let speed = (bpm / 60) * 4.2;
+          xPos += speed;
+          if (xPos > p.width) {
+            xPos = 0;
+            points = [];
+          }
+
+          // PQRST Wave calculation
+          let wavePhase = (xPos % 280) / 280;
+          let baseY = p.height * 0.55;
+          let pulseY = baseY;
+
+          if (wavePhase > 0.15 && wavePhase < 0.22) {
+            pulseY -= p.sin((wavePhase - 0.15) / 0.07 * Math.PI) * 16;
+          } else if (wavePhase >= 0.25 && wavePhase < 0.27) {
+            pulseY += (wavePhase - 0.25) / 0.02 * 14;
+          } else if (wavePhase >= 0.27 && wavePhase < 0.32) {
+            let rProgress = (wavePhase - 0.27) / 0.05;
+            let amp = 130 + (critNorm * 45);
+            pulseY -= p.sin(rProgress * Math.PI) * amp;
+          } else if (wavePhase >= 0.32 && wavePhase < 0.35) {
+            pulseY += p.sin((wavePhase - 0.32) / 0.03 * Math.PI) * 20;
+          } else if (wavePhase >= 0.42 && wavePhase < 0.55) {
+            pulseY -= p.sin((wavePhase - 0.42) / 0.13 * Math.PI) * 26;
+          }
+
+          timeStep += 0.02;
+          let hrvOffset = (p.noise(timeStep, xPos * 0.005) - 0.5) * 12;
+          pulseY += hrvOffset;
+
+          points.push({ x: xPos, y: pulseY });
+          if (points.length > 450) points.shift();
+
+          // Outer Comfy Glow Layer
+          p.noFill();
+          p.stroke(glowColor);
+          p.strokeWeight(18);
+          p.strokeJoin(p.ROUND);
+          p.strokeCap(p.ROUND);
+          p.beginShape();
+          for (let pt of points) p.vertex(pt.x, pt.y);
+          p.endShape();
+
+          // Crisp Primary Telemetry Line
+          p.stroke(baseColor);
+          p.strokeWeight(2.5);
+          p.beginShape();
+          for (let pt of points) p.vertex(pt.x, pt.y);
+          p.endShape();
+
+          // Leading Pulsing Point
+          p.fill(baseColor);
+          p.noStroke();
+          p.ellipse(xPos, pulseY, 8 + critNorm * 6, 8 + critNorm * 6);
+        };
+
+        // Expose global controller for dynamic section criticality updates
+        window.setHeroHeartbeatCriticality = function (val) {
+          criticality = Math.max(0, Math.min(100, val));
+        };
+      };
+
+      p5Instance = new p5(sketch);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initP5Heartbeat);
+    } else {
+      initP5Heartbeat();
+    }
+  })();
+</script>
