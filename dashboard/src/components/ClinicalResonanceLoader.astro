@@ -1,0 +1,355 @@
+---
+// ClinicalResonanceLoader.astro
+// Full-screen algorithmic art preloader
+// Philosophy: "Clinical Resonance" — orbital ECG interference patterns
+// Uses Dual Shield design system colors; fades out revealing the site beneath
+---
+
+<div id="clinical-resonance-loader" style="
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #F7F7F4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: opacity 0.9s ease;
+">
+  <!-- p5.js canvas will mount here -->
+  <div id="cr-canvas-mount"></div>
+
+  <!-- Brand wordmark beneath the art -->
+  <div id="cr-wordmark" style="
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1.2s ease 0.4s;
+  ">
+    <span style="
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0F172A;
+      letter-spacing: -0.02em;
+    ">
+      DUAL<span style="font-style: italic; font-weight: 400; color: #0284C7; margin-left: 0.25rem;">Shield</span>
+    </span>
+    <div style="
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.625rem;
+      color: #64748B;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-top: 0.35rem;
+    ">Egyptian Dialysis Architecture · Initializing</div>
+  </div>
+
+  <!-- Pulse progress line -->
+  <div id="cr-progress" style="
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0%;
+    background: linear-gradient(90deg, #0284C7, #0D9488);
+    transition: width 0.1s linear;
+  "></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js" is:inline></script>
+
+<script is:inline>
+(function() {
+  // ─── PARAMETERS ──────────────────────────────────────────────────────
+  const SEED          = 7291;
+  const NUM_BEDS      = 8;          // 8 patient beds per ward
+  const TRAIL_ALPHA   = 18;         // persistence-of-vision trail decay
+  const DURATION_MS   = 3200;       // preload duration before dissolve
+  const FREQ_BASE     = 0.004;      // base orbital frequency
+  const NOISE_SCALE   = 0.003;
+
+  // Dual Shield color palette (exact design system tokens)
+  const COL = {
+    bg:          [247, 247, 244],   // --bg-canvas
+    sky:         [2,   132, 199],   // --accent-sky
+    teal:        [13,  148, 136],   // --accent-teal
+    rose:        [225,  29,  72],   // --accent-rose
+    dark:        [15,   23,  42],   // --bg-dark
+    muted:       [71,   85, 105],   // --text-muted
+  };
+
+  // ─── P5 INSTANCE ─────────────────────────────────────────────────────
+  let p5Instance;
+  let started = Date.now();
+  let dissolving = false;
+
+  const sketch = (p) => {
+    let beds = [];
+    let w, h, cx, cy, baseR;
+    let noiseT = 0;
+
+    // ── BED / ORBIT CLASS ─────────────────────────────────────────────
+    class BedOrbit {
+      constructor(i) {
+        this.index  = i;
+        this.phase  = (i / NUM_BEDS) * p.TWO_PI;
+        // Each bed has a unique biological frequency from seeded noise
+        this.freq   = FREQ_BASE * (0.7 + p.noise(i * 31.7, 0) * 0.8);
+        // Orbital radius tier
+        this.tier   = 0.25 + (i / NUM_BEDS) * 0.55;
+        // Eccentricity — slight ellipse
+        this.eccX   = 1.0 + p.noise(i * 17.3) * 0.15;
+        this.eccY   = 1.0 - p.noise(i * 17.3) * 0.12;
+        // Hue shift per orbit
+        this.hue    = i / NUM_BEDS;
+        // Interference state
+        this.interference = 0;
+        this.angle  = this.phase;
+        // Trail buffer
+        this.trail  = [];
+        this.maxTrail = 80;
+      }
+
+      update(t) {
+        this.angle += this.freq * (1 + p.noise(this.index * 7.1, noiseT) * 0.4);
+        const r   = baseR * this.tier;
+        this.x    = cx + Math.cos(this.angle) * r * this.eccX;
+        this.y    = cy + Math.sin(this.angle) * r * this.eccY * 0.75;
+
+        this.trail.push({ x: this.x, y: this.y, a: 255 });
+        if (this.trail.length > this.maxTrail) this.trail.shift();
+
+        // Check interference with neighbouring beds
+        this.interference = 0;
+        for (let b of beds) {
+          if (b === this) continue;
+          const d = p.dist(this.x, this.y, b.x, b.y);
+          if (d < baseR * 0.28) {
+            // Constructive / destructive based on phase difference
+            const phaseDiff = Math.abs(Math.sin((this.angle - b.angle) * 0.5));
+            this.interference = phaseDiff;
+          }
+        }
+      }
+
+      draw() {
+        // Draw trail
+        for (let i = 1; i < this.trail.length; i++) {
+          const t0 = this.trail[i - 1];
+          const t1 = this.trail[i];
+          const alpha = (i / this.trail.length) * 120;
+          const lerp  = i / this.trail.length;
+
+          // Color: sky→teal gradient along trail, rose flare on interference
+          let r, g, b;
+          if (this.interference > 0.6) {
+            r = p.lerp(COL.sky[0], COL.rose[0], this.interference);
+            g = p.lerp(COL.sky[1], COL.rose[1], this.interference);
+            b = p.lerp(COL.sky[2], COL.rose[2], this.interference);
+          } else {
+            r = p.lerp(COL.teal[0], COL.sky[0], this.hue);
+            g = p.lerp(COL.teal[1], COL.sky[1], this.hue);
+            b = p.lerp(COL.teal[2], COL.sky[2], this.hue);
+          }
+
+          p.stroke(r, g, b, alpha * lerp);
+          p.strokeWeight(1.5 - lerp * 0.8);
+          p.line(t0.x, t0.y, t1.x, t1.y);
+        }
+
+        // Draw orbital node
+        const tip = this.trail[this.trail.length - 1];
+        if (!tip) return;
+
+        // Outer glow
+        const glowR = 12 + this.interference * 14;
+        p.noStroke();
+        for (let g = glowR; g > 0; g -= 3) {
+          const a = this.interference > 0.6
+            ? p.map(g, 0, glowR, 80, 0)
+            : p.map(g, 0, glowR, 40, 0);
+          if (this.interference > 0.6) {
+            p.fill(COL.rose[0], COL.rose[1], COL.rose[2], a);
+          } else {
+            p.fill(COL.sky[0], COL.sky[1], COL.sky[2], a);
+          }
+          p.ellipse(tip.x, tip.y, g, g);
+        }
+
+        // Core dot
+        if (this.interference > 0.6) {
+          p.fill(...COL.rose, 220);
+        } else {
+          p.fill(...COL.sky, 200);
+        }
+        p.ellipse(tip.x, tip.y, 5, 5);
+      }
+    }
+
+    // ── CENTRAL ATTRACTOR ────────────────────────────────────────────
+    function drawCentralAttractor(t) {
+      // Pulsing central node — the "ward hub"
+      const pulse = 0.5 + 0.5 * Math.sin(t * 0.003);
+      const r1    = 18 + pulse * 6;
+      const r2    = 28 + pulse * 10;
+
+      p.noStroke();
+      // Outer aura
+      for (let r = r2; r > 0; r -= 4) {
+        const a = p.map(r, 0, r2, 50, 0);
+        p.fill(...COL.teal, a);
+        p.ellipse(cx, cy, r, r);
+      }
+      // Inner ring
+      p.stroke(...COL.sky, 180);
+      p.strokeWeight(1);
+      p.noFill();
+      p.ellipse(cx, cy, r1 * 2, r1 * 2);
+
+      // Core
+      p.noStroke();
+      p.fill(...COL.dark, 200);
+      p.ellipse(cx, cy, 8, 8);
+
+      // DS monogram
+      p.fill(...COL.dark, 160);
+      p.textFont('monospace');
+      p.textSize(6);
+      p.textAlign(p.CENTER, p.CENTER);
+      p.text('DS', cx, cy);
+    }
+
+    // ── ORBIT GUIDE RINGS ────────────────────────────────────────────
+    function drawGuideRings() {
+      p.noFill();
+      for (let i = 1; i <= 4; i++) {
+        const r = baseR * (0.2 + i * 0.18);
+        p.stroke(...COL.muted, 12);
+        p.strokeWeight(0.5);
+        p.ellipse(cx, cy, r * 2, r * 2 * 0.75);
+      }
+    }
+
+    // ── WAVEFORM PULSE ───────────────────────────────────────────────
+    function drawBottomECG(t) {
+      // A tiny ECG pulse line running across the bottom — clinical signature
+      const ecgY  = h * 0.88;
+      const ecgW  = w * 0.35;
+      const ecgX0 = cx - ecgW * 0.5;
+      const steps = 120;
+
+      p.stroke(...COL.sky, 80);
+      p.strokeWeight(1.2);
+      p.noFill();
+      p.beginShape();
+      for (let i = 0; i < steps; i++) {
+        const x   = ecgX0 + (i / steps) * ecgW;
+        const tOff = (t * 0.003 + i * 0.08) % p.TWO_PI;
+        // ECG-like waveform: flat with P, QRS, T peaks
+        let y = ecgY;
+        const phase = (i / steps + t * 0.0003) % 1;
+        if (phase > 0.3 && phase < 0.35) y -= 4;           // P wave
+        else if (phase > 0.5 && phase < 0.52) y += 3;      // Q
+        else if (phase > 0.52 && phase < 0.56) y -= 28;    // R spike
+        else if (phase > 0.56 && phase < 0.58) y += 6;     // S
+        else if (phase > 0.65 && phase < 0.72) y -= 8;     // T wave
+        p.curveVertex(x, y);
+      }
+      p.endShape();
+    }
+
+    // ── SETUP ────────────────────────────────────────────────────────
+    p.setup = () => {
+      p.randomSeed(SEED);
+      p.noiseSeed(SEED);
+
+      const mount = document.getElementById('cr-canvas-mount');
+      w = Math.min(window.innerWidth, 520);
+      h = Math.min(window.innerHeight * 0.72, 520);
+      cx = w / 2;
+      cy = h / 2;
+      baseR = Math.min(w, h) * 0.42;
+
+      const cnv = p.createCanvas(w, h);
+      cnv.parent('cr-canvas-mount');
+      p.background(...COL.bg);
+      p.frameRate(60);
+      p.textFont('monospace');
+
+      for (let i = 0; i < NUM_BEDS; i++) {
+        beds.push(new BedOrbit(i));
+      }
+
+      // Fade in wordmark
+      setTimeout(() => {
+        document.getElementById('cr-wordmark').style.opacity = '1';
+      }, 200);
+    };
+
+    // ── DRAW LOOP ────────────────────────────────────────────────────
+    p.draw = () => {
+      const elapsed = Date.now() - started;
+      const progress = Math.min(elapsed / DURATION_MS, 1);
+
+      // Update progress bar
+      document.getElementById('cr-progress').style.width = (progress * 100) + '%';
+
+      // Semi-transparent background for trail decay
+      p.fill(...COL.bg, TRAIL_ALPHA);
+      p.noStroke();
+      p.rect(0, 0, w, h);
+
+      noiseT += 0.005;
+
+      // Guide rings
+      drawGuideRings();
+
+      // Update & draw each bed orbit
+      for (let bed of beds) {
+        bed.update(p.frameCount);
+        bed.draw();
+      }
+
+      // Central attractor
+      drawCentralAttractor(p.frameCount);
+
+      // ECG line
+      drawBottomECG(p.frameCount);
+
+      // Status text
+      p.fill(...COL.muted, 120);
+      p.noStroke();
+      p.textSize(8);
+      p.textAlign(p.CENTER);
+      p.text(
+        `${NUM_BEDS} BED WARD · EDGE NODES ONLINE · ${Math.round(progress * 100)}%`,
+        cx, h - 18
+      );
+
+      // ── DISSOLVE ───────────────────────────────────────────────────
+      if (progress >= 1 && !dissolving) {
+        dissolving = true;
+        const loader = document.getElementById('clinical-resonance-loader');
+        loader.style.opacity = '0';
+        loader.style.pointerEvents = 'none';
+        setTimeout(() => { loader.style.display = 'none'; }, 950);
+        p.noLoop();
+      }
+    };
+  };
+
+  // Mount after DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      p5Instance = new p5(sketch);
+    });
+  } else {
+    p5Instance = new p5(sketch);
+  }
+})();
+</script>
