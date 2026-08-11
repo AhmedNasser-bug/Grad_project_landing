@@ -30,206 +30,149 @@ const {
 	<!-- Font Awesome Icons -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	
-	<!-- Tailwind CSS CDN Fallback -->
-	<script src="https://cdn.tailwindcss.com"></script>
-	<script is:inline>
-		if (typeof tailwind !== 'undefined') {
-			tailwind.config = {
-				theme: {
-					extend: {
-						colors: {
-							canvas: '#F7F7F4',
-							'canvas-muted': '#EFEFEA',
-							dark: '#0F172A',
-							'dark-surface': '#1E293B',
-							accent: '#0284C7',
-							'accent-teal': '#0D9488',
-							'accent-emerald': '#059669',
-							'accent-rose': '#E11D48',
-							glow: '#D8F3ED',
-							'glow-sky': '#E0F2FE',
-						},
-						fontFamily: {
-							serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-							sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-							mono: ['"JetBrains Mono"', 'monospace'],
-						}
-					}
-				}
-			}
-		}
-	</script>
-	
 	<!-- Alpine.js & GSAP -->
 	<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 	<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 	<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
-<body class="bg-canvas text-dark font-sans antialiased selection:bg-accent/20 selection:text-accent relative overflow-x-hidden min-h-screen flex flex-col">
+<body class="relative min-h-screen flex flex-col">
 
 	<!-- Ambient Soft Ethereal Background Glow Blobs -->
-	<div class="fixed top-[-10%] left-[20%] w-[600px] h-[600px] rounded-full bg-gradient-to-br from-glow via-glow-sky to-transparent blur-[120px] pointer-events-none opacity-60 z-0"></div>
-	<div class="fixed bottom-[-10%] right-[10%] w-[500px] h-[500px] rounded-full bg-gradient-to-tl from-glow-sky via-glow to-transparent blur-[140px] pointer-events-none opacity-50 z-0"></div>
+	<div style="position: fixed; top: -10%; left: 20%; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, var(--glow-teal) 0%, var(--glow-sky) 50%, transparent 80%); filter: blur(100px); pointer-events: none; opacity: 0.7; z-index: 0;"></div>
+	<div style="position: fixed; bottom: -10%; right: 10%; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, var(--glow-sky) 0%, var(--glow-teal) 50%, transparent 80%); filter: blur(120px); pointer-events: none; opacity: 0.6; z-index: 0;"></div>
 
 	<!-- GLOBAL STICKY NAVIGATION HEADER -->
-	<header class="sticky top-0 z-50 backdrop-blur-md bg-canvas/80 border-b border-stone-200/80 transition-all duration-300">
-		<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+	<header class="nav-header">
+		<div class="nav-container">
 			<!-- Brand Identifier -->
-			<a href="/" class="flex items-center gap-3 group">
-				<span class="w-9 h-9 rounded-full bg-dark text-canvas flex items-center justify-center font-mono font-bold text-xs tracking-wider group-hover:scale-105 transition-transform">
+			<a href="/" style="display: flex; items-center; gap: 0.75rem; text-decoration: none;">
+				<span style="width: 2.25rem; height: 2.25rem; border-radius: 50%; background-color: var(--bg-dark); color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-weight: 700; font-size: 0.75rem; letter-spacing: 0.05em;">
 					DS
 				</span>
 				<div>
-					<span class="font-serif font-bold text-xl tracking-tight text-dark block leading-none">
-						DUAL<span class="font-serif italic font-normal text-accent ml-1">Shield</span>
+					<span style="font-family: var(--font-serif); font-weight: 700; font-size: 1.35rem; color: var(--text-dark); display: block; line-height: 1;">
+						DUAL<span style="font-style: italic; font-weight: 400; color: var(--accent-sky); margin-left: 0.25rem;">Shield</span>
 					</span>
-					<span class="font-mono text-[10px] text-stone-500 tracking-wider uppercase">Egyptian Dialysis Architecture</span>
+					<span style="font-family: var(--font-mono); font-size: 0.625rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-top: 0.2rem;">Egyptian Dialysis Architecture</span>
 				</div>
 			</a>
 
 			<!-- Desktop Page Links -->
-			<nav class="hidden md:flex items-center gap-1 bg-stone-200/50 p-1.5 rounded-full border border-stone-300/50 backdrop-blur-sm">
-				<a href="/" class={`px-5 py-2 rounded-full text-xs font-semibold transition-all ${activePage === 'home' ? 'bg-white text-dark shadow-sm' : 'text-stone-600 hover:text-dark'}`}>
-					Home
-				</a>
-				<a href="/architecture" class={`px-5 py-2 rounded-full text-xs font-semibold transition-all ${activePage === 'architecture' ? 'bg-white text-dark shadow-sm' : 'text-stone-600 hover:text-dark'}`}>
-					Architecture
-				</a>
-				<a href="/evidence" class={`px-5 py-2 rounded-full text-xs font-semibold transition-all ${activePage === 'evidence' ? 'bg-white text-dark shadow-sm' : 'text-stone-600 hover:text-dark'}`}>
-					Evidence
-				</a>
-				<a href="/about" class={`px-5 py-2 rounded-full text-xs font-semibold transition-all ${activePage === 'about' ? 'bg-white text-dark shadow-sm' : 'text-stone-600 hover:text-dark'}`}>
-					About
-				</a>
-				<a href="/journal" class={`px-5 py-2 rounded-full text-xs font-semibold transition-all ${activePage === 'journal' ? 'bg-white text-dark shadow-sm' : 'text-stone-600 hover:text-dark'}`}>
-					Field Journal
-				</a>
+			<nav class="nav-links-pill hidden md:flex">
+				<a href="/" class={`nav-link-item ${activePage === 'home' ? 'active' : ''}`}>Home</a>
+				<a href="/architecture" class={`nav-link-item ${activePage === 'architecture' ? 'active' : ''}`}>Architecture</a>
+				<a href="/evidence" class={`nav-link-item ${activePage === 'evidence' ? 'active' : ''}`}>Evidence</a>
+				<a href="/about" class={`nav-link-item ${activePage === 'about' ? 'active' : ''}`}>About</a>
+				<a href="/journal" class={`nav-link-item ${activePage === 'journal' ? 'active' : ''}`}>Field Journal</a>
 			</nav>
 
-			<!-- Action Button & Mobile Menu Button -->
-			<div class="flex items-center gap-4">
-				<button onclick="document.getElementById('pilot-modal').classList.remove('hidden')" class="hidden sm:inline-flex items-center gap-2 bg-dark hover:bg-stone-800 text-canvas px-6 py-2.5 rounded-full text-xs font-semibold tracking-wide transition-all shadow-sm hover:shadow hover:-translate-y-0.5">
+			<!-- Action Button -->
+			<div style="display: flex; align-items: center; gap: 1rem;">
+				<button onclick="document.getElementById('pilot-modal').classList.remove('hidden')" class="btn-primary" style="padding: 0.625rem 1.5rem; font-size: 0.75rem;">
 					<span>Partner / Request Pilot</span>
-					<i class="fa-solid fa-arrow-right text-[10px] text-accent"></i>
-				</button>
-				
-				<!-- Mobile Menu Toggle Button -->
-				<button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden w-10 h-10 rounded-full border border-stone-300 flex items-center justify-center text-dark">
-					<i class="fa-solid fa-bars text-sm"></i>
+					<i class="fa-solid fa-arrow-right" style="font-size: 0.625rem; color: var(--accent-sky);"></i>
 				</button>
 			</div>
-		</div>
-
-		<!-- Mobile Navigation Menu -->
-		<div id="mobile-menu" class="hidden md:hidden bg-canvas border-b border-stone-200 px-6 py-4 flex flex-col gap-3">
-			<a href="/" class="text-sm font-semibold py-2 text-dark">Home</a>
-			<a href="/architecture" class="text-sm font-semibold py-2 text-dark">Architecture</a>
-			<a href="/evidence" class="text-sm font-semibold py-2 text-dark">Evidence</a>
-			<a href="/about" class="text-sm font-semibold py-2 text-dark">About</a>
-			<a href="/journal" class="text-sm font-semibold py-2 text-dark">Field Journal</a>
-			<button onclick="document.getElementById('pilot-modal').classList.remove('hidden')" class="bg-dark text-canvas px-5 py-3 rounded-full text-xs font-semibold text-center mt-2">
-				Partner / Request Pilot &rarr;
-			</button>
 		</div>
 	</header>
 
 	<!-- MAIN CONTENT SLOT -->
-	<main class="flex-grow z-10">
+	<main style="flex-grow: 1; z-index: 10; position: relative;">
 		<slot />
 	</main>
 
 	<!-- GLOBAL FOOTER -->
-	<footer class="bg-dark text-canvas mt-28 border-t border-stone-800 z-10">
-		<div class="max-w-7xl mx-auto px-6 py-16">
-			<div class="grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-stone-800 pb-12">
-				<div class="md:col-span-2">
-					<div class="flex items-center gap-3 mb-4">
-						<span class="w-8 h-8 rounded-full bg-accent text-dark flex items-center justify-center font-mono font-bold text-xs">DS</span>
-						<span class="font-serif font-bold text-2xl text-white">DUAL<span class="italic font-normal text-accent ml-1">Shield</span></span>
+	<footer style="background-color: var(--bg-dark); color: #FFFFFF; margin-top: 6rem; border-top: 1px solid #1E293B; z-index: 10; position: relative;">
+		<div class="container-custom" style="padding-top: 5rem; padding-bottom: 4rem;">
+			<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 3rem; border-bottom: 1px solid #1E293B; padding-bottom: 3rem;">
+				<div style="grid-column: span 2;">
+					<div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+						<span style="width: 2rem; height: 2rem; border-radius: 50%; background-color: var(--accent-sky); color: #0F172A; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-weight: 700; font-size: 0.75rem;">DS</span>
+						<span style="font-family: var(--font-serif); font-weight: 700; font-size: 1.5rem; color: #FFFFFF;">DUAL<span style="font-style: italic; font-weight: 400; color: var(--accent-sky); margin-left: 0.25rem;">Shield</span></span>
 					</div>
-					<p class="text-stone-400 text-sm max-w-md font-sans leading-relaxed mb-6">
+					<p style="color: #94A3B8; font-size: 0.875rem; max-width: 28rem; line-height: 1.6; margin-bottom: 1.5rem;">
 						An intelligent hemodialysis decision support architecture engineered for Egyptian clinical environments. Anticipating patient risk trajectories while safeguarding ward-wide safety.
 					</p>
-					<div class="flex flex-wrap gap-3">
-						<span class="px-3 py-1 rounded-full bg-stone-800 text-stone-300 font-mono text-[11px]">Pharos University in Alexandria</span>
-						<span class="px-3 py-1 rounded-full bg-stone-800 text-stone-300 font-mono text-[11px]">AY 2026/2027</span>
+					<div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+						<span style="padding: 0.25rem 0.75rem; border-radius: 9999px; background-color: #1E293B; color: #CBD5E1; font-family: var(--font-mono); font-size: 0.6875rem;">Pharos University in Alexandria</span>
+						<span style="padding: 0.25rem 0.75rem; border-radius: 9999px; background-color: #1E293B; color: #CBD5E1; font-family: var(--font-mono); font-size: 0.6875rem;">AY 2026/2027</span>
 					</div>
 				</div>
 
 				<div>
-					<h4 class="font-mono text-xs uppercase tracking-widest text-stone-400 mb-4">Platform Pages</h4>
-					<ul class="space-y-2.5 font-sans text-sm text-stone-300">
-						<li><a href="/" class="hover:text-accent transition-colors">Home / Landing</a></li>
-						<li><a href="/architecture" class="hover:text-accent transition-colors">System Architecture</a></li>
-						<li><a href="/evidence" class="hover:text-accent transition-colors">Clinical Evidence</a></li>
-						<li><a href="/about" class="hover:text-accent transition-colors">About Team & Origin</a></li>
-						<li><a href="/journal" class="hover:text-accent transition-colors">Field Journal Build Log</a></li>
+					<h4 style="font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #94A3B8; margin-bottom: 1rem;">Platform Pages</h4>
+					<ul style="list-style: none; space-y: 0.625rem; font-size: 0.875rem; color: #CBD5E1;">
+						<li><a href="/" style="color: #CBD5E1; text-decoration: none;">Home / Landing</a></li>
+						<li style="margin-top: 0.5rem;"><a href="/architecture" style="color: #CBD5E1; text-decoration: none;">System Architecture</a></li>
+						<li style="margin-top: 0.5rem;"><a href="/evidence" style="color: #CBD5E1; text-decoration: none;">Clinical Evidence</a></li>
+						<li style="margin-top: 0.5rem;"><a href="/about" style="color: #CBD5E1; text-decoration: none;">About Team & Origin</a></li>
+						<li style="margin-top: 0.5rem;"><a href="/journal" style="color: #CBD5E1; text-decoration: none;">Field Journal Build Log</a></li>
 					</ul>
 				</div>
 
 				<div>
-					<h4 class="font-mono text-xs uppercase tracking-widest text-stone-400 mb-4">Academic Supervision</h4>
-					<p class="text-sm text-stone-300 font-sans leading-relaxed mb-2">
+					<h4 style="font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #94A3B8; margin-bottom: 1rem;">Academic Supervision</h4>
+					<p style="font-size: 0.875rem; color: #CBD5E1; line-height: 1.5; margin-bottom: 0.5rem;">
 						<strong>Dr. Mohamed Abdou</strong><br />
 						Office of the Dean<br />
 						Faculty of Computer Science & AI
 					</p>
-					<p class="text-xs text-stone-400 font-mono">
+					<p style="font-size: 0.75rem; color: #94A3B8; font-family: var(--font-mono); margin-top: 0.5rem;">
 						Team: Aya Anwer, Ahmed Nassar, Amr Khaled, Ahmed Gamal, Abdelrahman Seif, Shaza Hany
 					</p>
 				</div>
 			</div>
 
-			<div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-stone-500 font-mono gap-4">
+			<div style="padding-top: 2rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; font-size: 0.75rem; color: #64748B; font-family: var(--font-mono); gap: 1rem;">
 				<div>© 2026 Dual Shield Hemodialysis Architecture. All Rights Reserved.</div>
-				<div class="flex gap-6">
-					<a href="/architecture" class="hover:text-stone-300">FHIR Specification</a>
-					<a href="/journal" class="hover:text-stone-300">Field Survey Audit</a>
-					<button onclick="document.getElementById('pilot-modal').classList.remove('hidden')" class="hover:text-accent">Request Deployment</button>
+				<div style="display: flex; gap: 1.5rem;">
+					<a href="/architecture" style="color: #64748B; text-decoration: none;">FHIR Specification</a>
+					<a href="/journal" style="color: #64748B; text-decoration: none;">Field Survey Audit</a>
+					<button onclick="document.getElementById('pilot-modal').classList.remove('hidden')" style="background: none; border: none; color: var(--accent-sky); cursor: pointer;">Request Deployment</button>
 				</div>
 			</div>
 		</div>
 	</footer>
 
 	<!-- GLOBAL PARTNER / REQUEST PILOT MODAL DIALOGUE -->
-	<div id="pilot-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-dark/80 backdrop-blur-md">
-		<div class="bg-canvas border border-stone-200 rounded-3xl max-w-lg w-full p-8 relative shadow-2xl animate-fade-in">
-			<button onclick="document.getElementById('pilot-modal').classList.add('hidden')" class="absolute top-6 right-6 w-9 h-9 rounded-full bg-stone-200 flex items-center justify-center text-stone-600 hover:text-dark">
+	<div id="pilot-modal" class="hidden" style="position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; padding: 1rem; background-color: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px);">
+		<div style="background-color: var(--bg-canvas); border: 1px solid var(--border-stone); border-radius: 1.5rem; max-width: 32rem; width: 100%; padding: 2rem; position: relative; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);">
+			<button onclick="document.getElementById('pilot-modal').classList.add('hidden')" style="position: absolute; top: 1.5rem; right: 1.5rem; width: 2.25rem; height: 2.25rem; border-radius: 50%; background-color: #E2E8F0; border: none; cursor: pointer; font-size: 1.25rem; color: #475569;">
 				&times;
 			</button>
 
-			<div class="flex items-center gap-2 mb-2">
-				<span class="px-2.5 py-0.5 rounded-full bg-accent/10 text-accent font-mono text-[11px] font-bold">STAGE 0 BLUEPRINT</span>
-				<span class="font-mono text-[11px] text-stone-500">1ST PILOT SITE OUTREACH</span>
+			<div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+				<span class="badge-chip badge-sky">STAGE 0 BLUEPRINT</span>
+				<span style="font-family: var(--font-mono); font-size: 0.6875rem; color: #64748B;">1ST PILOT SITE OUTREACH</span>
 			</div>
 
-			<h3 class="font-serif text-3xl font-bold text-dark mb-2">Partner with Dual Shield</h3>
-			<p class="text-sm text-stone-600 mb-6 leading-relaxed">
+			<h3 style="font-family: var(--font-serif); font-size: 1.75rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.5rem;">Partner with Dual Shield</h3>
+			<p style="font-size: 0.875rem; color: #475569; margin-bottom: 1.5rem; line-height: 1.5;">
 				We are actively seeking our first clinical hemodialysis unit deployment site in Egypt. Hospital Directors, Nephrologists, and Engineering Donors can submit inquiries directly.
 			</p>
 
-			<form onsubmit="event.preventDefault(); alert('Inquiry sent to Pharos University Dean Office and Student Engineering Lead.'); document.getElementById('pilot-modal').classList.add('hidden');" class="space-y-4">
+			<form onsubmit="event.preventDefault(); alert('Inquiry sent to Pharos University Dean Office and Student Engineering Lead.'); document.getElementById('pilot-modal').classList.add('hidden');" style="display: flex; flex-direction: column; gap: 1rem;">
 				<div>
-					<label class="block font-mono text-xs font-semibold text-stone-700 mb-1">Your Name & Role</label>
-					<input type="text" required placeholder="e.g. Dr. Sherif Hassan, Unit Director" class="w-full px-4 py-3 rounded-xl border border-stone-300 bg-white text-sm focus:outline-none focus:border-accent">
+					<label style="display: block; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 600; color: #334155; margin-bottom: 0.25rem;">Your Name & Role</label>
+					<input type="text" required placeholder="e.g. Dr. Sherif Hassan, Unit Director" style="width: 100%; padding: 0.75rem 1rem; border-radius: 0.75rem; border: 1px solid #CBD5E1; background-color: #FFFFFF; font-size: 0.875rem; outline: none;">
 				</div>
 				<div>
-					<label class="block font-mono text-xs font-semibold text-stone-700 mb-1">Institution / Dialysis Center</label>
-					<input type="text" required placeholder="Hospital or Dialysis Center Name" class="w-full px-4 py-3 rounded-xl border border-stone-300 bg-white text-sm focus:outline-none focus:border-accent">
+					<label style="display: block; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 600; color: #334155; margin-bottom: 0.25rem;">Institution / Dialysis Center</label>
+					<input type="text" required placeholder="Hospital or Dialysis Center Name" style="width: 100%; padding: 0.75rem 1rem; border-radius: 0.75rem; border: 1px solid #CBD5E1; background-color: #FFFFFF; font-size: 0.875rem; outline: none;">
 				</div>
 				<div>
-					<label class="block font-mono text-xs font-semibold text-stone-700 mb-1">Email / WhatsApp Contact</label>
-					<input type="email" required placeholder="contact@hospital.eg" class="w-full px-4 py-3 rounded-xl border border-stone-300 bg-white text-sm focus:outline-none focus:border-accent">
+					<label style="display: block; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 600; color: #334155; margin-bottom: 0.25rem;">Email / WhatsApp Contact</label>
+					<input type="email" required placeholder="contact@hospital.eg" style="width: 100%; padding: 0.75rem 1rem; border-radius: 0.75rem; border: 1px solid #CBD5E1; background-color: #FFFFFF; font-size: 0.875rem; outline: none;">
 				</div>
 				<div>
-					<label class="block font-mono text-xs font-semibold text-stone-700 mb-1">Inquiry Type</label>
-					<select class="w-full px-4 py-3 rounded-xl border border-stone-300 bg-white text-sm focus:outline-none focus:border-accent">
+					<label style="display: block; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 600; color: #334155; margin-bottom: 0.25rem;">Inquiry Type</label>
+					<select style="width: 100%; padding: 0.75rem 1rem; border-radius: 0.75rem; border: 1px solid #CBD5E1; background-color: #FFFFFF; font-size: 0.875rem; outline: none;">
 						<option>Clinical Deployment Partner (Hospital Unit)</option>
 						<option>Hardware Telemetry Sensor Donor</option>
 						<option>Academic / Engineering Collaborator</option>
 					</select>
 				</div>
-				<button type="submit" class="w-full bg-dark hover:bg-stone-800 text-canvas font-semibold text-xs py-3.5 rounded-xl uppercase tracking-wider transition-colors">
+				<button type="submit" class="btn-primary" style="width: 100%; justify-content: center; margin-top: 0.5rem;">
 					Submit Deployment Inquiry &rarr;
 				</button>
 			</form>

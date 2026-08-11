@@ -93,13 +93,18 @@ Suggested solutions:
 - Doctor diagnosis data collection and preprocessing
 - Automatic dalysis prescription system using AI, ML, LLMs and Data analysis to analyze the trends of each patient to Automatically notify the nurse with the details of each medication and notices 
 - All nurses know all the risks and dangers about any patient at any time due to the instant connecion with the doctors office 
-- Nurses interface (Desktop on counter or/And application)
+- Nurses interface (Desktop on counter or/And application), Fail safe Mobile AND web alternatives
 - (optional) Patient interface
 3. Medical diagnosis trend analysis and intelligent insights system
 - Medical analysis and pattern recognition that takes the patient data and outputs a prescription and assessments reliably and algorithmically
 4. MedGemma integration, an added layer of security and assistance for patients 
 5. An IoT integrated alert system for nurses desktop and mobile dashboards and doctor consensus system for critical decisions
+- Heat problems predictions ()
+- Key real time Mineral sensors
+- Vital real time sensors
+- Auto injection devices based on Time and/or automated Condition 
 6. Anonymous Reporting mechanism for patients
+7. Early irreversible damage ML predictors (Ferritin decline, Thyroid problems, Bone problems, Cardiac problems, Ingestion problems, and etc)
 
 
 Questions:

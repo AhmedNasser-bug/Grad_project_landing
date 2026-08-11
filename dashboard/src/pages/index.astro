@@ -5,108 +5,108 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="The Dual Shield for Hemodialysis | Egyptian Clinical Intelligence Architecture" activePage="home">
 
 	<!-- SECTION 1: HERO VIEWPORT (The Dual Shield Pitch) -->
-	<section class="relative pt-12 pb-24 lg:pt-20 lg:pb-32 overflow-hidden z-10">
-		<div class="max-w-7xl mx-auto px-6">
+	<section class="section-padding" style="position: relative; overflow: hidden; z-index: 10; padding-top: 4rem; padding-bottom: 6rem;">
+		<div class="container-custom">
 			
 			<!-- Status & Truth Badges -->
-			<div class="flex flex-wrap items-center gap-3 mb-8">
-				<span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent font-mono text-xs font-semibold">
-					<span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+			<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; margin-bottom: 2rem;">
+				<span class="badge-chip badge-sky">
+					<span style="width: 0.5rem; height: 0.5rem; border-radius: 50%; background-color: var(--accent-sky);"></span>
 					Blueprint & Field Survey Stage
 				</span>
-				<span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-teal/10 border border-accent-teal/20 text-accent-teal font-mono text-xs font-semibold">
-					<i class="fa-solid fa-hospital-user text-[10px]"></i>
+				<span class="badge-chip badge-teal">
+					<i class="fa-solid fa-hospital-user" style="font-size: 0.625rem;"></i>
 					Seeking 1st Clinical Partner
 				</span>
-				<span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-stone-200/80 border border-stone-300 text-stone-700 font-mono text-xs">
+				<span class="badge-chip badge-stone">
 					HL7 FHIR Architecture
 				</span>
 			</div>
 
-			<!-- Main Heading (Virtual Wellbeing Hub Inspo: Mixed Serif & Italic Typography) -->
-			<div class="max-w-5xl mb-10">
-				<h1 class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-dark leading-[0.95] tracking-tight mb-6">
-					The <span class="italic font-normal text-accent underline decoration-accent/30 decoration-wavy decoration-2">Dual Shield</span> for Hemodialysis.
-					<span class="block mt-2 font-serif font-light text-stone-700">Anticipating <span class="italic font-normal text-accent-teal">Patient Risk</span>.</span>
-					<span class="block font-serif font-normal text-dark">Safeguarding the <span class="italic font-semibold text-dark">Ward</span>.</span>
+			<!-- Main Heading (Virtual Wellbeing Hub Inspo: Editorial Serif & Italic Typography) -->
+			<div style="max-width: 64rem; margin-bottom: 2.5rem;">
+				<h1 class="hero-title">
+					The <span style="font-style: italic; font-weight: 400; color: var(--accent-sky);">Dual Shield</span> for Hemodialysis.
+					<span style="display: block; margin-top: 0.5rem; font-weight: 300; color: #334155;">Anticipating <span style="font-style: italic; font-weight: 400; color: var(--accent-teal);">Patient Risk</span>.</span>
+					<span style="display: block; font-weight: 700; color: var(--text-dark);">Safeguarding the <span style="font-style: italic; font-weight: 600;">Ward</span>.</span>
 				</h1>
 
-				<p class="text-stone-600 text-lg md:text-xl font-sans max-w-3xl leading-relaxed font-light">
+				<p class="hero-subtitle">
 					Beyond record-keeping: an architectural framework designed to map individual patient risk trajectories while calculating real-time ward safety scores to catch complications before they happen.
 				</p>
 			</div>
 
 			<!-- Hero Action Buttons -->
-			<div class="flex flex-wrap items-center gap-4 mb-16">
-				<a href="#dual-shield-pillars" class="bg-dark hover:bg-stone-800 text-canvas px-8 py-4 rounded-full text-xs font-semibold uppercase tracking-wider transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 inline-flex items-center gap-3">
+			<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-bottom: 4rem;">
+				<a href="#dual-shield-pillars" class="btn-primary">
 					<span>Explore the Dual Shield</span>
-					<i class="fa-solid fa-arrow-down text-accent"></i>
+					<i class="fa-solid fa-arrow-down" style="color: var(--accent-sky);"></i>
 				</a>
-				<a href="/journal" class="bg-white hover:bg-stone-100 text-dark border border-stone-300 px-8 py-4 rounded-full text-xs font-semibold uppercase tracking-wider transition-all inline-flex items-center gap-3">
+				<a href="/journal" class="btn-secondary">
 					<span>Read the Field Journal</span>
-					<i class="fa-solid fa-book-open text-stone-500"></i>
+					<i class="fa-solid fa-book-open" style="color: var(--text-light);"></i>
 				</a>
 			</div>
 
 			<!-- Visual Canvas Backplate: Telemetry Node Mockup -->
-			<div class="relative rounded-3xl overflow-hidden border border-stone-300/80 bg-white shadow-2xl p-6 sm:p-10">
-				<div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-stone-200 pb-6 mb-8 gap-4">
+			<div class="card-white" style="padding: 2.5rem; box-shadow: 0 20px 40px rgba(0,0,0,0.06);">
+				<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-stone); padding-bottom: 1.5rem; margin-bottom: 2rem; gap: 1rem;">
 					<div>
-						<div class="font-mono text-xs text-stone-400 uppercase tracking-widest">REAL-TIME SHIELD OBSERVABILITY</div>
-						<div class="font-serif text-2xl font-bold text-dark mt-1">Ward Telemetry & Individual Patient Baseline</div>
+						<div style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700;">REAL-TIME SHIELD OBSERVABILITY</div>
+						<div style="font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; color: var(--text-dark); margin-top: 0.25rem;">Ward Telemetry & Individual Patient Baseline</div>
 					</div>
-					<div class="flex items-center gap-3">
-						<span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 font-mono text-xs font-semibold">
+					<div style="display: flex; align-items: center; gap: 0.75rem;">
+						<span style="padding: 0.375rem 0.875rem; border-radius: 9999px; background-color: #ECFDF5; color: #047857; border: 1px solid #A7F3D0; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 600;">
 							● 12 Bed Stations Connected
 						</span>
-						<span class="px-3 py-1 rounded-full bg-sky-50 text-sky-700 border border-sky-200 font-mono text-xs">
+						<span style="padding: 0.375rem 0.875rem; border-radius: 9999px; background-color: #F0F9FF; color: #0369A1; border: 1px solid #BAE6FD; font-family: var(--font-mono); font-size: 0.75rem;">
 							Ward Safety: 98.4 / 100
 						</span>
 					</div>
 				</div>
 
 				<!-- Dual Stream Interactive Visualization Cards -->
-				<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+				<div class="grid-2">
 					<!-- Per-Patient Live Stream -->
-					<div class="p-6 rounded-2xl bg-stone-50 border border-stone-200/80">
-						<div class="flex justify-between items-center mb-4">
-							<span class="font-mono text-xs font-bold text-accent uppercase">PER-PATIENT SHIELD // STATION #04</span>
-							<span class="font-mono text-xs text-stone-500">Bed 04 • Ahmed M.</span>
+					<div style="padding: 1.5rem; border-radius: 1rem; background-color: var(--bg-canvas-muted); border: 1px solid var(--border-stone);">
+						<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+							<span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; color: var(--accent-sky); text-transform: uppercase;">PER-PATIENT SHIELD // STATION #04</span>
+							<span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-light);">Bed 04 • Ahmed M.</span>
 						</div>
-						<div class="space-y-3">
-							<div class="flex justify-between items-center text-xs font-mono py-2 border-b border-stone-200">
-								<span class="text-stone-600">Dynamic Dry Weight Trajectory:</span>
-								<span class="font-bold text-dark">72.4 kg (-0.2 kg drift)</span>
+						<div style="display: flex; flex-direction: column; gap: 0.75rem;">
+							<div style="display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-stone);">
+								<span style="color: var(--text-muted);">Dynamic Dry Weight Trajectory:</span>
+								<span style="font-weight: 700; color: var(--text-dark);">72.4 kg (-0.2 kg drift)</span>
 							</div>
-							<div class="flex justify-between items-center text-xs font-mono py-2 border-b border-stone-200">
-								<span class="text-stone-600">Intradialytic Hypotension (IDH) Risk:</span>
-								<span class="font-bold text-emerald-600">LOW (0.12 Prob @ t+45m)</span>
+							<div style="display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-stone);">
+								<span style="color: var(--text-muted);">Intradialytic Hypotension (IDH) Risk:</span>
+								<span style="font-weight: 700; color: var(--accent-emerald);">LOW (0.12 Prob @ t+45m)</span>
 							</div>
-							<div class="flex justify-between items-center text-xs font-mono py-2">
-								<span class="text-stone-600">Ultrafiltration Rate (UFR):</span>
-								<span class="font-bold text-dark">10.2 mL/kg/h</span>
+							<div style="display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 0.75rem;">
+								<span style="color: var(--text-muted);">Ultrafiltration Rate (UFR):</span>
+								<span style="font-weight: 700; color: var(--text-dark);">10.2 mL/kg/h</span>
 							</div>
 						</div>
 					</div>
 
 					<!-- Per-Unit Ward Quality Stream -->
-					<div class="p-6 rounded-2xl bg-stone-50 border border-stone-200/80">
-						<div class="flex justify-between items-center mb-4">
-							<span class="font-mono text-xs font-bold text-accent-teal uppercase">PER-UNIT SHIELD // WARD-WIDE</span>
-							<span class="font-mono text-xs text-stone-500">Alexandria Unit A</span>
+					<div style="padding: 1.5rem; border-radius: 1rem; background-color: var(--bg-canvas-muted); border: 1px solid var(--border-stone);">
+						<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+							<span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; color: var(--accent-teal); text-transform: uppercase;">PER-UNIT SHIELD // WARD-WIDE</span>
+							<span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-light);">Alexandria Unit A</span>
 						</div>
-						<div class="space-y-3">
-							<div class="flex justify-between items-center text-xs font-mono py-2 border-b border-stone-200">
-								<span class="text-stone-600">Water Treatment Loop Conductivity:</span>
-								<span class="font-bold text-emerald-600">14.1 mS/cm (Optimal)</span>
+						<div style="display: flex; flex-direction: column; gap: 0.75rem;">
+							<div style="display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-stone);">
+								<span style="color: var(--text-muted);">Water Treatment Loop Conductivity:</span>
+								<span style="font-weight: 700; color: var(--accent-emerald);">14.1 mS/cm (Optimal)</span>
 							</div>
-							<div class="flex justify-between items-center text-xs font-mono py-2 border-b border-stone-200">
-								<span class="text-stone-600">Dialysate pH Balance (All Beds):</span>
-								<span class="font-bold text-dark">7.38 pH</span>
+							<div style="display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-stone);">
+								<span style="color: var(--text-muted);">Dialysate pH Balance (All Beds):</span>
+								<span style="font-weight: 700; color: var(--text-dark);">7.38 pH</span>
 							</div>
-							<div class="flex justify-between items-center text-xs font-mono py-2">
-								<span class="text-stone-600">Cross-Station Anomaly Detector:</span>
-								<span class="font-bold text-emerald-600">0 Systemic Shifts Detected</span>
+							<div style="display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 0.75rem;">
+								<span style="color: var(--text-muted);">Cross-Station Anomaly Detector:</span>
+								<span style="font-weight: 700; color: var(--accent-emerald);">0 Systemic Shifts Detected</span>
 							</div>
 						</div>
 					</div>
@@ -117,86 +117,86 @@ import Layout from '../layouts/Layout.astro';
 	</section>
 
 	<!-- SECTION 2: THE CORE USP (Per-Patient vs. Per-Unit Dual Shield) -->
-	<section id="dual-shield-pillars" class="py-24 bg-canvas-muted/60 border-y border-stone-200/80 relative z-10">
-		<div class="max-w-7xl mx-auto px-6">
-			<div class="text-center max-w-3xl mx-auto mb-16">
-				<span class="font-mono text-xs uppercase tracking-widest text-accent font-bold">THE CORE USP</span>
-				<h2 class="font-serif text-4xl sm:text-5xl text-dark mt-2 font-bold">
-					Two Interlocked Shields. <span class="italic font-normal text-stone-600">One Clinical Platform.</span>
+	<section id="dual-shield-pillars" class="section-padding" style="background-color: rgba(239, 239, 234, 0.5); border-top: 1px solid var(--border-stone); border-bottom: 1px solid var(--border-stone); position: relative; z-index: 10;">
+		<div class="container-custom">
+			<div style="text-align: center; max-width: 48rem; margin: 0 auto 4rem;">
+				<span style="font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-sky); font-weight: 700;">THE CORE USP</span>
+				<h2 style="font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); color: var(--text-dark); margin-top: 0.5rem; font-weight: 700;">
+					Two Interlocked Shields. <span style="font-style: italic; font-weight: 400; color: var(--text-muted);">One Clinical Platform.</span>
 				</h2>
-				<p class="text-stone-600 font-sans mt-4 font-light text-lg">
+				<p style="color: var(--text-muted); font-size: 1.125rem; margin-top: 1rem; font-weight: 300; line-height: 1.6;">
 					Traditional software focuses purely on record archiving. Dual Shield provides simultaneous real-time vigilance for individual collapses and ward-wide equipment shifts.
 				</p>
 			</div>
 
 			<!-- Split-Canvas 2 Pillars -->
-			<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+			<div class="grid-2">
 				
 				<!-- Left Pillar: Per-Patient Risk Profile -->
-				<div class="bg-white rounded-3xl p-8 sm:p-12 border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+				<div class="card-white" style="display: flex; flex-direction: column; justify-content: space-between;">
 					<div>
-						<div class="w-14 h-14 rounded-2xl bg-sky-50 text-accent flex items-center justify-center text-2xl font-bold mb-8 group-hover:scale-110 transition-transform">
+						<div style="width: 3.5rem; height: 3.5rem; border-radius: 1rem; background-color: #F0F9FF; color: var(--accent-sky); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin-bottom: 2rem;">
 							<i class="fa-solid fa-user-shield"></i>
 						</div>
-						<div class="font-mono text-xs uppercase tracking-wider text-accent font-bold mb-2">LEFT PILLAR</div>
-						<h3 class="font-serif text-3xl font-bold text-dark mb-4">The Per-Patient Risk Profile</h3>
-						<p class="text-stone-600 text-base leading-relaxed font-light mb-8">
+						<div style="font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-sky); font-weight: 700; margin-bottom: 0.5rem;">LEFT PILLAR</div>
+						<h3 style="font-family: var(--font-serif); font-size: 1.875rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1rem;">The Per-Patient Risk Profile</h3>
+						<p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; font-weight: 300; margin-bottom: 2rem;">
 							Designed to track individual baseline shifts, calculate dynamic dry weight trajectories, and predict Intradialytic Hypotension (IDH) 15–75 minutes before a patient collapses.
 						</p>
 
-						<ul class="space-y-3 font-sans text-sm text-stone-700 mb-8">
-							<li class="flex items-start gap-3">
-								<i class="fa-solid fa-check text-accent mt-1"></i>
+						<ul style="list-style: none; space-y: 1rem; font-size: 0.875rem; color: #334155; margin-bottom: 2rem;">
+							<li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
+								<i class="fa-solid fa-check" style="color: var(--accent-sky); margin-top: 0.25rem;"></i>
 								<span><strong>Intradialytic Hypotension Early Warning:</strong> RNN models alerting nurses before systolic drop occurs.</span>
 							</li>
-							<li class="flex items-start gap-3">
-								<i class="fa-solid fa-check text-accent mt-1"></i>
+							<li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
+								<i class="fa-solid fa-check" style="color: var(--accent-sky); margin-top: 0.25rem;"></i>
 								<span><strong>Dynamic Dry Weight Recalibration:</strong> Detecting fluid overload vs muscle atrophy across sequential sessions.</span>
 							</li>
-							<li class="flex items-start gap-3">
-								<i class="fa-solid fa-check text-accent mt-1"></i>
+							<li style="display: flex; align-items: flex-start; gap: 0.75rem;">
+								<i class="fa-solid fa-check" style="color: var(--accent-sky); margin-top: 0.25rem;"></i>
 								<span><strong>MedGemma Prescription Interception:</strong> Catching unadjusted renal medication dosages before administration.</span>
 							</li>
 						</ul>
 					</div>
 
-					<div class="pt-6 border-t border-stone-100 flex items-center justify-between text-xs font-mono text-stone-500">
+					<div style="padding-top: 1.5rem; border-top: 1px solid var(--border-stone); display: flex; align-items: center; justify-content: space-between; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-light);">
 						<span>FOCUS: INDIVIDUAL SAFETY</span>
-						<a href="/architecture" class="text-accent font-bold hover:underline">View FHIR Specs &rarr;</a>
+						<a href="/architecture" style="color: var(--accent-sky); font-weight: 700; text-decoration: none;">View FHIR Specs &rarr;</a>
 					</div>
 				</div>
 
 				<!-- Right Pillar: Per-Unit Quality Score -->
-				<div class="bg-white rounded-3xl p-8 sm:p-12 border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+				<div class="card-white" style="display: flex; flex-direction: column; justify-content: space-between;">
 					<div>
-						<div class="w-14 h-14 rounded-2xl bg-teal-50 text-accent-teal flex items-center justify-center text-2xl font-bold mb-8 group-hover:scale-110 transition-transform">
+						<div style="width: 3.5rem; height: 3.5rem; border-radius: 1rem; background-color: #CCFBF1; color: var(--accent-teal); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin-bottom: 2rem;">
 							<i class="fa-solid fa-building-shield"></i>
 						</div>
-						<div class="font-mono text-xs uppercase tracking-wider text-accent-teal font-bold mb-2">RIGHT PILLAR</div>
-						<h3 class="font-serif text-3xl font-bold text-dark mb-4">The Per-Unit Quality Score</h3>
-						<p class="text-stone-600 text-base leading-relaxed font-light mb-8">
-							A ward-level shield that monitors collective telemetry across all active beds to flag electrolyte drops, water purification failures, and machine defects before widespread harm occurs.
+						<div style="font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-teal); font-weight: 700; margin-bottom: 0.5rem;">RIGHT PILLAR</div>
+						<h3 style="font-family: var(--font-serif); font-size: 1.875rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1rem;">The Per-Unit Quality Score</h3>
+						<p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; font-weight: 300; margin-bottom: 2rem;">
+							A ward-level shield that monitors collective telemetry across all active beds to flag electrolyte drops, water purification failures, and equipment defects before widespread harm occurs.
 						</p>
 
-						<ul class="space-y-3 font-sans text-sm text-stone-700 mb-8">
-							<li class="flex items-start gap-3">
-								<i class="fa-solid fa-check text-accent-teal mt-1"></i>
+						<ul style="list-style: none; space-y: 1rem; font-size: 0.875rem; color: #334155; margin-bottom: 2rem;">
+							<li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
+								<i class="fa-solid fa-check" style="color: var(--accent-teal); margin-top: 0.25rem;"></i>
 								<span><strong>Cross-Station Anomaly Detector:</strong> Catching simultaneous vital shifts across multiple stations.</span>
 							</li>
-							<li class="flex items-start gap-3">
-								<i class="fa-solid fa-check text-accent-teal mt-1"></i>
+							<li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
+								<i class="fa-solid fa-check" style="color: var(--accent-teal); margin-top: 0.25rem;"></i>
 								<span><strong>Water Treatment Loop Guard:</strong> Continuous conductivity and chloramine surveillance replacing manual paper logs.</span>
 							</li>
-							<li class="flex items-start gap-3">
-								<i class="fa-solid fa-check text-accent-teal mt-1"></i>
+							<li style="display: flex; align-items: flex-start; gap: 0.75rem;">
+								<i class="fa-solid fa-check" style="color: var(--accent-teal); margin-top: 0.25rem;"></i>
 								<span><strong>Equipment Defect Isolation:</strong> Identifying dialyzer membrane degradation before patient exposure.</span>
 							</li>
 						</ul>
 					</div>
 
-					<div class="pt-6 border-t border-stone-100 flex items-center justify-between text-xs font-mono text-stone-500">
+					<div style="padding-top: 1.5rem; border-top: 1px solid var(--border-stone); display: flex; align-items: center; justify-content: space-between; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-light);">
 						<span>FOCUS: WARD-WIDE PROTECTION</span>
-						<a href="/architecture" class="text-accent-teal font-bold hover:underline">View Ward Specs &rarr;</a>
+						<a href="/architecture" style="color: var(--accent-teal); font-weight: 700; text-decoration: none;">View Ward Specs &rarr;</a>
 					</div>
 				</div>
 
@@ -205,103 +205,103 @@ import Layout from '../layouts/Layout.astro';
 	</section>
 
 	<!-- SECTION 3: THE UNMONITORED REALITY (Scrollytelling Split-Screen) -->
-	<section class="py-24 bg-canvas relative z-10">
-		<div class="max-w-7xl mx-auto px-6">
+	<section class="section-padding" style="position: relative; z-index: 10;">
+		<div class="container-custom">
 			
-			<div class="mb-16">
-				<span class="font-mono text-xs uppercase tracking-widest text-accent-rose font-bold">FIELD SURVEY EVIDENCE</span>
-				<h2 class="font-serif text-4xl sm:text-5xl text-dark mt-2 font-bold max-w-3xl">
-					The Unmonitored Reality: <span class="italic font-normal text-stone-600">Paper Charts vs. Digital Vigilance</span>
+			<div style="margin-bottom: 4rem;">
+				<span style="font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-rose); font-weight: 700;">FIELD SURVEY EVIDENCE</span>
+				<h2 style="font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); color: var(--text-dark); margin-top: 0.5rem; font-weight: 700; max-width: 48rem;">
+					The Unmonitored Reality: <span style="font-style: italic; font-weight: 400; color: var(--text-muted);">Paper Charts vs. Digital Vigilance</span>
 				</h2>
 			</div>
 
 			<!-- Scrollytelling Split Grid -->
-			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+			<div class="grid-2" style="align-items: start;">
 				
 				<!-- Left Column: Text Narrative (2 Real Failure Modes) -->
-				<div class="lg:col-span-6 space-y-12">
+				<div style="display: flex; flex-direction: column; gap: 3rem;">
 					
 					<!-- Failure Mode 1 -->
-					<div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-sm relative">
-						<div class="w-8 h-8 rounded-full bg-rose-100 text-rose-600 font-mono font-bold text-xs flex items-center justify-center mb-4">
+					<div class="card-white" style="position: relative;">
+						<div style="width: 2rem; height: 2rem; border-radius: 50%; background-color: #FFE4E6; color: var(--accent-rose); font-family: var(--font-mono); font-weight: 700; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
 							01
 						</div>
-						<h3 class="font-serif text-2xl font-bold text-dark mb-3">Failure Mode 1: The Silent Ward Failure</h3>
-						<p class="text-stone-600 text-base leading-relaxed font-light mb-4">
+						<h3 style="font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.75rem;">Failure Mode 1: The Silent Ward Failure</h3>
+						<p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; font-weight: 300; margin-bottom: 1rem;">
 							How unrecognized mineral drops spread across multiple patients when logs remain trapped on separate physical paper charts.
 						</p>
-						<p class="text-xs text-stone-500 font-mono leading-normal bg-stone-50 p-4 rounded-xl border border-stone-200">
+						<div style="font-size: 0.75rem; color: #475569; font-family: var(--font-mono); line-height: 1.5; background-color: var(--bg-canvas-muted); padding: 1rem; border-radius: 0.75rem; border: 1px solid var(--border-stone);">
 							<strong>Field Audit Finding:</strong> In unassisted paper units, a water purification failure or chloramine leak can affect 6–10 beds simultaneously before any individual chart indicates an anomaly.
-						</p>
+						</div>
 					</div>
 
 					<!-- Failure Mode 2 -->
-					<div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-sm relative">
-						<div class="w-8 h-8 rounded-full bg-rose-100 text-rose-600 font-mono font-bold text-xs flex items-center justify-center mb-4">
+					<div class="card-white" style="position: relative;">
+						<div style="width: 2rem; height: 2rem; border-radius: 50%; background-color: #FFE4E6; color: var(--accent-rose); font-family: var(--font-mono); font-weight: 700; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
 							02
 						</div>
-						<h3 class="font-serif text-2xl font-bold text-dark mb-3">Failure Mode 2: The Human Blindspot</h3>
-						<p class="text-stone-600 text-base leading-relaxed font-light mb-4">
+						<h3 style="font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.75rem;">Failure Mode 2: The Human Blindspot</h3>
+						<p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; font-weight: 300; margin-bottom: 1rem;">
 							How nurse fatigue and high patient-to-nurse ratios (up to 1:6 in Egyptian public units) cause subtle, critical vital drops to slip past unassisted eyes.
 						</p>
-						<p class="text-xs text-stone-500 font-mono leading-normal bg-stone-50 p-4 rounded-xl border border-stone-200">
+						<div style="font-size: 0.75rem; color: #475569; font-family: var(--font-mono); line-height: 1.5; background-color: var(--bg-canvas-muted); padding: 1rem; border-radius: 0.75rem; border: 1px solid var(--border-stone);">
 							<strong>Field Audit Finding:</strong> Nurses spend an average of 25 minutes per 4-hour session filling physical flowsheets by hand—time taken directly away from bedside patient observation.
-						</p>
+						</div>
 					</div>
 
 				</div>
 
 				<!-- Right Column: Visual Scrubbing Warning Cards -->
-				<div class="lg:col-span-6 sticky top-28 space-y-6">
+				<div style="position: sticky; top: 7rem; display: flex; flex-direction: column; gap: 1.5rem;">
 					
 					<!-- Warning State Card -->
-					<div class="bg-dark text-canvas p-8 rounded-3xl border border-stone-800 shadow-2xl relative overflow-hidden">
-						<div class="flex justify-between items-center mb-6">
-							<span class="font-mono text-xs text-rose-400 font-bold uppercase tracking-wider">
-								<i class="fa-solid fa-triangle-exclamation mr-1"></i> UNMONITORED PAPER STATE
+					<div class="card-dark" style="position: relative;">
+						<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+							<span style="font-family: var(--font-mono); font-size: 0.75rem; color: #FB7185; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+								<i class="fa-solid fa-triangle-exclamation" style="margin-right: 0.25rem;"></i> UNMONITORED PAPER STATE
 							</span>
-							<span class="font-mono text-xs text-stone-400">TRADITIONAL UNIT</span>
+							<span style="font-family: var(--font-mono); font-size: 0.75rem; color: #94A3B8;">TRADITIONAL UNIT</span>
 						</div>
 
-						<div class="space-y-4 mb-6">
-							<div class="bg-stone-900/80 p-4 rounded-xl border border-stone-800 font-mono text-xs">
-								<div class="text-stone-400">PAPER VITAL LOG ENTRY:</div>
-								<div class="text-stone-200 mt-1">10:15 AM — BP 110/70 (Handwritten on paper)</div>
-								<div class="text-rose-400 mt-1">STATUS: Unchecked until 11:15 AM rounds (60m delay)</div>
+						<div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem;">
+							<div style="background-color: rgba(15, 23, 42, 0.9); padding: 1rem; border-radius: 0.75rem; border: 1px solid #334155; font-family: var(--font-mono); font-size: 0.75rem;">
+								<div style="color: #94A3B8;">PAPER VITAL LOG ENTRY:</div>
+								<div style="color: #E2E8F0; margin-top: 0.25rem;">10:15 AM — BP 110/70 (Handwritten on paper)</div>
+								<div style="color: #FB7185; margin-top: 0.25rem;">STATUS: Unchecked until 11:15 AM rounds (60m delay)</div>
 							</div>
-							<div class="bg-stone-900/80 p-4 rounded-xl border border-stone-800 font-mono text-xs">
-								<div class="text-stone-400">CROSS-BED WATER SURVEILLANCE:</div>
-								<div class="text-rose-400 mt-1">NO AUTOMATED TELEMETRY — Manual chlorine strip test missing.</div>
+							<div style="background-color: rgba(15, 23, 42, 0.9); padding: 1rem; border-radius: 0.75rem; border: 1px solid #334155; font-family: var(--font-mono); font-size: 0.75rem;">
+								<div style="color: #94A3B8;">CROSS-BED WATER SURVEILLANCE:</div>
+								<div style="color: #FB7185; margin-top: 0.25rem;">NO AUTOMATED TELEMETRY — Manual chlorine strip test missing.</div>
 							</div>
 						</div>
 
-						<div class="pt-4 border-t border-stone-800 text-xs text-stone-400 font-mono flex justify-between">
+						<div style="padding-top: 1rem; border-top: 1px solid #334155; font-size: 0.75rem; color: #94A3B8; font-family: var(--font-mono); display: flex; justify-content: space-between;">
 							<span>NURSE LOAD: 6 BEDS / NURSE</span>
-							<span class="text-rose-400 font-bold">RISK EXPOSURE HIGH</span>
+							<span style="color: #FB7185; font-weight: 700;">RISK EXPOSURE HIGH</span>
 						</div>
 					</div>
 
 					<!-- Transition to Clean Digital Shield Card -->
-					<div class="bg-gradient-to-br from-sky-950 to-dark text-canvas p-8 rounded-3xl border border-sky-800/50 shadow-2xl relative">
-						<div class="flex justify-between items-center mb-6">
-							<span class="font-mono text-xs text-sky-400 font-bold uppercase tracking-wider">
-								<i class="fa-solid fa-shield-halved mr-1"></i> DUAL SHIELD ACTIVE STATE
+					<div style="background: linear-gradient(135deg, #032B45 0%, #0F172A 100%); color: #FFFFFF; padding: 2rem; border-radius: 1.5rem; border: 1px solid rgba(14, 165, 233, 0.3); box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+						<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+							<span style="font-family: var(--font-mono); font-size: 0.75rem; color: #38BDF8; font-weight: 700; text-transform: uppercase;">
+								<i class="fa-solid fa-shield-halved" style="margin-right: 0.25rem;"></i> DUAL SHIELD ACTIVE STATE
 							</span>
-							<span class="font-mono text-xs text-emerald-400">PROTECTED</span>
+							<span style="font-family: var(--font-mono); font-size: 0.75rem; color: #34D399;">PROTECTED</span>
 						</div>
 
-						<div class="space-y-3 font-mono text-xs">
-							<div class="flex justify-between items-center py-2 border-b border-sky-900/60">
-								<span class="text-sky-200">Continuous Bedside Sensor:</span>
-								<span class="text-emerald-400 font-bold">Streaming @ 60 FPS</span>
+						<div style="display: flex; flex-direction: column; gap: 0.75rem; font-family: var(--font-mono); font-size: 0.75rem;">
+							<div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(14, 165, 233, 0.2);">
+								<span style="color: #BAE6FD;">Continuous Bedside Sensor:</span>
+								<span style="color: #34D399; font-weight: 700;">Streaming @ 60 FPS</span>
 							</div>
-							<div class="flex justify-between items-center py-2 border-b border-sky-900/60">
-								<span class="text-sky-200">IDH Early Warning Horizon:</span>
-								<span class="text-emerald-400 font-bold">Alert Triggered @ t-30m</span>
+							<div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(14, 165, 233, 0.2);">
+								<span style="color: #BAE6FD;">IDH Early Warning Horizon:</span>
+								<span style="color: #34D399; font-weight: 700;">Alert Triggered @ t-30m</span>
 							</div>
-							<div class="flex justify-between items-center py-2">
-								<span class="text-sky-200">Ward Quality Index:</span>
-								<span class="text-emerald-400 font-bold">Safe (0 Anomaly Signals)</span>
+							<div style="display: flex; justify-content: space-between; align-items: center;">
+								<span style="color: #BAE6FD;">Ward Quality Index:</span>
+								<span style="color: #34D399; font-weight: 700;">Safe (0 Anomaly Signals)</span>
 							</div>
 						</div>
 					</div>
@@ -313,50 +313,50 @@ import Layout from '../layouts/Layout.astro';
 	</section>
 
 	<!-- SECTION 4: FIELD SURVEY REALITY METRICS -->
-	<section class="py-20 bg-dark text-canvas relative z-10 border-y border-stone-800">
-		<div class="max-w-7xl mx-auto px-6">
+	<section class="section-padding" style="background-color: var(--bg-dark); color: #FFFFFF; border-top: 1px solid #1E293B; border-bottom: 1px solid #1E293B; position: relative; z-index: 10;">
+		<div class="container-custom">
 			
-			<div class="text-center max-w-3xl mx-auto mb-16">
-				<span class="font-mono text-xs uppercase tracking-widest text-accent font-bold">EMPIRICAL DATA GROUNDING</span>
-				<h2 class="font-serif text-4xl sm:text-5xl text-white mt-2 font-bold">
+			<div style="text-align: center; max-width: 48rem; margin: 0 auto 4rem;">
+				<span style="font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-sky); font-weight: 700;">EMPIRICAL DATA GROUNDING</span>
+				<h2 style="font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); color: #FFFFFF; margin-top: 0.5rem; font-weight: 700;">
 					Field Survey Reality Metrics
 				</h2>
-				<p class="text-stone-400 font-sans mt-3 font-light text-base">
+				<p style="color: #94A3B8; font-size: 1rem; margin-top: 0.75rem; font-weight: 300;">
 					Grounded strictly in direct field survey observations across Egyptian hospital hemodialysis units.
 				</p>
 			</div>
 
 			<!-- 4-Column Grid Metrics -->
-			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+			<div class="grid-4">
 				
-				<div class="bg-stone-900/80 p-8 rounded-3xl border border-stone-800 text-center flex flex-col justify-between">
-					<div class="font-serif text-5xl sm:text-6xl font-bold text-accent mb-2">25 Mins</div>
-					<div class="font-mono text-xs text-stone-300 font-bold uppercase mb-2">Paperwork Overhead</div>
-					<p class="text-xs text-stone-400 leading-relaxed">
+				<div style="background-color: rgba(30, 41, 59, 0.8); padding: 2rem; border-radius: 1.5rem; border: 1px solid #334155; text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
+					<div style="font-family: var(--font-serif); font-size: 3rem; font-weight: 700; color: var(--accent-sky); margin-bottom: 0.5rem;">25 Mins</div>
+					<div style="font-family: var(--font-mono); font-size: 0.75rem; color: #CBD5E1; font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem;">Paperwork Overhead</div>
+					<p style="font-size: 0.75rem; color: #94A3B8; line-height: 1.5;">
 						Average time spent per nurse per session manually charting physical flowsheets.
 					</p>
 				</div>
 
-				<div class="bg-stone-900/80 p-8 rounded-3xl border border-stone-800 text-center flex flex-col justify-between">
-					<div class="font-serif text-5xl sm:text-6xl font-bold text-rose-400 mb-2">2 Incidents</div>
-					<div class="font-mono text-xs text-stone-300 font-bold uppercase mb-2">Documented Gaps</div>
-					<p class="text-xs text-stone-400 leading-relaxed">
+				<div style="background-color: rgba(30, 41, 59, 0.8); padding: 2rem; border-radius: 1.5rem; border: 1px solid #334155; text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
+					<div style="font-family: var(--font-serif); font-size: 3rem; font-weight: 700; color: #FB7185; margin-bottom: 0.5rem;">2 Incidents</div>
+					<div style="font-family: var(--font-mono); font-size: 0.75rem; color: #CBD5E1; font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem;">Documented Gaps</div>
+					<p style="font-size: 0.75rem; color: #94A3B8; line-height: 1.5;">
 						Failure modes documented during audit arising directly from paper chart communication delays.
 					</p>
 				</div>
 
-				<div class="bg-stone-900/80 p-8 rounded-3xl border border-stone-800 text-center flex flex-col justify-between">
-					<div class="font-serif text-5xl sm:text-6xl font-bold text-accent-teal mb-2">100%</div>
-					<div class="font-mono text-xs text-stone-300 font-bold uppercase mb-2">Offline Resilience</div>
-					<p class="text-xs text-stone-400 leading-relaxed">
+				<div style="background-color: rgba(30, 41, 59, 0.8); padding: 2rem; border-radius: 1.5rem; border: 1px solid #334155; text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
+					<div style="font-family: var(--font-serif); font-size: 3rem; font-weight: 700; color: var(--accent-teal); margin-bottom: 0.5rem;">100%</div>
+					<div style="font-family: var(--font-mono); font-size: 0.75rem; color: #CBD5E1; font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem;">Offline Resilience</div>
+					<p style="font-size: 0.75rem; color: #94A3B8; line-height: 1.5;">
 						Targeted offline edge capability for local unit operations during hospital internet drops.
 					</p>
 				</div>
 
-				<div class="bg-stone-900/80 p-8 rounded-3xl border border-stone-800 text-center flex flex-col justify-between">
-					<div class="font-serif text-5xl sm:text-6xl font-bold text-emerald-400 mb-2">Phase 0</div>
-					<div class="font-mono text-xs text-stone-300 font-bold uppercase mb-2">Current Status</div>
-					<p class="text-xs text-stone-400 leading-relaxed">
+				<div style="background-color: rgba(30, 41, 59, 0.8); padding: 2rem; border-radius: 1.5rem; border: 1px solid #334155; text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
+					<div style="font-family: var(--font-serif); font-size: 3rem; font-weight: 700; color: #34D399; margin-bottom: 0.5rem;">Phase 0</div>
+					<div style="font-family: var(--font-mono); font-size: 0.75rem; color: #CBD5E1; font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem;">Current Status</div>
+					<p style="font-size: 0.75rem; color: #94A3B8; line-height: 1.5;">
 						Complete system specification & field survey; seeking initial clinical unit deployment partner.
 					</p>
 				</div>
@@ -367,63 +367,63 @@ import Layout from '../layouts/Layout.astro';
 	</section>
 
 	<!-- SECTION 5: CALL TO ACTION PANEL -->
-	<section class="py-24 bg-canvas relative z-10">
-		<div class="max-w-7xl mx-auto px-6">
+	<section class="section-padding" style="position: relative; z-index: 10;">
+		<div class="container-custom">
 			
-			<div class="text-center max-w-2xl mx-auto mb-16">
-				<span class="font-mono text-xs uppercase tracking-widest text-accent font-bold">COLLABORATION & OUTREACH</span>
-				<h2 class="font-serif text-4xl sm:text-5xl text-dark mt-2 font-bold">
+			<div style="text-align: center; max-width: 36rem; margin: 0 auto 4rem;">
+				<span style="font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-sky); font-weight: 700;">COLLABORATION & OUTREACH</span>
+				<h2 style="font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); color: var(--text-dark); margin-top: 0.5rem; font-weight: 700;">
 					Join the First Clinical Deployment
 				</h2>
 			</div>
 
 			<!-- 3 Outreach Cards -->
-			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+			<div class="grid-3">
 				
 				<!-- Card 1: Hospital Directors -->
-				<div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition-shadow">
+				<div class="card-white" style="display: flex; flex-direction: column; justify-content: space-between;">
 					<div>
-						<div class="w-12 h-12 rounded-xl bg-sky-50 text-accent flex items-center justify-center text-xl font-bold mb-6">
+						<div style="width: 3rem; height: 3rem; border-radius: 0.75rem; background-color: #F0F9FF; color: var(--accent-sky); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem;">
 							<i class="fa-solid fa-hospital"></i>
 						</div>
-						<h3 class="font-serif text-2xl font-bold text-dark mb-3">Hospital Directors</h3>
-						<p class="text-sm text-stone-600 leading-relaxed font-light mb-6">
+						<h3 style="font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.75rem;">Hospital Directors</h3>
+						<p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; font-weight: 300; margin-bottom: 1.5rem;">
 							Offer your hemodialysis unit as the initial pilot site for Dual Shield hardware and software deployment in Egypt.
 						</p>
 					</div>
-					<button onclick="document.getElementById('pilot-modal').classList.remove('hidden')" class="w-full bg-dark hover:bg-stone-800 text-canvas font-semibold text-xs py-3.5 rounded-xl uppercase tracking-wider transition-colors">
+					<button onclick="document.getElementById('pilot-modal').classList.remove('hidden')" class="btn-primary" style="width: 100%; justify-content: center;">
 						Request Unit Partnership &rarr;
 					</button>
 				</div>
 
 				<!-- Card 2: Hardware Donors -->
-				<div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition-shadow">
+				<div class="card-white" style="display: flex; flex-direction: column; justify-content: space-between;">
 					<div>
-						<div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl font-bold mb-6">
+						<div style="width: 3rem; height: 3rem; border-radius: 0.75rem; background-color: #ECFDF5; color: var(--accent-emerald); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem;">
 							<i class="fa-solid fa-microchip"></i>
 						</div>
-						<h3 class="font-serif text-2xl font-bold text-dark mb-3">Hardware Donors</h3>
-						<p class="text-sm text-stone-600 leading-relaxed font-light mb-6">
+						<h3 style="font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.75rem;">Hardware Donors</h3>
+						<p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; font-weight: 300; margin-bottom: 1.5rem;">
 							Support bedside load-cell sensors, optical fingerprint scanners, and water conductivity probes.
 						</p>
 					</div>
-					<button onclick="document.getElementById('pilot-modal').classList.remove('hidden')" class="w-full bg-stone-100 hover:bg-stone-200 text-dark font-semibold text-xs py-3.5 rounded-xl uppercase tracking-wider transition-colors">
+					<button onclick="document.getElementById('pilot-modal').classList.remove('hidden')" class="btn-secondary" style="width: 100%; justify-content: center;">
 						Sponsor Hardware Units &rarr;
 					</button>
 				</div>
 
 				<!-- Card 3: Engineering & Clinical Reviewers -->
-				<div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition-shadow">
+				<div class="card-white" style="display: flex; flex-direction: column; justify-content: space-between;">
 					<div>
-						<div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl font-bold mb-6">
+						<div style="width: 3rem; height: 3rem; border-radius: 0.75rem; background-color: #F3E8FF; color: #9333EA; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem;">
 							<i class="fa-solid fa-user-doctor"></i>
 						</div>
-						<h3 class="font-serif text-2xl font-bold text-dark mb-3">Clinical Reviewers</h3>
-						<p class="text-sm text-stone-600 leading-relaxed font-light mb-6">
+						<h3 style="font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.75rem;">Clinical Reviewers</h3>
+						<p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; font-weight: 300; margin-bottom: 1.5rem;">
 							Review our HL7 FHIR database schemas, MedGemma dosage rules, and offline edge sync algorithms.
 						</p>
 					</div>
-					<a href="/architecture" class="w-full bg-stone-100 hover:bg-stone-200 text-dark font-semibold text-xs py-3.5 rounded-xl uppercase tracking-wider text-center transition-colors block">
+					<a href="/architecture" class="btn-secondary" style="width: 100%; text-align: center; justify-content: center;">
 						Review Specifications &rarr;
 					</a>
 				</div>
