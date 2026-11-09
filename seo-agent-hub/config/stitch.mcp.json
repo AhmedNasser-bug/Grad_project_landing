@@ -1,0 +1,35 @@
+{
+  "mcpServers": {
+    "stitch": {
+      "command": "npx",
+      "args": ["@_davideast/stitch-mcp", "proxy"],
+      "env": {
+        "STITCH_PROJECT_ID": "${STITCH_PROJECT_ID:-503366360860058565}",
+        "STITCH_API_KEY": "${STITCH_API_KEY:-}",
+        "STITCH_DESIGN_SYSTEM": "Clinical Vitality"
+      }
+    }
+  },
+  "stitch_baton_protocol": {
+    "purpose": "Iterative multi-page generation using the official google-labs-code/stitch-skills stitch-loop baton system and @_davideast/stitch-mcp",
+    "baton_file": "./.stitch/next-prompt.md",
+    "design_system_file": "./.stitch/DESIGN.md",
+    "site_manifest_file": "./.stitch/SITE.md",
+    "metadata_file": "./.stitch/metadata.json",
+    "staging_dir": "./.stitch/designs",
+    "published_dir": "./sdk/generated-pages",
+    "host_astro_blog_dir": "../dashboard/src/pages/blog",
+    "design_tokens": {
+      "display_font": "Cormorant Garamond",
+      "body_font": "Plus Jakarta Sans",
+      "mono_font": "JetBrains Mono",
+      "line_height_h1": "1.10",
+      "palette": {
+        "surface": "#FAF8F5",
+        "ink": "#0F172A",
+        "clinical_teal": "#0D9488",
+        "alert_coral": "#E11D48"
+      }
+    }
+  }
+}

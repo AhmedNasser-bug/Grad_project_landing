@@ -1,0 +1,37 @@
+# Optional Antigravity Handshake & Execution Routing
+# Automatically evaluated by ./init during Step 3.
+version: "1.2"
+routing_policy:
+  detect_binary: "antigravity"
+  fallback_operator: "jules"
+  request_timeout_ms: 5000
+  max_retries: 3
+  backoff_strategy: "exponential_jitter"
+
+workflows:
+  web_reconnaissance:
+    primary_engine: "antigravity"
+    fallback_engine: "jules"
+    mcp_servers:
+      - firecrawl
+      - sqlite
+    skills:
+      - ./skills/firecrawl-skills/skills/workflows/firecrawl-competitive-intel/SKILL.md
+      - ./skills/open-seo/.agents/skills/competitor-analysis/SKILL.md
+  academic_discovery:
+    primary_engine: "antigravity"
+    fallback_engine: "jules"
+    mcp_servers:
+      - arxiv
+      - sqlite
+    skills:
+      - ./skills/firecrawl-skills/skills/workflows/firecrawl-research-papers/SKILL.md
+      - ./skills/open-seo/.agents/skills/keyword-research/SKILL.md
+  stitch_page_generation:
+    primary_engine: "jules"
+    mcp_servers:
+      - stitch
+      - sqlite
+    skills:
+      - ./skills/stitch-skills/plugins/stitch-utilities/skills/stitch-loop/SKILL.md
+      - ./skills/stitch-skills/plugins/stitch-design/skills/generate-design/SKILL.md
