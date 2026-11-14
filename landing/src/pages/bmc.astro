@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Business Model Canvas (BMC) | NephroEdge B2B & Dual Shield" activePage="bmc">
+
+  <!-- HERO SECTION -->
+  <section class="section-padding" style="position: relative; overflow: hidden; z-index: 10; padding-top: 3.5rem; padding-bottom: 2rem;">
+    <div class="container-custom">
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+        <span class="badge-chip badge-sky">OSTERWALDER STANDARD BMC</span>
+        <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-light);">INTERACTIVE FIELD EDITOR • PROJECT LEARNINGS</span>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 1.5rem;">
+        <div>
+          <h1 class="hero-title" style="max-width: 50rem; margin-bottom: 0.5rem;">
+            NephroEdge <span style="font-style: italic; font-weight: 400; color: var(--accent-sky);">Business Model Canvas</span>.
+          </h1>
+          <p class="hero-subtitle" style="max-width: 44rem; margin-bottom: 0;">
+            A fully interactive, standards-compliant 9-box Business Model Canvas reflecting Egyptian and GCC hemodialysis healthcare economics, edge-cloud architecture, and clinical decision support governance. Every field is directly editable.
+          </p>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <a href="/bmc.html" target="_blank" class="btn-primary" style="padding: 0.625rem 1.25rem; font-size: 0.75rem; text-decoration: none;">
+            <span>Open Standalone Web App</span>
+            <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.625rem; color: #FFFFFF; margin-left: 0.35rem;"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BMC EMBEDDED APPLICATION SECTION -->
+  <section style="position: relative; z-index: 10; padding-bottom: 5rem;">
+    <div class="container-custom" style="max-width: 96rem;">
+      <div style="background: #FFFFFF; border: 1px solid var(--border-stone); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
+        <iframe 
+          src="/bmc.html" 
+          title="NephroEdge Interactive Business Model Canvas" 
+          style="width: 100%; height: 980px; border: none; display: block;"
+          id="bmc-iframe"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+</Layout>
