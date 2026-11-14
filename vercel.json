@@ -1,6 +1,6 @@
 {
-  "installCommand": "npm install --prefix dashboard",
-  "buildCommand": "npm run build --prefix dashboard",
-  "outputDirectory": "dashboard/dist",
+  "installCommand": "npm install --prefix landing",
+  "buildCommand": "npm run build --prefix landing",
+  "outputDirectory": "landing/dist",
   "framework": "astro"
 }

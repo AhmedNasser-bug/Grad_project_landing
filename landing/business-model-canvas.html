@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NephroEdge B2B — Interactive Business Model Canvas (BMC)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg-canvas: #F8F9FA;
+      --bg-card: #FFFFFF;
+      --bg-card-hover: #FCFDFE;
+      --text-dark: #0F172A;
+      --text-muted: #475569;
+      --text-light: #64748B;
+      --border-stone: #E2E8F0;
+      --border-focus: #0284C7;
+      
+      --accent-sky: #0284C7;
+      --accent-teal: #0D9488;
+      --accent-emerald: #059669;
+      --accent-rose: #E11D48;
+      --accent-purple: #9333EA;
+      --accent-amber: #D97706;
+
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-canvas);
+      color: var(--text-dark);
+      line-height: 1.5;
+      padding: 1.5rem;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header & Action Bar */
+    .app-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      background: #FFFFFF;
+      border: 1px solid var(--border-stone);
+      border-radius: 1rem;
+      padding: 1.25rem 1.75rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand-badge {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 0.75rem;
+      background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+      color: #38BDF8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 1rem;
+      border: 1px solid #334155;
+    }
+
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--text-dark);
+    }
+
+    .brand-title span {
+      font-style: italic;
+      color: var(--accent-sky);
+      font-weight: 400;
+      margin-left: 0.25rem;
+    }
+
+    .brand-subtitle {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-light);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-top: 0.2rem;
+    }
+
+    .toolbar-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.875rem;
+      border-radius: 0.5rem;
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--border-stone);
+      background: #FFFFFF;
+      color: var(--text-dark);
+      transition: all 0.15s ease;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: #F1F5F9;
+      border-color: #CBD5E1;
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--accent-sky);
+      border-color: var(--accent-sky);
+      color: #FFFFFF;
+    }
+
+    .btn-primary:hover {
+      background: #0369A1;
+      border-color: #0369A1;
+    }
+
+    .btn-danger {
+      color: var(--accent-rose);
+      border-color: #FECDD3;
+      background: #FFF1F2;
+    }
+
+    .btn-danger:hover {
+      background: #FFE4E6;
+      border-color: #FDA4AF;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      background: #F0FDF4;
+      color: #166534;
+      border: 1px solid #BBF7D0;
+    }
+
+    .status-pill.saving {
+      background: #FFFBEB;
+      color: #B45309;
+      border-color: #FDE68A;
+    }
+
+    .status-indicator {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background: #22C55E;
+    }
+
+    .status-pill.saving .status-indicator {
+      background: #F59E0B;
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* Currency & Filter Selector Bar */
+    .controls-strip {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      padding: 0 0.5rem;
+    }
+
+    .pill-selector {
+      display: flex;
+      align-items: center;
+      background: #E2E8F0;
+      padding: 0.25rem;
+      border-radius: 0.625rem;
+      gap: 0.25rem;
+    }
+
+    .pill-btn {
+      padding: 0.35rem 0.75rem;
+      border-radius: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      font-family: var(--font-mono);
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .pill-btn.active {
+      background: #FFFFFF;
+      color: var(--text-dark);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #FFFFFF;
+      border: 1px solid var(--border-stone);
+      border-radius: 0.5rem;
+      padding: 0.375rem 0.75rem;
+      width: 260px;
+    }
+
+    .search-box input {
+      border: none;
+      outline: none;
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      width: 100%;
+      background: transparent;
+    }
+
+    /* ═════════════════════════════════════════════════════════════════════
+       STANDARD BUSINESS MODEL CANVAS (BMC) CSS GRID
+       Top Section: 5 Columns (KP, KA/KR, VP, CR/CH, CS)
+       Bottom Section: 2 Columns (Cost Structure, Revenue Streams)
+       ═════════════════════════════════════════════════════════════════════ */
+    .bmc-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .bmc-top-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+      min-height: 640px;
+    }
+
+    .bmc-bottom-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      min-height: 280px;
+    }
+
+    .bmc-col-split {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    /* Individual BMC Block Card */
+    .bmc-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border-stone);
+      border-radius: 0.875rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bmc-block:hover {
+      box-shadow: var(--shadow-md);
+      border-color: #CBD5E1;
+    }
+
+    .bmc-block.highlight-vp {
+      border: 2px solid var(--accent-sky);
+      background: linear-gradient(180deg, #FFFFFF 0%, #F0F9FF 100%);
+    }
+
+    .bmc-block-header {
+      padding: 0.875rem 1rem 0.625rem 1rem;
+      border-bottom: 1px solid #F1F5F9;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      background: #FAFAFA;
+    }
+
+    .block-title-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .block-icon {
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 0.375rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+    }
+
+    .icon-kp { background: #E0E7FF; color: #4338CA; }
+    .icon-ka { background: #FEF3C7; color: #B45309; }
+    .icon-kr { background: #ECFDF5; color: #047857; }
+    .icon-vp { background: #E0F2FE; color: #0369A1; }
+    .icon-cr { background: #FCE7F3; color: #BE185D; }
+    .icon-ch { background: #F3E8FF; color: #7E22CE; }
+    .icon-cs { background: #CCFBF1; color: #0F766E; }
+    .icon-cost { background: #FFE4E6; color: #BE123C; }
+    .icon-rev { background: #DCFCE7; color: #15803D; }
+
+    .block-title-text {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 0.875rem;
+      color: var(--text-dark);
+      letter-spacing: -0.01em;
+    }
+
+    .block-count-badge {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      color: var(--text-light);
+      background: #E2E8F0;
+      padding: 0.15rem 0.45rem;
+      border-radius: 9999px;
+      font-weight: 600;
+    }
+
+    .bmc-block-content {
+      padding: 0.75rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      overflow-y: auto;
+      max-height: 520px;
+    }
+
+    .bmc-block-footer {
+      padding: 0.5rem 0.75rem;
+      border-top: 1px dashed var(--border-stone);
+      background: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .btn-add-item {
+      width: 100%;
+      border: 1px dashed #CBD5E1;
+      background: #F8FAFC;
+      color: var(--text-muted);
+      border-radius: 0.5rem;
+      padding: 0.45rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      font-family: var(--font-sans);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .btn-add-item:hover {
+      background: #E2E8F0;
+      border-color: #94A3B8;
+      color: var(--text-dark);
+    }
+
+    /* ═════════════════════════════════════════════════════════════════════
+       INTERACTIVE FIELD ITEM CARD (EVERY ITEM IS AN INPUT FIELD)
+       ═════════════════════════════════════════════════════════════════════ */
+    .field-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-stone);
+      border-radius: 0.5rem;
+      padding: 0.625rem;
+      transition: all 0.15s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      position: relative;
+    }
+
+    .field-card:hover {
+      border-color: #CBD5E1;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    }
+
+    .field-card:focus-within {
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.15);
+    }
+
+    .field-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .tag-badge {
+      font-family: var(--font-mono);
+      font-size: 0.625rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 0.125rem 0.4rem;
+      border-radius: 0.25rem;
+      letter-spacing: 0.04em;
+    }
+
+    .tag-clinical { background: #E0F2FE; color: #0369A1; }
+    .tag-edge { background: #FEF3C7; color: #92400E; }
+    .tag-regulatory { background: #FCE7F3; color: #9D174D; }
+    .tag-economics { background: #DCFCE7; color: #166534; }
+    .tag-core { background: #F1F5F9; color: #334155; }
+
+    .card-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      opacity: 0.4;
+      transition: opacity 0.15s ease;
+    }
+
+    .field-card:hover .card-actions,
+    .field-card:focus-within .card-actions {
+      opacity: 1;
+    }
+
+    .card-action-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-light);
+      cursor: pointer;
+      font-size: 0.7rem;
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: 0.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-action-btn:hover {
+      background: #F1F5F9;
+      color: var(--text-dark);
+    }
+
+    .card-action-btn.btn-del:hover {
+      background: #FEE2E2;
+      color: #DC2626;
+    }
+
+    /* Dynamic Editable Title Input */
+    .field-title-input {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 0.8125rem;
+      color: var(--text-dark);
+      border: 1px solid transparent;
+      border-radius: 0.25rem;
+      padding: 0.15rem 0.35rem;
+      outline: none;
+      width: 100%;
+      background: transparent;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+
+    .field-title-input:hover {
+      background: #F8FAFC;
+      border-color: #E2E8F0;
+    }
+
+    .field-title-input:focus {
+      background: #FFFFFF;
+      border-color: var(--border-focus);
+    }
+
+    /* Dynamic Editable Details Textarea */
+    .field-desc-textarea {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      border: 1px solid transparent;
+      border-radius: 0.25rem;
+      padding: 0.2rem 0.35rem;
+      outline: none;
+      width: 100%;
+      resize: vertical;
+      min-height: 48px;
+      line-height: 1.4;
+      background: transparent;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+
+    .field-desc-textarea:hover {
+      background: #F8FAFC;
+      border-color: #E2E8F0;
+    }
+
+    .field-desc-textarea:focus {
+      background: #FFFFFF;
+      border-color: var(--border-focus);
+    }
+
+    /* Metric pill for cost & revenue values */
+    .metric-pill {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #047857;
+      background: #ECFDF5;
+      padding: 0.15rem 0.5rem;
+      border-radius: 0.25rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      align-self: flex-start;
+      margin-top: 0.2rem;
+    }
+
+    .metric-pill.cost {
+      color: #BE123C;
+      background: #FFF1F2;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1200px) {
+      .bmc-top-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .bmc-top-grid > .bmc-block:nth-child(1) { grid-column: span 1; }
+      .bmc-top-grid > .bmc-block:nth-child(3) { grid-column: span 1; }
+      .bmc-top-grid > .bmc-block:nth-child(5) { grid-column: span 1; }
+    }
+
+    @media (max-width: 768px) {
+      body { padding: 0.75rem; }
+      .app-header { flex-direction: column; align-items: stretch; gap: 1rem; }
+      .bmc-top-grid, .bmc-bottom-grid {
+        grid-template-columns: 1fr;
+      }
+      .controls-strip { flex-direction: column; align-items: stretch; }
+      .search-box { width: 100%; }
+    }
+
+    /* ═════════════════════════════════════════════════════════════════════
+       PRINT OPTIMIZATIONS (A4 / A3 Landscape BMC Poster)
+       ═════════════════════════════════════════════════════════════════════ */
+    @media print {
+      body {
+        background: #FFFFFF;
+        padding: 0;
+        color: #000000;
+      }
+      .app-header, .controls-strip, .bmc-block-footer, .card-actions, .btn {
+        display: none !important;
+      }
+      .print-header {
+        display: block !important;
+        margin-bottom: 0.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #000000;
+      }
+      .bmc-container {
+        gap: 0.5rem;
+      }
+      .bmc-top-grid {
+        display: grid !important;
+        grid-template-columns: repeat(5, 1fr) !important;
+        min-height: auto;
+        gap: 0.35rem;
+      }
+      .bmc-bottom-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        min-height: auto;
+        gap: 0.35rem;
+      }
+      .bmc-block {
+        box-shadow: none !important;
+        border: 1px solid #333333 !important;
+        break-inside: avoid;
+      }
+      .bmc-block-content {
+        max-height: none !important;
+        overflow: visible !important;
+        padding: 0.35rem;
+      }
+      .field-card {
+        box-shadow: none !important;
+        border: 1px solid #CCCCCC !important;
+        padding: 0.35rem;
+      }
+      .field-title-input, .field-desc-textarea {
+        border: none !important;
+        padding: 0 !important;
+      }
+      @page {
+        size: landscape;
+        margin: 1cm;
+      }
+    }
+
+    .print-header {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Print-Only Poster Header -->
+  <div class="print-header">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+      <div>
+        <h1 style="font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; margin: 0;">NephroEdge B2B — Clinical Dual Shield Platform</h1>
+        <p style="font-family: var(--font-mono); font-size: 0.75rem; color: #555;">Official Business Model Canvas • Egypt & GCC Dialysis Digitization Architecture</p>
+      </div>
+      <div style="text-align: right; font-family: var(--font-mono); font-size: 0.7rem;">
+        <span>Generated: <span id="print-date"></span></span><br>
+        <span>Accredited Standards: ICD-10-CM • LOINC • RxNorm • GAHAR QAPI</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Application Header -->
+  <header class="app-header">
+    <div class="brand-group">
+      <div class="brand-badge">NE</div>
+      <div>
+        <h1 class="brand-title">NephroEdge<span>B2B</span></h1>
+        <p class="brand-subtitle">Standard Business Model Canvas (BMC) • Dialysis Intelligence Architecture</p>
+      </div>
+    </div>
+
+    <div class="toolbar-group">
+      <span class="status-pill" id="save-status-pill">
+        <span class="status-indicator"></span>
+        <span id="save-status-text">Synced to LocalStorage</span>
+      </span>
+
+      <button class="btn" id="btn-export-json" title="Download canvas configuration as JSON">
+        <i class="fa-solid fa-file-export"></i> Export JSON
+      </button>
+
+      <label class="btn" style="cursor: pointer;" title="Import canvas JSON">
+        <i class="fa-solid fa-file-import"></i> Import JSON
+        <input type="file" id="import-json-file" accept=".json" style="display: none;">
+      </label>
+
+      <button class="btn" id="btn-print" title="Print landscape poster or save to PDF">
+        <i class="fa-solid fa-print"></i> Print / PDF
+      </button>
+
+      <button class="btn btn-danger" id="btn-reset" title="Reset all fields back to project defaults">
+        <i class="fa-solid fa-rotate-left"></i> Reset Defaults
+      </button>
+
+      <a href="/" class="btn btn-primary" title="Return to DualShield Portal">
+        <i class="fa-solid fa-arrow-left"></i> Portal Home
+      </a>
+    </div>
+  </header>
+
+  <!-- Interactive Controls Strip (Currency, Filter & Search) -->
+  <section class="controls-strip">
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 1rem;">
+      <!-- Currency Switcher -->
+      <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <span style="font-size: 0.75rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; font-family: var(--font-mono);">Currency:</span>
+        <div class="pill-selector" id="currency-selector">
+          <button class="pill-btn active" data-currency="EGP">EGP (Egypt)</button>
+          <button class="pill-btn" data-currency="SAR">SAR (Saudi/GCC)</button>
+          <button class="pill-btn" data-currency="USD">USD ($)</button>
+        </div>
+      </div>
+
+      <!-- Strategy Lens Filter -->
+      <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <span style="font-size: 0.75rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; font-family: var(--font-mono);">Filter Lens:</span>
+        <div class="pill-selector" id="tag-filter-selector">
+          <button class="pill-btn active" data-filter="all">All Fields</button>
+          <button class="pill-btn" data-filter="clinical">Clinical & AI</button>
+          <button class="pill-btn" data-filter="edge">Edge & Tech</button>
+          <button class="pill-btn" data-filter="regulatory">Governance / GAHAR</button>
+          <button class="pill-btn" data-filter="economics">Economics</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Search Filter -->
+    <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass" style="color: var(--text-light); font-size: 0.8rem;"></i>
+      <input type="text" id="canvas-search-input" placeholder="Search canvas fields...">
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════════════════════════════════════════════
+       STANDARDS BUSINESS MODEL CANVAS (BMC) INTERACTIVE BOARD
+       ═════════════════════════════════════════════════════════════════════ -->
+  <main class="bmc-container">
+    
+    <!-- TOP SECTION: 5 Osterwalder Pillars -->
+    <div class="bmc-top-grid">
+
+      <!-- 1. KEY PARTNERS (Left Column - Spans full height of top section) -->
+      <section class="bmc-block" id="block-kp" data-block-id="kp">
+        <div class="bmc-block-header">
+          <div class="block-title-group">
+            <div class="block-icon icon-kp"><i class="fa-solid fa-handshake"></i></div>
+            <span class="block-title-text">Key Partners</span>
+          </div>
+          <span class="block-count-badge" id="count-kp">0</span>
+        </div>
+        <div class="bmc-block-content" id="list-kp"></div>
+        <div class="bmc-block-footer">
+          <button class="btn-add-item" onclick="addNewCard('kp')"><i class="fa-solid fa-plus"></i> Add Partner Field</button>
+        </div>
+      </section>
+
+      <!-- 2. COLUMN 2: KEY ACTIVITIES (Top) & KEY RESOURCES (Bottom) -->
+      <div class="bmc-col-split">
+        <!-- 2A. KEY ACTIVITIES -->
+        <section class="bmc-block" style="flex: 1;" id="block-ka" data-block-id="ka">
+          <div class="bmc-block-header">
+            <div class="block-title-group">
+              <div class="block-icon icon-ka"><i class="fa-solid fa-bolt"></i></div>
+              <span class="block-title-text">Key Activities</span>
+            </div>
+            <span class="block-count-badge" id="count-ka">0</span>
+          </div>
+          <div class="bmc-block-content" id="list-ka"></div>
+          <div class="bmc-block-footer">
+            <button class="btn-add-item" onclick="addNewCard('ka')"><i class="fa-solid fa-plus"></i> Add Activity Field</button>
+          </div>
+        </section>
+
+        <!-- 2B. KEY RESOURCES -->
+        <section class="bmc-block" style="flex: 1;" id="block-kr" data-block-id="kr">
+          <div class="bmc-block-header">
+            <div class="block-title-group">
+              <div class="block-icon icon-kr"><i class="fa-solid fa-cubes"></i></div>
+              <span class="block-title-text">Key Resources</span>
+            </div>
+            <span class="block-count-badge" id="count-kr">0</span>
+          </div>
+          <div class="bmc-block-content" id="list-kr"></div>
+          <div class="bmc-block-footer">
+            <button class="btn-add-item" onclick="addNewCard('kr')"><i class="fa-solid fa-plus"></i> Add Resource Field</button>
+          </div>
+        </section>
+      </div>
+
+      <!-- 3. VALUE PROPOSITIONS (Center Column - Spans full height - Focal Point) -->
+      <section class="bmc-block highlight-vp" id="block-vp" data-block-id="vp">
+        <div class="bmc-block-header" style="background: #E0F2FE;">
+          <div class="block-title-group">
+            <div class="block-icon icon-vp"><i class="fa-solid fa-shield-halved"></i></div>
+            <span class="block-title-text" style="color: #0369A1;">Value Propositions</span>
+          </div>
+          <span class="block-count-badge" id="count-vp" style="background: #BAE6FD; color: #0284C7;">0</span>
+        </div>
+        <div class="bmc-block-content" id="list-vp"></div>
+        <div class="bmc-block-footer">
+          <button class="btn-add-item" style="border-color: #7DD3FC; background: #F0F9FF; color: #0284C7;" onclick="addNewCard('vp')"><i class="fa-solid fa-plus"></i> Add Value Prop Field</button>
+        </div>
+      </section>
+
+      <!-- 4. COLUMN 4: CUSTOMER RELATIONSHIPS (Top) & CHANNELS (Bottom) -->
+      <div class="bmc-col-split">
+        <!-- 4A. CUSTOMER RELATIONSHIPS -->
+        <section class="bmc-block" style="flex: 1;" id="block-cr" data-block-id="cr">
+          <div class="bmc-block-header">
+            <div class="block-title-group">
+              <div class="block-icon icon-cr"><i class="fa-solid fa-heart-pulse"></i></div>
+              <span class="block-title-text">Customer Relationships</span>
+            </div>
+            <span class="block-count-badge" id="count-cr">0</span>
+          </div>
+          <div class="bmc-block-content" id="list-cr"></div>
+          <div class="bmc-block-footer">
+            <button class="btn-add-item" onclick="addNewCard('cr')"><i class="fa-solid fa-plus"></i> Add Relationship Field</button>
+          </div>
+        </section>
+
+        <!-- 4B. CHANNELS -->
+        <section class="bmc-block" style="flex: 1;" id="block-ch" data-block-id="ch">
+          <div class="bmc-block-header">
+            <div class="block-title-group">
+              <div class="block-icon icon-ch"><i class="fa-solid fa-truck-fast"></i></div>
+              <span class="block-title-text">Channels</span>
+            </div>
+            <span class="block-count-badge" id="count-ch">0</span>
+          </div>
+          <div class="bmc-block-content" id="list-ch"></div>
+          <div class="bmc-block-footer">
+            <button class="btn-add-item" onclick="addNewCard('ch')"><i class="fa-solid fa-plus"></i> Add Channel Field</button>
+          </div>
+        </section>
+      </div>
+
+      <!-- 5. CUSTOMER SEGMENTS (Right Column - Spans full height of top section) -->
+      <section class="bmc-block" id="block-cs" data-block-id="cs">
+        <div class="bmc-block-header">
+          <div class="block-title-group">
+            <div class="block-icon icon-cs"><i class="fa-solid fa-users-viewfinder"></i></div>
+            <span class="block-title-text">Customer Segments</span>
+          </div>
+          <span class="block-count-badge" id="count-cs">0</span>
+        </div>
+        <div class="bmc-block-content" id="list-cs"></div>
+        <div class="bmc-block-footer">
+          <button class="btn-add-item" onclick="addNewCard('cs')"><i class="fa-solid fa-plus"></i> Add Segment Field</button>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- BOTTOM SECTION: 2 Financial Pillars (Cost Structure & Revenue Streams) -->
+    <div class="bmc-bottom-grid">
+
+      <!-- 6. COST STRUCTURE (Left Half - 50% width) -->
+      <section class="bmc-block" id="block-cost" data-block-id="cost">
+        <div class="bmc-block-header">
+          <div class="block-title-group">
+            <div class="block-icon icon-cost"><i class="fa-solid fa-calculator"></i></div>
+            <span class="block-title-text">Cost Structure</span>
+          </div>
+          <span class="block-count-badge" id="count-cost">0</span>
+        </div>
+        <div class="bmc-block-content" id="list-cost"></div>
+        <div class="bmc-block-footer">
+          <button class="btn-add-item" onclick="addNewCard('cost')"><i class="fa-solid fa-plus"></i> Add Cost Driver Field</button>
+        </div>
+      </section>
+
+      <!-- 7. REVENUE STREAMS (Right Half - 50% width) -->
+      <section class="bmc-block" id="block-rev" data-block-id="rev">
+        <div class="bmc-block-header">
+          <div class="block-title-group">
+            <div class="block-icon icon-rev"><i class="fa-solid fa-sack-dollar"></i></div>
+            <span class="block-title-text">Revenue Streams</span>
+          </div>
+          <span class="block-count-badge" id="count-rev">0</span>
+        </div>
+        <div class="bmc-block-content" id="list-rev"></div>
+        <div class="bmc-block-footer">
+          <button class="btn-add-item" onclick="addNewCard('rev')"><i class="fa-solid fa-plus"></i> Add Revenue Stream Field</button>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- ═════════════════════════════════════════════════════════════════════
+       CLIENT ENGINE SCRIPT: PROJECT DATA, TWO-WAY BINDING & EDITING
+       ═════════════════════════════════════════════════════════════════════ -->
+  <script>
+    // Project Learnings Default Canvas Data (NephroEdge B2B Egyptian & GCC Hemodialysis Architecture)
+    const DEFAULT_BMC_DATA = {
+      currency: "EGP",
+      kp: [
+        {
+          id: "kp-1",
+          tag: "clinical",
+          title: "Dialysis Machine Manufacturers (Fresenius, Baxter, Nipro)",
+          desc: "Hardware & IoT telemetry integration; serial RS-232 & CAN-bus live extraction from dialysis machines and RO water treatment plants.",
+          metric: "RS-232 / BLE Protocol"
+        },
+        {
+          id: "kp-2",
+          tag: "regulatory",
+          title: "GAHAR (Egyptian Health Accreditation Authority)",
+          desc: "Compliance alignment with national healthcare quality standards; automated QAPI safety reporting and audit trail exports.",
+          metric: "GAHAR 2026 Ready"
+        },
+        {
+          id: "kp-3",
+          tag: "regulatory",
+          title: "Egyptian Universal Health Insurance Authority (UHIA)",
+          desc: "Tender partnership for state governorate public school and hospital hemodialysis unit modernization.",
+          metric: "UHC Phase 2 Partner"
+        },
+        {
+          id: "kp-4",
+          tag: "clinical",
+          title: "Accredited Clinical Laboratories (LOINC-Certified)",
+          desc: "Direct HL7/LOINC integration for monthly automated pre/post dialysis chemistry panels (BUN, Creatinine, Electrolytes, Kt/V).",
+          metric: "10 LOINC Catalogs"
+        },
+        {
+          id: "kp-5",
+          tag: "economics",
+          title: "Egyptian Tax Authority (ETA) & ZATCA (Saudi)",
+          desc: "Mandatory compliant e-invoicing API integration partners for B2B clinic session billing synchronization.",
+          metric: "ETA / ZATCA Phase 2"
+        },
+        {
+          id: "kp-6",
+          tag: "clinical",
+          title: "Egyptian Society of Nephrology & Pharos University",
+          desc: "Academic nephrology research council validating MedGemma/XGBoost hypotension prediction algorithms.",
+          metric: "Academic Advisory"
+        }
+      ],
+      ka: [
+        {
+          id: "ka-1",
+          tag: "clinical",
+          title: "Intradialytic Hypotension (IDH) Edge AI R&D",
+          desc: "Training & fine-tuning XGBoost/MedGemma models for sub-second, 15-30 min pre-crash cardiovascular collapse prediction.",
+          metric: "ROC-AUC 0.89"
+        },
+        {
+          id: "ka-2",
+          tag: "edge",
+          title: "Offline-First Edge Synchronization Engine",
+          desc: "Resilient bi-directional sync queue (Transactional Outbox with SHA-256 hashes) between SQLite LocalDB and Central Postgres.",
+          metric: "Zero Data Loss"
+        },
+        {
+          id: "ka-3",
+          tag: "clinical",
+          title: "Water Room & Telemetry Guardrail Ingestion",
+          desc: "Continuous monitoring of reverse osmosis water conductivity, dialysate bath electrolyte temperature, and machine alarms.",
+          metric: "<50µs Plan Cache"
+        },
+        {
+          id: "ka-4",
+          tag: "core",
+          title: "Nurse Bedside Ergonomics & Change Management",
+          desc: "Designing <3 clicks per vitals entry on nurse tablets, completely replacing chaotic double-entry paper log sheets.",
+          metric: "<3 Clicks Workflow"
+        }
+      ],
+      kr: [
+        {
+          id: "kr-1",
+          tag: "edge",
+          title: "Proprietary 3NF C# .NET Modular Monolith",
+          desc: "Strictly layered Persistence_Unit, Middleware_Unit, and Services_Unit with sub-millisecond pre-compiled SQL views.",
+          metric: "3-Pillar Clean Arch"
+        },
+        {
+          id: "kr-2",
+          tag: "clinical",
+          title: "Standardized Medical Reference Catalogs",
+          desc: "Pre-compiled accredited ICD-10-CM etiologies, LOINC lab analytes, RxNorm medications, and SNOMED symptom tables.",
+          metric: "Accredited Catalogs"
+        },
+        {
+          id: "kr-3",
+          tag: "edge",
+          title: "Dual Local Storage (SQLite WAL + LiteDB CDSS)",
+          desc: "Local SQLite for structured session transactions + LiteDB for polymorphic AI predictions, SHAP attributions, and FHIR bundles.",
+          metric: "Hybrid Local DB"
+        },
+        {
+          id: "kr-4",
+          tag: "clinical",
+          title: "Clinical Nephrology Advisory Board",
+          desc: "Senior Egyptian nephrologists, head dialysis charge nurses, and certified water room biomedical engineers.",
+          metric: "Senior Clinicians"
+        }
+      ],
+      vp: [
+        {
+          id: "vp-1",
+          tag: "clinical",
+          title: "Adaptive Decision Support System (ADSS)",
+          desc: "Engineered specifically for increasing unit quality and decreasing mortality risks across Egyptian hemodialysis wards.",
+          metric: "Dual Shield Architecture"
+        },
+        {
+          id: "vp-2",
+          tag: "clinical",
+          title: "Shield 1: Patient Mortality & IDH Crash Prevention",
+          desc: "Sub-second bedside AI warning 15-30 mins prior to cardiovascular collapse; prevents emergency session terminations and dialyzer clotting.",
+          metric: "ROC-AUC 0.89"
+        },
+        {
+          id: "vp-3",
+          tag: "regulatory",
+          title: "Shield 2: Ward QAPI Quality & GAHAR Accreditation",
+          desc: "Automated reverse osmosis water conductivity fault detection, nurse-to-chair ratio balancing, and instant 1-click GAHAR/MoH compliance exports.",
+          metric: "Instant Accreditation"
+        },
+        {
+          id: "vp-4",
+          tag: "edge",
+          title: "100% Offline-First Hospital Basement Resilience",
+          desc: "Complete operational autonomy on local tablets when hospital Wi-Fi fails in concrete shielded wards; automatic background sync on reconnect.",
+          metric: "Zero Downtime"
+        },
+        {
+          id: "vp-5",
+          tag: "core",
+          title: "Eliminating the 'Bus Factor of 1' & Paper Chaos",
+          desc: "Replacing vulnerable Excel sheets and unencrypted scripts with an accredited enterprise C# .NET Modular Monolith.",
+          metric: "Enterprise Robustness"
+        }
+      ],
+      cr: [
+        {
+          id: "cr-1",
+          tag: "core",
+          title: "The Doctor Model: Paid 2-4 Week Discovery Phase",
+          desc: "Mandatory pre-implementation audit & bedside workflow mapping before full deployment, preventing 2-3x costly rework.",
+          metric: "Discovery Mandate"
+        },
+        {
+          id: "cr-2",
+          tag: "core",
+          title: "Platform Lead Redundancy Model",
+          desc: "Transitioning clinic relationship from external gig freelancers to structured platform leadership with SLA accountability.",
+          metric: "SLA Accountable"
+        },
+        {
+          id: "cr-3",
+          tag: "clinical",
+          title: "Monthly Clinical QAPI Governance Reviews",
+          desc: "Regular clinical director conferences reviewing AI decision acceptance, physician overrides, and dialyzer clotting rates.",
+          metric: "Monthly Audits"
+        },
+        {
+          id: "cr-4",
+          tag: "edge",
+          title: "24/7 Shift-Guaranteed Technical Support",
+          desc: "Emergency ward hot-swap tablets and immediate edge database recovery hotline for early morning and evening dialysis shifts.",
+          metric: "24/7 Ward Uptime"
+        }
+      ],
+      ch: [
+        {
+          id: "ch-1",
+          tag: "economics",
+          title: "Direct B2B Enterprise Healthcare Sales",
+          desc: "Direct outreach to hospital CEOs, nephrology heads, and private dialysis chains in Cairo, Alexandria, Delta, and Riyadh/Jeddah.",
+          metric: "Direct Enterprise"
+        },
+        {
+          id: "ch-2",
+          tag: "regulatory",
+          title: "GAHAR Accreditation Consultancy Bundles",
+          desc: "Co-selling with medical quality accreditation agencies who require compliant digitized telemetry for hospital licensing.",
+          metric: "Co-Selling Agency"
+        },
+        {
+          id: "ch-3",
+          tag: "clinical",
+          title: "Egyptian Society of Nephrology & Transplantation (ESNT)",
+          desc: "Live clinical demonstrations, symposium workshops, and real-world evidence poster presentations at annual nephrology conferences.",
+          metric: "Scientific Symposia"
+        },
+        {
+          id: "ch-4",
+          tag: "core",
+          title: "DualShield Web Portal & Evidence Hub",
+          desc: "Interactive architecture walkthrough, live MDX clinical journals, and transparent trial benchmark dashboards.",
+          metric: "Web Evidence Portal"
+        }
+      ],
+      cs: [
+        {
+          id: "cs-1",
+          tag: "economics",
+          title: "Beachhead: Private Dialysis Chains (Cairo & Alexandria)",
+          desc: "Specialized high-throughput private nephrology centers with 15-50 chairs suffering from nurse turnover and high dialyzer consumable waste.",
+          metric: "Primary Beachhead"
+        },
+        {
+          id: "cs-2",
+          tag: "regulatory",
+          title: "Egyptian Universal Health Insurance Authority (UHIA)",
+          desc: "Public sector dialysis wards across Port Said, Luxor, Ismailia, and Alexandria requiring centralized clinical governance.",
+          metric: "Public Sector (UHC)"
+        },
+        {
+          id: "cs-3",
+          tag: "economics",
+          title: "GCC / Saudi Arabian Private Renal Networks",
+          desc: "Diaverum/Fakeeh ecosystems and private hospital chains in Riyadh & Jeddah with higher SAR software budgets and CBAHI accreditation mandates.",
+          metric: "GCC Expansion"
+        },
+        {
+          id: "cs-4",
+          tag: "clinical",
+          title: "Academic University Hospitals (Pharos, Ain Shams)",
+          desc: "Research-driven nephrology departments requiring longitudinal clinical trial cohorts and anonymized FHIR R4 exports.",
+          metric: "University Research"
+        },
+        {
+          id: "cs-5",
+          tag: "clinical",
+          title: "Direct Personas: Nurses, Doctors & Medical Directors",
+          desc: "Bedside shift nurses (fluid balance), supervising nephrologists (mobile vitals alerts), and QAPI safety officers (audit trails).",
+          metric: "Clinical Personas"
+        }
+      ],
+      cost: [
+        {
+          id: "cost-1",
+          tag: "edge",
+          title: "Core Platform & Edge AI Engineering",
+          desc: "Internal Platform Lead engineering, C# .NET modular monolith optimization, ONNX/XGBoost edge model training.",
+          metric: "35k - 45k EGP/mo Base",
+          rawEgp: "35,000 - 45,000 EGP/mo",
+          rawSar: "4,500 - 6,000 SAR/mo",
+          rawUsd: "$1,200 - $1,600 /mo"
+        },
+        {
+          id: "cost-2",
+          tag: "regulatory",
+          title: "GAHAR Accreditation & ISO 13485 Compliance",
+          desc: "Clinical software verification, Egyptian Data Protection Law No. 151 compliance audits, and security vulnerability testing.",
+          metric: "30k - 50k EGP Annual",
+          rawEgp: "30,000 - 50,000 EGP",
+          rawSar: "6,000 - 10,000 SAR",
+          rawUsd: "$1,000 - $1,600"
+        },
+        {
+          id: "cost-3",
+          tag: "edge",
+          title: "Medical Bedside Hardware & IoT Gateways",
+          desc: "Ruggedized Android nurse shift tablets, waterproof protective docks, RS-232 serial telemetry ingestion boxes.",
+          metric: "12k - 18k EGP / Bed",
+          rawEgp: "12,000 - 18,000 EGP/bed",
+          rawSar: "1,500 - 2,500 SAR/bed",
+          rawUsd: "$400 - $650 /bed"
+        },
+        {
+          id: "cost-4",
+          tag: "core",
+          title: "On-Site Nurse Training & 24/7 Ward Support",
+          desc: "Clinical shadowing during morning/evening shifts, continuous nurse certification, dedicated hot-swap support.",
+          metric: "15k - 25k EGP / Center",
+          rawEgp: "15,000 - 25,000 EGP",
+          rawSar: "3,000 - 5,000 SAR",
+          rawUsd: "$500 - $800"
+        },
+        {
+          id: "cost-5",
+          tag: "edge",
+          title: "Cloud Infrastructure & ETA/ZATCA Gateways",
+          desc: "Redundant central PostgreSQL database instances, encrypted off-site disaster recovery backups, e-invoicing servers.",
+          metric: "8k - 15k EGP / mo",
+          rawEgp: "8,000 - 15,000 EGP/mo",
+          rawSar: "1,000 - 2,000 SAR/mo",
+          rawUsd: "$250 - $500 /mo"
+        }
+      ],
+      rev: [
+        {
+          id: "rev-1",
+          tag: "economics",
+          title: "Per-Chair-Per-Month (PCPM) SaaS Subscription",
+          desc: "Monthly recurring license per active dialysis bay. Standard tier (session board) to Enterprise tier (real-time AI CDSS).",
+          metric: "800 - 2,200 EGP / chair / mo",
+          rawEgp: "800 - 2,200 EGP/chair/mo",
+          rawSar: "150 - 350 SAR/chair/mo",
+          rawUsd: "$40 - $90 /chair/mo"
+        },
+        {
+          id: "rev-2",
+          tag: "economics",
+          title: "Paid Discovery & Clinic Onboarding Phase",
+          desc: "Mandatory 2-4 week on-site clinical workflow audit, hardware calibration, and staff baseline certification.",
+          metric: "120k - 180k EGP / Center",
+          rawEgp: "120,000 - 180,000 EGP",
+          rawSar: "50,000 - 100,000 SAR",
+          rawUsd: "$4,000 - $7,000"
+        },
+        {
+          id: "rev-3",
+          tag: "regulatory",
+          title: "ETA & ZATCA E-Invoicing Integration Module",
+          desc: "Mandatory tax authority compliance module linking session logs to certified electronic medical invoicing.",
+          metric: "30k - 50k EGP Setup",
+          rawEgp: "30,000 - 50,000 EGP",
+          rawSar: "15,000 - 25,000 SAR",
+          rawUsd: "$1,000 - $2,000"
+        },
+        {
+          id: "rev-4",
+          tag: "core",
+          title: "Annual Hardware Maintenance (AMC)",
+          desc: "Annual contract for telemetry gateway maintenance, sensor recalibration, and guaranteed hot-swap tablet replacement.",
+          metric: "15% of Hardware Value/yr",
+          rawEgp: "15% Hardware Value",
+          rawSar: "15% Hardware Value",
+          rawUsd: "15% Hardware Value"
+        },
+        {
+          id: "rev-5",
+          tag: "clinical",
+          title: "Anonymized RWE Clinical Trial Data Licensing",
+          desc: "De-identified longitudinal cohort data licensing for nephrology pharmaceutical sponsors studying anemia and dialyzer clearance.",
+          metric: "Enterprise Research Grant",
+          rawEgp: "Custom Grant Contracts",
+          rawSar: "Custom Grant Contracts",
+          rawUsd: "Custom Grant Contracts"
+        }
+      ]
+    };
+
+    // State Management
+    let bmcState = null;
+    let activeCurrency = "EGP";
+    let activeFilter = "all";
+    let searchQuery = "";
+
+    const STORAGE_KEY = "NEPHROEDGE_BMC_STATE_2026";
+
+    // Initialize State
+    function initState() {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        try {
+          bmcState = JSON.parse(saved);
+        } catch (e) {
+          console.error("Failed to parse saved BMC state, falling back to defaults", e);
+          bmcState = JSON.parse(JSON.stringify(DEFAULT_BMC_DATA));
+        }
+      } else {
+        bmcState = JSON.parse(JSON.stringify(DEFAULT_BMC_DATA));
+      }
+
+      if (bmcState.currency) {
+        activeCurrency = bmcState.currency;
+      }
+
+      document.getElementById('print-date').textContent = new Date().toLocaleDateString('en-GB', {
+        day: 'numeric', month: 'short', year: 'numeric'
+      });
+
+      renderCanvas();
+      setupEventListeners();
+    }
+
+    // Auto-Save to LocalStorage
+    function saveState(immediate = false) {
+      const statusPill = document.getElementById('save-status-pill');
+      const statusText = document.getElementById('save-status-text');
+
+      statusPill.classList.add('saving');
+      statusText.textContent = "Saving...";
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(bmcState));
+
+      setTimeout(() => {
+        statusPill.classList.remove('saving');
+        statusText.textContent = "Synced to LocalStorage";
+      }, immediate ? 100 : 400);
+    }
+
+    // Render Full Canvas
+    function renderCanvas() {
+      const blocks = ['kp', 'ka', 'kr', 'vp', 'cr', 'ch', 'cs', 'cost', 'rev'];
+
+      blocks.forEach(blockId => {
+        const container = document.getElementById(`list-${blockId}`);
+        const countBadge = document.getElementById(`count-${blockId}`);
+        const items = bmcState[blockId] || [];
+
+        // Filter and Search Matching
+        const filtered = items.filter(item => {
+          const matchTag = (activeFilter === 'all' || item.tag === activeFilter);
+          const q = searchQuery.toLowerCase().trim();
+          const matchSearch = !q || 
+            item.title.toLowerCase().includes(q) || 
+            item.desc.toLowerCase().includes(q) ||
+            (item.metric && item.metric.toLowerCase().includes(q));
+          return matchTag && matchSearch;
+        });
+
+        countBadge.textContent = filtered.length;
+        container.innerHTML = "";
+
+        if (filtered.length === 0) {
+          container.innerHTML = `
+            <div style="padding: 1.5rem 0.5rem; text-align: center; color: var(--text-light); font-size: 0.75rem; font-style: italic;">
+              No fields matching current filter.
+            </div>
+          `;
+          return;
+        }
+
+        filtered.forEach(item => {
+          const card = createCardElement(blockId, item);
+          container.appendChild(card);
+        });
+      });
+
+      // Update Currency Buttons
+      document.querySelectorAll('#currency-selector .pill-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.currency === activeCurrency);
+      });
+    }
+
+    // Create Editable Card Element (EVERY FIELD IS AN INPUT FIELD)
+    function createCardElement(blockId, item) {
+      const card = document.createElement('div');
+      card.className = 'field-card';
+      card.dataset.itemId = item.id;
+
+      // Determine metric badge depending on currency
+      let metricDisplay = item.metric || "";
+      if (blockId === 'cost' || blockId === 'rev') {
+        if (activeCurrency === 'EGP' && item.rawEgp) metricDisplay = item.rawEgp;
+        else if (activeCurrency === 'SAR' && item.rawSar) metricDisplay = item.rawSar;
+        else if (activeCurrency === 'USD' && item.rawUsd) metricDisplay = item.rawUsd;
+      }
+
+      card.innerHTML = `
+        <div class="field-card-top">
+          <span class="tag-badge tag-${item.tag || 'core'}">${item.tag || 'Core'}</span>
+          <div class="card-actions">
+            <button class="card-action-btn" title="Cycle Category Tag" onclick="cycleTag('${blockId}', '${item.id}')">
+              <i class="fa-solid fa-tag"></i>
+            </button>
+            <button class="card-action-btn btn-del" title="Delete Field" onclick="deleteCard('${blockId}', '${item.id}')">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Editable Title Input Field -->
+        <input 
+          type="text" 
+          class="field-title-input" 
+          value="${escapeHtml(item.title)}" 
+          placeholder="Field Title / Heading..."
+          oninput="updateItemField('${blockId}', '${item.id}', 'title', this.value)"
+        />
+
+        <!-- Editable Description Textarea Field -->
+        <textarea 
+          class="field-desc-textarea" 
+          placeholder="Provide field details, clinical/edge specifications..."
+          oninput="updateItemField('${blockId}', '${item.id}', 'desc', this.value)"
+        >${escapeHtml(item.desc)}</textarea>
+
+        <!-- Metric / Value Pill -->
+        ${metricDisplay ? `
+          <div class="metric-pill ${blockId === 'cost' ? 'cost' : ''}">
+            <i class="fa-solid fa-${blockId === 'cost' ? 'receipt' : (blockId === 'rev' ? 'coins' : 'circle-check')}"></i>
+            <span>${escapeHtml(metricDisplay)}</span>
+          </div>
+        ` : ''}
+      `;
+
+      return card;
+    }
+
+    // Two-Way Binding: Update Item Field
+    window.updateItemField = function(blockId, itemId, field, value) {
+      const list = bmcState[blockId];
+      if (!list) return;
+      const item = list.find(x => x.id === itemId);
+      if (item) {
+        item[field] = value;
+        saveState();
+      }
+    };
+
+    // Add New Card Item
+    window.addNewCard = function(blockId) {
+      if (!bmcState[blockId]) bmcState[blockId] = [];
+      const newId = `${blockId}-${Date.now().toString(36)}`;
+      const defaultTag = (blockId === 'cost' || blockId === 'rev') ? 'economics' :
+                         (blockId === 'vp' || blockId === 'kp') ? 'clinical' : 'edge';
+
+      const newItem = {
+        id: newId,
+        tag: defaultTag,
+        title: "New Custom Field",
+        desc: "Click here to edit description and project specifications...",
+        metric: blockId === 'cost' ? "TBD Cost" : blockId === 'rev' ? "TBD Revenue" : "Active"
+      };
+
+      bmcState[blockId].push(newItem);
+      saveState(true);
+      renderCanvas();
+
+      // Focus the newly added input field
+      setTimeout(() => {
+        const card = document.querySelector(`[data-item-id="${newId}"] .field-title-input`);
+        if (card) {
+          card.focus();
+          card.select();
+        }
+      }, 50);
+    };
+
+    // Delete Card Item
+    window.deleteCard = function(blockId, itemId) {
+      const list = bmcState[blockId];
+      if (!list) return;
+      bmcState[blockId] = list.filter(x => x.id !== itemId);
+      saveState(true);
+      renderCanvas();
+    };
+
+    // Cycle Tag Category
+    window.cycleTag = function(blockId, itemId) {
+      const tags = ['clinical', 'edge', 'regulatory', 'economics', 'core'];
+      const list = bmcState[blockId];
+      if (!list) return;
+      const item = list.find(x => x.id === itemId);
+      if (!item) return;
+
+      const currentIndex = tags.indexOf(item.tag || 'core');
+      const nextIndex = (currentIndex + 1) % tags.length;
+      item.tag = tags[nextIndex];
+      saveState(true);
+      renderCanvas();
+    };
+
+    // Event Listeners Setup
+    function setupEventListeners() {
+      // Currency Switching
+      document.querySelectorAll('#currency-selector .pill-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          activeCurrency = btn.dataset.currency;
+          bmcState.currency = activeCurrency;
+          saveState();
+          renderCanvas();
+        });
+      });
+
+      // Filter Switching
+      document.querySelectorAll('#tag-filter-selector .pill-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('#tag-filter-selector .pill-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          activeFilter = btn.dataset.filter;
+          renderCanvas();
+        });
+      });
+
+      // Live Search
+      const searchInput = document.getElementById('canvas-search-input');
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value;
+        renderCanvas();
+      });
+
+      // Export JSON
+      document.getElementById('btn-export-json').addEventListener('click', () => {
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(bmcState, null, 2));
+        const dlAnchor = document.createElement('a');
+        dlAnchor.setAttribute("href", dataStr);
+        dlAnchor.setAttribute("download", `NephroEdge_Business_Model_Canvas_${new Date().toISOString().slice(0, 10)}.json`);
+        document.body.appendChild(dlAnchor);
+        dlAnchor.click();
+        dlAnchor.remove();
+      });
+
+      // Import JSON
+      document.getElementById('import-json-file').addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          try {
+            const imported = JSON.parse(event.target.result);
+            if (imported.kp && imported.vp && imported.cs) {
+              bmcState = imported;
+              if (bmcState.currency) activeCurrency = bmcState.currency;
+              saveState(true);
+              renderCanvas();
+              alert("Business Model Canvas successfully imported!");
+            } else {
+              alert("Invalid BMC JSON structure: Missing required blocks.");
+            }
+          } catch (err) {
+            alert("Error parsing JSON file: " + err.message);
+          }
+        };
+        reader.readAsText(file);
+      });
+
+      // Print
+      document.getElementById('btn-print').addEventListener('click', () => {
+        window.print();
+      });
+
+      // Reset Defaults
+      document.getElementById('btn-reset').addEventListener('click', () => {
+        if (confirm("Reset canvas to official NephroEdge project defaults? Any custom unsaved edits will be replaced.")) {
+          bmcState = JSON.parse(JSON.stringify(DEFAULT_BMC_DATA));
+          activeCurrency = "EGP";
+          activeFilter = "all";
+          searchQuery = "";
+          searchInput.value = "";
+          document.querySelectorAll('#tag-filter-selector .pill-btn').forEach(b => {
+            b.classList.toggle('active', b.dataset.filter === 'all');
+          });
+          saveState(true);
+          renderCanvas();
+        }
+      });
+    }
+
+    function escapeHtml(str) {
+      if (!str) return "";
+      return str
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    // Run on startup
+    window.addEventListener('DOMContentLoaded', initState);
+  </script>
+</body>
+</html>

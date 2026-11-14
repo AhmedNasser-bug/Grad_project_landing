@@ -1,10 +1,28 @@
+﻿# Dependencies & Build Outputs
 node_modules/
-.astro/
 dist/
+.astro/
+.next/
 .env
 .env.*
 .DS_Store
 *.log
-dashboard/node_modules/
-dashboard/.astro/
-dashboard/dist/
+*.zip
+
+# Landing Page (Astro)
+landing/node_modules/
+landing/.astro/
+landing/dist/
+
+# Separate Repositories & Local Workspaces
+desktop/
+mobile/
+backend/
+ai/
+knowledge-base/
+Nurse interface/
+NephroEdge.B2B/
+.vs/
+*.sqlite*
+*.litedb*
+*.db*

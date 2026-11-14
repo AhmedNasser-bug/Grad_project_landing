@@ -1,0 +1,643 @@
+---
+// NephroGuard Official Landing Page — Matched to Swiss-Clinical Dialysis Reference Design
+---
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="NephroGuard is a connected dialysis management platform for patient records, treatment sessions, medication safety, and clinical decision support."
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <title>NephroGuard | Connected Dialysis Care, Clearer Workflows</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;650;700;750;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/landing-ref/styles.css" />
+    <style is:inline>
+      .repositories-section {
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        background: var(--blue-wash);
+      }
+      .repos-intro {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 36px;
+        margin-bottom: 52px;
+      }
+      .repos-intro > p {
+        max-width: 440px;
+        margin: 0 0 6px;
+        color: var(--body);
+        font-size: 18px;
+        line-height: 1.7;
+      }
+      .repo-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+      }
+      .repo-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 32px;
+        border: 1px solid #d4e2eb;
+        border-radius: 6px;
+        background: var(--white);
+        transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .repo-card:hover {
+        border-color: var(--blue);
+        transform: translateY(-2px);
+        box-shadow: 0 18px 40px -28px rgba(18, 85, 141, 0.35);
+      }
+      .repo-card-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .repo-stack-pill {
+        display: inline-flex;
+        align-items: center;
+        padding: 5px 11px;
+        border: 1px solid #d4e2eb;
+        border-radius: 3px;
+        background: var(--blue-soft);
+        color: var(--blue-dark);
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+      .repo-index {
+        color: #7893a6;
+        font-family: var(--font-display);
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .repo-card h3 {
+        margin: 0 0 8px;
+        color: var(--navy);
+        font-family: var(--font-display);
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: -0.6px;
+        line-height: 1.25;
+      }
+      .repo-card p {
+        margin: 0;
+        color: var(--body);
+        font-size: 16px;
+        line-height: 1.65;
+      }
+      .repo-cmd {
+        padding: 10px 14px;
+        border: 1px solid #e2eaf0;
+        border-radius: 4px;
+        background: #f8fbfd;
+        color: #214056;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 12.5px;
+        line-height: 1.5;
+        overflow-wrap: anywhere;
+        white-space: pre-wrap;
+      }
+      .repo-card-actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding-top: 8px;
+        border-top: 1px solid #eef3f7;
+        flex-wrap: wrap;
+      }
+      .repo-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--blue);
+        font-size: 15px;
+        font-weight: 600;
+        transition: color 0.18s ease;
+      }
+      .repo-link:hover {
+        color: var(--blue-dark);
+      }
+      .repo-link span {
+        font-size: 18px;
+        transition: transform 0.18s ease;
+      }
+      .repo-link:hover span {
+        transform: translate(2px, -2px);
+      }
+      .repo-subnote {
+        color: var(--muted);
+        font-size: 13px;
+      }
+      @media (max-width: 900px) {
+        .repos-intro {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 18px;
+          margin-bottom: 36px;
+        }
+        .repo-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        .repo-card {
+          padding: 24px;
+        }
+      }
+    </style>
+    <script is:inline src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+    <script is:inline src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+    <script is:inline src="/landing-ref/script.js" defer></script>
+    <script is:inline src="/landing-ref/scroll-zoom.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <section class="cinematic-intro" aria-labelledby="cinematic-title">
+      <div class="workspace-background" aria-hidden="true"></div>
+      <div class="workspace-shade" aria-hidden="true"></div>
+      <div class="cinematic-copy">
+        <p class="cinematic-kicker">CONNECTED DIALYSIS CARE</p>
+        <h1 id="cinematic-title">Dialysis care.<br />One clear view.</h1>
+        <p>Patient records, treatment sessions, and clinical support in one place.</p>
+      </div>
+      <div class="laptop-anchor" aria-hidden="true">
+        <div class="laptop">
+          <div class="laptop-screen">
+            <div class="laptop-screen-content">
+              <img
+                class="laptop-preview"
+                src="/landing-ref/assets/nephroguard-home-dashboard.png"
+                alt="NephroGuard home dashboard showing today's sessions, patients, alerts, and progress"
+              />
+            </div>
+          </div>
+          <div class="laptop-hinge"></div>
+          <div class="laptop-base">
+            <div class="laptop-keyboard"></div>
+            <div class="laptop-trackpad"></div>
+          </div>
+        </div>
+      </div>
+      <div class="cinematic-scroll-cue" aria-hidden="true">
+        <span>SCROLL TO EXPLORE</span>
+        <span class="scroll-cue-arrow"></span>
+      </div>
+    </section>
+
+    <header class="site-header" id="top">
+      <div class="container header-inner">
+        <a class="brand" href="#top" aria-label="NephroGuard home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 36 36" fill="none">
+              <path d="M18 3.75v28.5M3.75 18h28.5" />
+              <path d="M8 8l20 20M28 8 8 28" class="brand-mark-soft" />
+            </svg>
+          </span>
+          <span class="brand-name">Nephro<span>Guard</span></span>
+        </a>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+          aria-label="Open navigation menu"
+        >
+          <span></span><span></span>
+        </button>
+
+        <nav class="primary-navigation" id="primary-navigation" aria-label="Main navigation">
+          <a href="#services">Services</a>
+          <a href="#features">Features</a>
+          <a href="#repositories">Repositories</a>
+          <a href="#about">About us</a>
+          <a href="#faq">FAQ</a>
+          <a class="nav-cta" href="/partner">Request a demo <span aria-hidden="true">↗</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero section-shell">
+        <div class="container hero-layout">
+          <div class="hero-copy">
+            <h1>Dialysis care.<br /><span>One clear view.</span></h1>
+            <p class="hero-description">
+              Manage patients, treatment sessions, medications, and clinical insights in one place.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#features">Explore the platform <span aria-hidden="true">↗</span></a>
+              <a class="button button-secondary" href="#repositories">Explore GitHub repos</a>
+            </div>
+            <div class="hero-note">
+              Designed for doctors, nurses, and administrators in dialysis units.
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-label="Preview of the NephroGuard dialysis management dashboard">
+            <img
+              class="product-screenshot hero-screenshot"
+              src="/landing-ref/assets/nephroguard-home-dashboard.png"
+              alt="NephroGuard workspace dashboard with session, patient, and alert summaries"
+            />
+            <div class="visual-caption"><span class="caption-dot"></span> NephroGuard clinical workspace</div>
+          </div>
+        </div>
+        <div class="hero-bottom-line" aria-hidden="true"></div>
+      </section>
+
+      <section class="numbers-section section-pad" aria-labelledby="numbers-title">
+        <div class="container">
+          <div class="section-intro numbers-intro">
+            <div><h2 id="numbers-title">A rhythm of care.<br />A team behind every session.</h2></div>
+            <p>Dialysis care connects regular treatment with continuous attention.</p>
+          </div>
+          <div class="stats-row">
+            <div class="stat-item"><strong>3</strong><span>sessions per week</span></div>
+            <div class="stat-item"><strong>3–5<span class="stat-unit">h</span></strong><span>per session</span></div>
+            <div class="stat-item"><strong>24<span class="stat-unit">/7</span></strong><span>continuous care</span></div>
+            <div class="stat-item"><strong>3</strong><span>roles, one platform</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="challenge-section section-pad" id="about">
+        <div class="container challenge-layout">
+          <div class="challenge-intro">
+            <h2>Care is complex enough. Your workflows shouldn’t be.</h2>
+            <p>When records and routines are disconnected, important details become harder to bring together.</p>
+          </div>
+          <div class="challenge-list">
+            <article class="challenge-item">
+              <span class="item-number">01</span>
+              <div><h3>Records in different places</h3><p>Patient histories, labs, and medications are harder to review when separated.</p></div>
+            </article>
+            <article class="challenge-item">
+              <span class="item-number">02</span>
+              <div><h3>Sessions that demand attention</h3><p>Vitals and treatment progress need accurate, timely documentation.</p></div>
+            </article>
+            <article class="challenge-item">
+              <span class="item-number">03</span>
+              <div><h3>Medication review without context</h3><p>Safer prescription review starts with each patient’s kidney function.</p></div>
+            </article>
+            <article class="challenge-item">
+              <span class="item-number">04</span>
+              <div><h3>Information hard to act on</h3><p>Care teams need relevant patient context at the right moment.</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="services-section section-pad" id="services">
+        <div class="container">
+          <div class="section-intro services-intro">
+            <div><p class="eyebrow">One connected platform</p><h2>Care essentials, all in one place.</h2></div>
+            <div><p>From the patient record to the treatment floor.</p></div>
+          </div>
+          <div class="services-grid">
+            <article class="service-item">
+              <span class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32"><circle cx="12" cy="10" r="4" /><path d="M4.5 26v-2a7.5 7.5 0 0 1 15 0v2zM22 7a4 4 0 0 1 0 7.7M24 19a6 6 0 0 1 3.5 5.5V26h-4" /></svg>
+              </span>
+              <span class="service-number">01</span>
+              <h3>Patient management</h3>
+              <p>Patient profiles, medical histories, labs, and treatments in one organized record.</p>
+              <a href="#feature-patients" aria-label="Learn about patient profiles">Learn more <span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="service-item">
+              <span class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32"><rect x="4" y="6" width="24" height="22" rx="3" /><path d="M10 3v6M22 3v6M4 13h24M10 19h4M10 23h10" /></svg>
+              </span>
+              <span class="service-number">02</span>
+              <h3>Session management</h3>
+              <p>Track sessions, document vital signs, and record treatment progress.</p>
+              <a href="#feature-sessions" aria-label="Learn about session management">Learn more <span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="service-item">
+              <span class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32"><path d="M11 5.5a6.5 6.5 0 0 1 9.2 0l6.3 6.3a6.5 6.5 0 0 1-9.2 9.2L11 14.7a6.5 6.5 0 0 1 0-9.2Z" /><path d="m13.5 19.5 6-6" /><path d="M7 25h5" /></svg>
+              </span>
+              <span class="service-number">03</span>
+              <h3>Medication management</h3>
+              <p>Organize medication records and support thoughtful prescription review.</p>
+              <a href="#feature-medications" aria-label="Learn about medication safety">Learn more <span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="service-item">
+              <span class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32"><path d="M16 3 19 11l8-3-3 8 5 5-9 1-4 7-4-7-9-1 5-5-3-8 8 3z" /><circle cx="16" cy="17" r="3" /></svg>
+              </span>
+              <span class="service-number">04</span>
+              <h3>Clinical decision support</h3>
+              <p>Summarize patient history and find relevant details with AI assistance.</p>
+              <a href="#feature-assistant" aria-label="Learn about clinical decision support">Learn more <span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="features-section section-pad" id="features">
+        <div class="container">
+          <div class="section-intro features-intro">
+            <div><p class="eyebrow">A better view of the work</p><h2>The right context, from record to treatment.</h2></div>
+            <p>Purpose-built tools for the moments that matter in dialysis care.</p>
+          </div>
+
+          <article class="feature-story" id="feature-patients">
+            <div class="feature-copy">
+              <span class="feature-index">01 <span>/</span> PATIENT MANAGEMENT</span>
+              <h3>Patient records, clear at a glance.</h3>
+              <p>See assigned patients and quickly review their details, insurance, and current status.</p>
+            </div>
+            <div class="patient-preview preview-frame" aria-label="Patient management dashboard preview">
+              <img
+                class="product-screenshot"
+                src="/landing-ref/assets/nephroguard-patients.png"
+                alt="NephroGuard patients page with assigned patient records, search, and status filters"
+              />
+            </div>
+          </article>
+
+          <article class="feature-story feature-story-reverse" id="feature-sessions">
+            <div class="feature-copy">
+              <span class="feature-index">02 <span>/</span> SESSION MONITORING</span>
+              <h3>Keep every session on schedule.</h3>
+              <p>View upcoming and completed treatments with assigned patients, care groups, and scheduled times.</p>
+            </div>
+            <div class="session-preview preview-frame" aria-label="Dialysis session management dashboard preview">
+              <img
+                class="product-screenshot"
+                src="/landing-ref/assets/nephroguard-sessions.png"
+                alt="NephroGuard sessions page listing upcoming and completed dialysis sessions"
+              />
+            </div>
+          </article>
+
+          <article class="feature-story" id="feature-medications">
+            <div class="feature-copy">
+              <span class="feature-index">03 <span>/</span> MEDICATION SAFETY</span>
+              <h3>Medication decisions, with more context.</h3>
+              <p>Review prescriptions alongside kidney function; suggested adjustments are for doctors to assess.</p>
+            </div>
+            <div class="medication-preview preview-frame" aria-label="Medication safety review dashboard preview">
+              <div class="preview-toolbar"><span class="preview-breadcrumb">Medication <b>/</b> Prescription review</span><span class="review-tag">FOR CLINICAL REVIEW</span></div>
+              <div class="medication-body">
+                <div class="medication-heading"><span class="profile-avatar">Rx</span><div><h4>Medication records</h4><span>Prescription review and medication history</span></div></div>
+                <div class="medication-row"><span class="medication-symbol">Rx</span><div><b>Long-term prescriptions</b><small>Review against patient context</small></div><span class="medication-status status-review">For review</span></div>
+                <div class="review-note"><span class="review-note-mark">i</span><p><b>Review with clinical context</b><br />Consider kidney function when reviewing prescriptions. Suggested adjustments are for doctors to assess.</p></div>
+                <div class="medication-row medication-row-secondary"><span class="medication-symbol">Rx</span><div><b>Session medications</b><small>Organized with treatment records</small></div><span class="medication-status">In record</span></div>
+                <div class="medication-footer"><span>Clinical decision support · For clinician review</span><span>View medication history <b>→</b></span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="feature-story feature-story-reverse" id="feature-assistant">
+            <div class="feature-copy">
+              <span class="feature-index">04 <span>/</span> AI HISTORY ASSISTANT</span>
+              <h3>Ask a question. Find the relevant history.</h3>
+              <p>Summarize patient records and surface relevant details in plain language.</p>
+            </div>
+            <div class="assistant-preview preview-frame" aria-label="Patient history assistant dashboard preview">
+              <div class="preview-toolbar"><span class="preview-breadcrumb">Patient profile <b>/</b> History assistant</span><span class="assistant-label"><i>✳</i> AI ASSISTANT</span></div>
+              <div class="assistant-body">
+                <div class="assistant-context"><span class="context-label">PATIENT CONTEXT</span><span class="context-chip">Patient record <b>×</b></span><span class="context-detail">Using medical history, lab results, and treatment records</span></div>
+                <div class="assistant-message assistant-question"><span class="assistant-avatar">CT</span><div><small>CARE TEAM QUESTION</small><p>Summarize this patient’s recent history.</p></div></div>
+                <div class="assistant-message"><span class="assistant-icon">✳</span><div><small>HISTORY ASSISTANT</small><p><b>Patient history summary</b></p><p>Review medical history, lab results, medications, and previous dialysis sessions in the patient record.</p><span class="source-note">Review the source record before making clinical decisions.</span></div></div>
+                <div class="assistant-input"><span>Ask about this patient’s records...</span><b aria-hidden="true">↑</b></div>
+                <div class="assistant-disclaimer">AI supports the workflow; clinical decisions remain with healthcare professionals.</div>
+              </div>
+            </div>
+          </article>
+
+          <div class="feature-strip" aria-label="More platform features">
+            <div class="feature-strip-heading"><span class="feature-index">ALSO INCLUDED</span><h3>Fits your team and your workflow.</h3></div>
+            <div class="extra-feature"><span>+</span><div><b>Role-based access</b><small>Dashboards for doctors, nurses, and administrators</small></div></div>
+            <div class="extra-feature"><span>+</span><div><b>Incident reports</b><small>Document incidents for the care team</small></div></div>
+            <div class="extra-feature"><span>+</span><div><b>Reports & exports</b><small>View medical reports and export PDFs</small></div></div>
+            <div class="extra-feature"><span>+</span><div><b>Flexible by design</b><small>Arabic and English, right-to-left and left-to-right layouts, plus light and dark modes</small></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="repositories-section section-pad" id="repositories" aria-labelledby="repositories-title">
+        <div class="container">
+          <div class="repos-intro">
+            <div>
+              <p class="eyebrow">Reproducible Engineering Repositories</p>
+              <h2 id="repositories-title">Inspect, run, and verify every application layer.</h2>
+            </div>
+            <p>Each clinical surface ships in its own repository with Docker &amp; one-command setup scripts alongside the architecture blueprint.</p>
+          </div>
+
+          <div class="repo-grid">
+            <article class="repo-card">
+              <div>
+                <div class="repo-card-top">
+                  <span class="repo-stack-pill">.NET 9 · AVALONIA UI 11</span>
+                  <span class="repo-index">01 / WORKSTATION</span>
+                </div>
+                <h3>Clinic Desktop Workstation</h3>
+                <p>Doctor triage grid, longitudinal lab &amp; Kt/V analytics, ECRI-safe Rx authoring, HL7 FHIR R4 export, and bedside 409 sync resolution.</p>
+              </div>
+              <div class="repo-cmd">.\setup.ps1 -VerifyOnly &nbsp;# or .\setup.ps1 -Docker</div>
+              <div class="repo-card-actions">
+                <a class="repo-link" href="https://github.com/AhmedNasser-bug/Graduation-Project-Desktop" target="_blank" rel="noopener noreferrer">
+                  AhmedNasser-bug/Graduation-Project-Desktop <span aria-hidden="true">↗</span>
+                </a>
+                <span class="repo-subnote">41/41 headless checks</span>
+              </div>
+            </article>
+
+            <article class="repo-card">
+              <div>
+                <div class="repo-card-top">
+                  <span class="repo-stack-pill">REACT 18 · VITE · SQL.JS · CAPACITOR</span>
+                  <span class="repo-index">02 / BEDSIDE MOBILE</span>
+                </div>
+                <h3>Nurse Bedside Mobile Prototype</h3>
+                <p>Offline-first bedside patient shifts, intradialytic vital logging, early warning triage, TreeSHAP insights, and outbox sync.</p>
+              </div>
+              <div class="repo-cmd">docker build -t nephroguard-mobile . &amp;&amp; docker run -p 5173:80 nephroguard-mobile</div>
+              <div class="repo-card-actions">
+                <a class="repo-link" href="https://github.com/AhmedNasser-bug/Graduation-Project-Mobile" target="_blank" rel="noopener noreferrer">
+                  AhmedNasser-bug/Graduation-Project-Mobile <span aria-hidden="true">↗</span>
+                </a>
+                <span class="repo-subnote">Web &amp; Android target</span>
+              </div>
+            </article>
+
+            <article class="repo-card">
+              <div>
+                <div class="repo-card-top">
+                  <span class="repo-stack-pill">PERSISTENCE · MIDDLEWARE · SERVICES</span>
+                  <span class="repo-index">03 / CORE BACKEND</span>
+                </div>
+                <h3>Clean-Architecture Clinical Backend</h3>
+                <p>3-unit modular monolith in .NET 9 with 3NF/SCD-2 SQLite WAL schemas, LiteDB document storage, and Mendeley 12,404-session seed.</p>
+              </div>
+              <div class="repo-cmd">xByteA/Graduation-Project-Backend</div>
+              <div class="repo-card-actions">
+                <a class="repo-link" href="https://github.com/xByteA/Graduation-Project-Backend" target="_blank" rel="noopener noreferrer">
+                  xByteA/Graduation-Project-Backend <span aria-hidden="true">↗</span>
+                </a>
+                <a class="repo-subnote" href="/architecture">View architecture blueprint →</a>
+              </div>
+            </article>
+
+            <article class="repo-card">
+              <div>
+                <div class="repo-card-top">
+                  <span class="repo-stack-pill">SPECS · API CONTRACTS · EVIDENCE</span>
+                  <span class="repo-index">04 / DOCUMENTATION HUB</span>
+                </div>
+                <h3>Master Docs &amp; Clinical Portal</h3>
+                <p>Open API contracts, system diagrams, KDIGO/Flythe clinical evidence citations, business model canvas, and partner pilot portal.</p>
+              </div>
+              <div class="repo-cmd">xByteA/Graduation-Project-Documentation</div>
+              <div class="repo-card-actions">
+                <a class="repo-link" href="https://github.com/xByteA/Graduation-Project-Documentation" target="_blank" rel="noopener noreferrer">
+                  xByteA/Graduation-Project-Documentation <span aria-hidden="true">↗</span>
+                </a>
+                <span class="repo-subnote">
+                  <a href="/evidence">Evidence</a> · <a href="/bmc">BMC</a> · <a href="/about">Team</a>
+                </span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-section section-pad">
+        <div class="container trust-layout">
+          <div class="trust-intro">
+            <p class="eyebrow">Designed for the care team</p>
+            <h2>Clinicians stay in control.</h2>
+            <p>Organized information and thoughtful support, built around how dialysis teams work.</p>
+          </div>
+          <div class="trust-list">
+            <article class="trust-item"><span class="trust-mark">01</span><div><h3>Access matched to each role</h3><p>Doctors, nurses, and administrators have the tools relevant to their work.</p></div></article>
+            <article class="trust-item"><span class="trust-mark">02</span><div><h3>Records that stay organized</h3><p>Keep patient history, prescriptions, labs, and treatment records together.</p></div></article>
+            <article class="trust-item"><span class="trust-mark">03</span><div><h3>AI that supports—not decides</h3><p>Insights and summaries assist clinicians; clinical decisions stay with professionals.</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq-section section-pad" id="faq">
+        <div class="container faq-layout">
+          <div class="faq-intro">
+            <p class="eyebrow">Your questions, answered</p>
+            <h2>Good to know.</h2>
+          </div>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary><span>Who is NephroGuard designed for?</span><span class="faq-toggle" aria-hidden="true"></span></summary>
+              <p>For dialysis units, including doctors, nurses, and administrators.</p>
+            </details>
+            <details class="faq-item">
+              <summary><span>What can doctors do through the platform?</span><span class="faq-toggle" aria-hidden="true"></span></summary>
+              <p>Review assigned patients, medical histories, labs, reports, and prescriptions.</p>
+            </details>
+            <details class="faq-item">
+              <summary><span>What can nurses do through the platform?</span><span class="faq-toggle" aria-hidden="true"></span></summary>
+              <p>Manage sessions, record vitals, calculate early warning scores, and report incidents.</p>
+            </details>
+            <details class="faq-item">
+              <summary><span>How does the system use artificial intelligence?</span><span class="faq-toggle" aria-hidden="true"></span></summary>
+              <p>Summarize patient histories, answer questions about records, and support medication review.</p>
+            </details>
+            <details class="faq-item">
+              <summary><span>Does the platform replace doctors’ decisions?</span><span class="faq-toggle" aria-hidden="true"></span></summary>
+              <p>No. It supports care teams; qualified healthcare professionals make clinical decisions.</p>
+            </details>
+            <details class="faq-item">
+              <summary><span>Can different healthcare professionals have different permissions?</span><span class="faq-toggle" aria-hidden="true"></span></summary>
+              <p>Yes. Role-based access provides relevant dashboards and tools for each role.</p>
+            </details>
+            <details class="faq-item">
+              <summary><span>Does the platform support Arabic?</span><span class="faq-toggle" aria-hidden="true"></span></summary>
+              <p>Yes. The platform supports Arabic and English, with right-to-left and left-to-right layouts.</p>
+            </details>
+            <details class="faq-item">
+              <summary><span>Can I export medical reports?</span><span class="faq-toggle" aria-hidden="true"></span></summary>
+              <p>Yes. Reports can be viewed and exported as PDFs.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact">
+        <div class="container contact-layout">
+          <div>
+            <p class="eyebrow eyebrow-light">Care, connected</p>
+            <h2>Make every part of dialysis care easier to see.</h2>
+            <p>Bring patients, sessions, medication, and clinical support into one clear workflow.</p>
+          </div>
+          <div class="contact-actions">
+            <a class="button button-white" href="/partner">Request a demo <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="footer">
+      <div class="container">
+        <div class="footer-main">
+          <div class="footer-brand">
+            <a class="brand" href="#top">
+              <span class="brand-mark" aria-hidden="true">
+                <svg viewBox="0 0 36 36" fill="none"><path d="M18 3.75v28.5M3.75 18h28.5" /><path d="M8 8l20 20M28 8 8 28" class="brand-mark-soft" /></svg>
+              </span>
+              <span class="brand-name">Nephro<span>Guard</span></span>
+            </a>
+            <p>Dialysis patients, sessions, and clinical support—together.</p>
+          </div>
+          <div class="footer-links">
+            <div>
+              <span class="footer-label">EXPLORE</span>
+              <a href="#top">Home</a>
+              <a href="#services">Services</a>
+              <a href="#features">Features</a>
+              <a href="#repositories">Repositories</a>
+              <a href="/architecture">Architecture</a>
+              <a href="/evidence">Clinical evidence</a>
+            </div>
+            <div>
+              <span class="footer-label">REPOSITORIES</span>
+              <a href="https://github.com/AhmedNasser-bug/Graduation-Project-Desktop" target="_blank" rel="noopener noreferrer">Desktop Workstation</a>
+              <a href="https://github.com/AhmedNasser-bug/Graduation-Project-Mobile" target="_blank" rel="noopener noreferrer">Bedside Mobile App</a>
+              <a href="https://github.com/xByteA/Graduation-Project-Backend" target="_blank" rel="noopener noreferrer">Backend Core</a>
+              <a href="https://github.com/xByteA/Graduation-Project-Documentation" target="_blank" rel="noopener noreferrer">Documentation Hub</a>
+            </div>
+            <div>
+              <span class="footer-label">PLATFORM</span>
+              <a href="#feature-patients">Patient management</a>
+              <a href="#feature-sessions">Session management</a>
+              <a href="#feature-medications">Medication safety</a>
+              <a href="#feature-assistant">Clinical decision support</a>
+              <a href="/bmc">Business Canvas</a>
+              <a href="/partner">Request a demo</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom"><span>© 2026 NephroGuard — Dialysis Management System. All rights reserved.</span><a href="#top">Back to top <span aria-hidden="true">↑</span></a></div>
+      </div>
+    </footer>
+  </body>
+</html>
