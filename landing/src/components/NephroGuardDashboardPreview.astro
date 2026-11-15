@@ -1,0 +1,227 @@
+---
+interface Props {
+  showBoot?: boolean;
+  stageId?: string;
+}
+
+const { showBoot = false, stageId = 'ng-dash' } = Astro.props;
+---
+
+<div class="ng-dash-stage" data-ng-dashboard id={stageId}>
+  {showBoot && (
+    <div class="ng-boot-overlay" data-ng-boot aria-hidden="true">
+      <div class="ng-boot-card">
+        <div class="ng-boot-emblem">
+          <span class="ng-boot-ring"></span>
+          <span class="ng-boot-ring ng-boot-ring-delayed"></span>
+          <div class="ng-boot-shield">
+            <svg viewBox="0 0 36 36" fill="none" aria-hidden="true">
+              <path
+                d="M18 3.5 6.5 8.2v8.8c0 7.7 4.9 13.7 11.5 15.5 6.6-1.8 11.5-7.8 11.5-15.5V8.2L18 3.5Z"
+                stroke="#0d5c70"
+                stroke-width="2.2"
+                fill="#eaf5f8"
+              />
+              <path
+                d="M14.5 13.2c-2.2 0-3.8 1.9-3.8 4.6 0 2.9 1.7 5.2 3.7 5.2 1.1 0 1.9-.7 2.2-1.8.2-.8-.3-1.4-.3-2.2 0-.8.5-1.3.5-2.3 0-1.9-.9-3.5-2.3-3.5Zm7 0c-1.4 0-2.3 1.6-2.3 3.5 0 1 .5 1.5.5 2.3 0 .8-.5 1.4-.3 2.2.3 1.1 1.1 1.8 2.2 1.8 2 0 3.7-2.3 3.7-5.2 0-2.7-1.6-4.6-3.8-4.6Z"
+                fill="#0d5c70"
+              />
+            </svg>
+          </div>
+        </div>
+        <div class="ng-boot-brand">NephroGuard</div>
+        <div class="ng-boot-status" data-ng-boot-status>Loading clinical workspace...</div>
+        <div class="ng-boot-bar-track">
+          <div class="ng-boot-bar-fill" data-ng-boot-bar></div>
+        </div>
+      </div>
+    </div>
+  )}
+
+  <div class="ng-ui">
+    <!-- Top Application Bar -->
+    <header class="ng-topbar">
+      <div class="ng-topbar-brand">
+        <span class="ng-app-mark" aria-hidden="true">
+          <svg viewBox="0 0 36 36" fill="none">
+            <path
+              d="M18 3.5 6.5 8.2v8.8c0 7.7 4.9 13.7 11.5 15.5 6.6-1.8 11.5-7.8 11.5-15.5V8.2L18 3.5Z"
+              stroke="#0d5c70"
+              stroke-width="2.1"
+              fill="#e7f3f6"
+            />
+            <path
+              d="M14.6 13.2c-2.1 0-3.7 1.9-3.7 4.5 0 2.9 1.7 5.1 3.6 5.1 1.1 0 1.8-.7 2.1-1.7.2-.8-.3-1.4-.3-2.1 0-.8.5-1.3.5-2.3 0-1.9-.9-3.5-2.2-3.5Zm6.8 0c-1.3 0-2.2 1.6-2.2 3.5 0 1 .5 1.5.5 2.3 0 .7-.5 1.3-.3 2.1.3 1 1 1.7 2.1 1.7 1.9 0 3.6-2.2 3.6-5.1 0-2.6-1.6-4.5-3.7-4.5Z"
+              fill="#0d5c70"
+            />
+          </svg>
+        </span>
+        <span class="ng-app-name">NephroGuard</span>
+      </div>
+
+      <div class="ng-topbar-tools">
+        <div class="ng-search-box">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <circle cx="9" cy="9" r="5.5" stroke="#6d8290" stroke-width="1.6" />
+            <path d="m13.2 13.2 3.3 3.3" stroke="#6d8290" stroke-width="1.6" stroke-linecap="round" />
+          </svg>
+          <span>Search patients, sessions, or alerts</span>
+        </div>
+
+        <span class="ng-bell-btn" aria-hidden="true">
+          <svg viewBox="0 0 20 20" fill="none">
+            <path
+              d="M10 3.2a4.3 4.3 0 0 0-4.3 4.3v2.7c0 .8-.3 1.5-.8 2.1l-.8.9h11.8l-.8-.9a3.2 3.2 0 0 1-.8-2.1V7.5A4.3 4.3 0 0 0 10 3.2Zm-1.7 12.1a1.9 1.9 0 0 0 3.4 0"
+              stroke="#3b515f"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span class="ng-bell-dot"></span>
+        </span>
+
+        <div class="ng-user-chip">
+          <span class="ng-user-avatar">Y</span>
+          <span class="ng-user-name">Dr. Ali Reyad</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Workspace Layout -->
+    <div class="ng-workspace">
+      <aside class="ng-sidebar">
+        <div class="ng-sidebar-head">
+          <span class="ng-nav-label">NAVIGATION</span>
+          <span class="ng-nav-sub">Doctor workspace</span>
+        </div>
+        <div class="ng-nav-list">
+          <div class="ng-nav-item is-active">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path
+                d="M3.5 8.8 10 3.5l6.5 5.3v7.2a1 1 0 0 1-1 1h-3.8v-4.5H8.3V17H4.5a1 1 0 0 1-1-1V8.8Z"
+                stroke="#0d5c70"
+                stroke-width="1.55"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span>Home</span>
+          </div>
+          <div class="ng-nav-item">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <circle cx="8" cy="7" r="2.7" stroke="#5c7280" stroke-width="1.5" />
+              <path d="M3.5 15.8a4.5 4.5 0 0 1 9 0" stroke="#5c7280" stroke-width="1.5" stroke-linecap="round" />
+              <circle cx="14" cy="7.5" r="2" stroke="#5c7280" stroke-width="1.4" />
+              <path d="M13.8 12.2a3.3 3.3 0 0 1 3 3.4" stroke="#5c7280" stroke-width="1.4" stroke-linecap="round" />
+            </svg>
+            <span>Patients</span>
+          </div>
+          <div class="ng-nav-item">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <rect x="3.5" y="4.5" width="13" height="12" rx="2" stroke="#5c7280" stroke-width="1.5" />
+              <path d="M6.8 3v2.8M13.2 3v2.8M3.5 8.2h13" stroke="#5c7280" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+            <span>Sessions</span>
+          </div>
+          <div class="ng-nav-item">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path
+                d="M10 3.5 2.8 16.2h14.4L10 3.5Zm0 4.8v3.6m0 2.3h.01"
+                stroke="#5c7280"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span>Alerts</span>
+          </div>
+          <div class="ng-nav-item">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <circle cx="10" cy="7" r="3" stroke="#5c7280" stroke-width="1.5" />
+              <path d="M4.5 16.2a5.5 5.5 0 0 1 11 0" stroke="#5c7280" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+            <span>Profile</span>
+          </div>
+        </div>
+      </aside>
+
+      <div class="ng-main">
+        <div class="ng-main-header">
+          <div>
+            <span class="ng-welcome-kicker">Welcome</span>
+            <h4 class="ng-welcome-name">Dr Ali</h4>
+          </div>
+          <div class="ng-main-actions">
+            <span class="ng-btn-primary">Start session <span aria-hidden="true">→</span></span>
+            <span class="ng-btn-secondary">Schedule view</span>
+          </div>
+        </div>
+
+        <div class="ng-kpi-row">
+          <div class="ng-card ng-kpi-card">
+            <span class="ng-card-label">SESSIONS</span>
+            <strong class="ng-kpi-value">6</strong>
+            <span class="ng-card-sub">Scheduled sessions for today</span>
+          </div>
+          <div class="ng-card ng-kpi-card">
+            <span class="ng-card-label">PATIENTS</span>
+            <strong class="ng-kpi-value">8</strong>
+            <span class="ng-card-sub">Assigned patients on your roster</span>
+          </div>
+          <div class="ng-card ng-kpi-card">
+            <span class="ng-card-label">ALERTS</span>
+            <strong class="ng-kpi-value">2</strong>
+            <span class="ng-card-sub">Priority items requiring attention</span>
+          </div>
+        </div>
+
+        <div class="ng-mid-row">
+          <div class="ng-card ng-progress-card">
+            <div class="ng-card-head">
+              <span class="ng-card-label">TODAY'S PROGRESS</span>
+              <span class="ng-pill-badge">50%</span>
+            </div>
+            <div class="ng-progress-stat">3 / 6 Sessions Completed</div>
+            <div class="ng-progress-track">
+              <div class="ng-progress-fill"></div>
+            </div>
+            <span class="ng-card-sub">3 sessions remaining</span>
+          </div>
+
+          <div class="ng-card ng-chat-card">
+            <span class="ng-card-label">CHAT WITH NURSE</span>
+            <div class="ng-chat-person">
+              <span class="ng-avatar-soft">DH</span>
+              <div>
+                <strong>Samia Mohammed</strong>
+                <span>Discuss patient care and review the latest updates.</span>
+              </div>
+            </div>
+            <div class="ng-chat-footer">
+              <span class="ng-card-sub">Open the conversation to coordinate care.</span>
+              <span class="ng-btn-primary ng-btn-sm">View Chat <span aria-hidden="true">→</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ng-card ng-next-card">
+          <div class="ng-next-top">
+            <div>
+              <span class="ng-card-label">NEXT SESSION</span>
+              <div class="ng-next-patient">Ahmed Mohammed</div>
+              <span class="ng-card-sub">Patient ID P-1001</span>
+            </div>
+            <div class="ng-next-time-col">
+              <span class="ng-pill-badge">Upcoming</span>
+              <span class="ng-time-chip">09:00 AM</span>
+            </div>
+          </div>
+          <div class="ng-next-bottom">
+            <span class="ng-card-sub">Review the session plan and patient notes before starting.</span>
+            <span class="ng-btn-primary ng-btn-sm">View Session <span aria-hidden="true">→</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

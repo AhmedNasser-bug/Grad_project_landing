@@ -1,5 +1,6 @@
 ---
 // NephroGuard Official Landing Page — Matched to Swiss-Clinical Dialysis Reference Design
+import NephroGuardDashboardPreview from '../components/NephroGuardDashboardPreview.astro';
 ---
 <!doctype html>
 <html lang="en" dir="ltr">
@@ -162,49 +163,17 @@
         }
       }
     </style>
-    <script is:inline src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
-    <script is:inline src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+    <script is:inline src="/landing-ref/vendor/gsap.min.js" defer></script>
+    <script is:inline src="/landing-ref/vendor/ScrollTrigger.min.js" defer></script>
     <script is:inline src="/landing-ref/script.js" defer></script>
     <script is:inline src="/landing-ref/scroll-zoom.js" defer></script>
   </head>
-  <body>
+  <body id="top">
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <section class="cinematic-intro" aria-labelledby="cinematic-title">
-      <div class="workspace-background" aria-hidden="true"></div>
-      <div class="workspace-shade" aria-hidden="true"></div>
-      <div class="cinematic-copy">
-        <p class="cinematic-kicker">CONNECTED DIALYSIS CARE</p>
-        <h1 id="cinematic-title">Dialysis care.<br />One clear view.</h1>
-        <p>Patient records, treatment sessions, and clinical support in one place.</p>
-      </div>
-      <div class="laptop-anchor" aria-hidden="true">
-        <div class="laptop">
-          <div class="laptop-screen">
-            <div class="laptop-screen-content">
-              <img
-                class="laptop-preview"
-                src="/landing-ref/assets/nephroguard-home-dashboard.png"
-                alt="NephroGuard home dashboard showing today's sessions, patients, alerts, and progress"
-              />
-            </div>
-          </div>
-          <div class="laptop-hinge"></div>
-          <div class="laptop-base">
-            <div class="laptop-keyboard"></div>
-            <div class="laptop-trackpad"></div>
-          </div>
-        </div>
-      </div>
-      <div class="cinematic-scroll-cue" aria-hidden="true">
-        <span>SCROLL TO EXPLORE</span>
-        <span class="scroll-cue-arrow"></span>
-      </div>
-    </section>
-
-    <header class="site-header" id="top">
+    <header class="site-header" id="site-header">
       <div class="container header-inner">
-        <a class="brand" href="#top" aria-label="NephroGuard home">
+        <a class="brand brand-pill" href="#top" aria-label="NephroGuard home">
           <span class="brand-mark" aria-hidden="true">
             <svg viewBox="0 0 36 36" fill="none">
               <path d="M18 3.75v28.5M3.75 18h28.5" />
@@ -214,26 +183,85 @@
           <span class="brand-name">Nephro<span>Guard</span></span>
         </a>
 
-        <button
-          class="menu-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="primary-navigation"
-          aria-label="Open navigation menu"
-        >
-          <span></span><span></span>
-        </button>
-
-        <nav class="primary-navigation" id="primary-navigation" aria-label="Main navigation">
-          <a href="#services">Services</a>
-          <a href="#features">Features</a>
-          <a href="#repositories">Repositories</a>
-          <a href="#about">About us</a>
-          <a href="#faq">FAQ</a>
-          <a class="nav-cta" href="/partner">Request a demo <span aria-hidden="true">↗</span></a>
+        <nav class="primary-navigation pill-dock" id="primary-navigation" aria-label="Main navigation">
+          <span class="nav-pill-glider" aria-hidden="true"></span>
+          <a class="nav-pill-link" href="#services">Services</a>
+          <a class="nav-pill-link" href="#features">Features</a>
+          <a class="nav-pill-link" href="#repositories">Repositories</a>
+          <a class="nav-pill-link" href="#about">About us</a>
+          <a class="nav-pill-link" href="#faq">FAQ</a>
         </nav>
+
+        <div class="header-actions">
+          <a class="nav-cta nav-cta-pill" href="/partner">Request a demo <span aria-hidden="true">↗</span></a>
+          <button
+            class="menu-toggle menu-toggle-pill"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobile-pill-drawer"
+            aria-label="Open navigation menu"
+          >
+            <span></span><span></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="mobile-pill-drawer" id="mobile-pill-drawer" aria-hidden="true">
+        <a class="mobile-pill-link" href="#services">Services</a>
+        <a class="mobile-pill-link" href="#features">Features</a>
+        <a class="mobile-pill-link" href="#repositories">Repositories</a>
+        <a class="mobile-pill-link" href="#about">About us</a>
+        <a class="mobile-pill-link" href="#faq">FAQ</a>
+        <a class="mobile-pill-cta" href="/partner">Request a demo <span aria-hidden="true">↗</span></a>
       </div>
     </header>
+
+    <section class="cinematic-intro" aria-labelledby="cinematic-title">
+      <div class="workspace-background" aria-hidden="true"></div>
+      <div class="workspace-shade" aria-hidden="true"></div>
+      <div class="cinematic-white-veil" aria-hidden="true"></div>
+      <div class="cinematic-copy">
+        <p class="cinematic-kicker">CONNECTED DIALYSIS CARE</p>
+        <h1 id="cinematic-title">Dialysis care.<br />One clear view.</h1>
+        <p>Patient records, treatment sessions, and clinical support in one place.</p>
+      </div>
+      <div class="laptop-anchor" aria-hidden="true">
+        <div class="laptop" id="cinematic-laptop">
+          <div class="laptop-screen">
+            <div class="laptop-bezel-bg" aria-hidden="true"></div>
+            <div class="laptop-camera" aria-hidden="true"><span></span></div>
+            <div class="laptop-screen-content">
+              <NephroGuardDashboardPreview showBoot={true} stageId="ng-dash-laptop" />
+            </div>
+            <div class="laptop-glass-glare" aria-hidden="true"></div>
+          </div>
+          <div class="laptop-hinge"></div>
+          <div class="laptop-base">
+            <div class="laptop-deck">
+              <div class="laptop-keyboard"></div>
+              <div class="laptop-trackpad"></div>
+            </div>
+            <div class="laptop-front-lip"><span class="laptop-thumb-notch"></span></div>
+          </div>
+          <div class="laptop-shadow"></div>
+        </div>
+      </div>
+      <script is:inline>
+        (() => {
+          const laptop = document.getElementById("cinematic-laptop");
+          if (!laptop) return;
+          const vw = window.innerWidth;
+          const isMobile = vw <= 700;
+          const baseW = isMobile ? 1320 : 1328;
+          const targetW = isMobile ? Math.min(vw * 0.86, 430) : vw <= 1100 ? Math.min(vw * 0.44, 460) : Math.min(vw * 0.34, 520);
+          laptop.style.setProperty("--laptop-rest-scale", (targetW / baseW).toFixed(4));
+        })();
+      </script>
+      <div class="cinematic-scroll-cue" aria-hidden="true">
+        <span>SCROLL TO EXPLORE</span>
+        <span class="scroll-cue-arrow"></span>
+      </div>
+    </section>
 
     <main id="main">
       <section class="hero section-shell">
@@ -253,11 +281,9 @@
           </div>
 
           <div class="hero-visual" aria-label="Preview of the NephroGuard dialysis management dashboard">
-            <img
-              class="product-screenshot hero-screenshot"
-              src="/landing-ref/assets/nephroguard-home-dashboard.png"
-              alt="NephroGuard workspace dashboard with session, patient, and alert summaries"
-            />
+            <div class="hero-dash-frame hero-screenshot">
+              <NephroGuardDashboardPreview showBoot={false} stageId="ng-dash-hero" />
+            </div>
             <div class="visual-caption"><span class="caption-dot"></span> NephroGuard clinical workspace</div>
           </div>
         </div>
