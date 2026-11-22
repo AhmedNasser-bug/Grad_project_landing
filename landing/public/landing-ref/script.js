@@ -28,7 +28,7 @@
     });
 
     mobileDrawer.addEventListener("click", (event) => {
-      if (event.target instanceof HTMLAnchorElement) closeMenu();
+      if (event.target instanceof Element && event.target.closest("a")) closeMenu();
     });
 
     document.addEventListener("click", (event) => {
@@ -111,7 +111,7 @@
     });
   }
 
-  const trackedIds = ["services", "features", "repositories", "about", "faq"];
+  const trackedIds = ["services", "features", "repositories", "about", "faq", "pricing"];
   const trackedSections = trackedIds
     .map((id) => document.getElementById(id))
     .filter(Boolean);

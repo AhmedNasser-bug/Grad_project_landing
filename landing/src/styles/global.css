@@ -2,54 +2,58 @@
 
 /* ==========================================================================
    TAILWIND V4 SEMANTIC TOKEN REGISTRATION (@theme block)
-   Maps all custom design tokens to Tailwind utility classes.
-   This is the SINGLE SOURCE OF TRUTH that fixes all pages.
+   Maps all custom Brand Book tokens to Tailwind utility classes.
    ========================================================================== */
 
 @theme {
-  --color-canvas:          #F7F7F4;
-  --color-canvas-muted:    #EFEFEA;
-  --color-dark:            #0F172A;
-  --color-muted:           #475569;
-  --color-light-text:      #64748B;
-  --color-accent:          #0284C7;
-  --color-accent-teal:     #0D9488;
-  --color-accent-rose:     #E11D48;
-  --color-accent-emerald:  #059669;
-  --color-accent-purple:   #9333EA;
+  --color-canvas:          #F4F7F6;
+  --color-canvas-muted:    #EAF0EE;
+  --color-dark:            #0B2545;
+  --color-muted:           #3E5266;
+  --color-light-text:      #627588;
+  --color-accent:          #134074;
+  --color-accent-teal:     #00A896;
+  --color-accent-rose:     #D93848;
+  --color-accent-emerald:  #00A896;
+  --color-accent-purple:   #134074;
 
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-sans:  'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-serif: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans:  'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono:  'JetBrains Mono', monospace;
 }
 
 /* ==========================================================================
-   CSS CUSTOM PROPERTIES (for inline styles and component styles)
+   CSS CUSTOM PROPERTIES (Brand Book: Prussian #0B2545 · Admiral #134074 · Deep Teal #00A896 · Chalk #F4F7F6)
    ========================================================================== */
 
 :root {
-  --bg-canvas:        #F7F7F4;
-  --bg-canvas-muted:  #EFEFEA;
+  --bg-canvas:        #F4F7F6;
+  --bg-canvas-muted:  #EAF0EE;
   --bg-card:          #FFFFFF;
-  --bg-dark:          #0F172A;
-  --border-stone:     #E2E8F0;
-  --border-dark:      #334155;
+  --bg-dark:          #0B2545;
+  --border-stone:     #DCE5E3;
+  --border-dark:      #1D3C63;
 
-  --text-dark:        #0F172A;
-  --text-muted:       #475569;
-  --text-light:       #64748B;
+  --text-dark:        #0B2545;
+  --text-muted:       #3E5266;
+  --text-light:       #627588;
 
-  --accent-sky:       #0284C7;
-  --accent-teal:      #0D9488;
-  --accent-emerald:   #059669;
-  --accent-rose:      #E11D48;
-  --accent-purple:    #9333EA;
+  --accent-sky:       #134074;
+  --accent-blue:      #134074;
+  --accent-teal:      #00A896;
+  --accent-teal-deep: #00776A;
+  --accent-emerald:   #00A896;
+  --accent-rose:      #D93848;
+  --accent-critical:  #D93848;
+  --accent-purple:    #134074;
+  --bg-muted:         #EAF0EE;
+  --border-grid:      #DCE5E3;
 
-  --glow-teal: rgba(216, 243, 237, 0.6);
-  --glow-sky:  rgba(224, 242, 254, 0.5);
+  --glow-teal: rgba(0, 168, 150, 0.14);
+  --glow-sky:  rgba(19, 64, 116, 0.14);
 
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-sans:  'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-serif: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans:  'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono:  'JetBrains Mono', monospace;
 }
 
@@ -69,20 +73,20 @@ html, body {
   font-family: var(--font-sans);
   background-color: var(--bg-canvas);
   color: var(--text-dark);
-  line-height: 1.6;
+  line-height: 1.65;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 /* ==========================================================================
-   TYPOGRAPHY DEFAULTS — Every h1–h4, p across every page
+   TYPOGRAPHY DEFAULTS — Every h1–h4, p across every subpage (Poppins)
    ========================================================================== */
 
 h1 {
   font-family: var(--font-serif);
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
-  line-height: 1.08;
+  font-size: clamp(2.25rem, 4.4vw, 3.85rem);
+  line-height: 1.1;
   font-weight: 700;
   color: var(--text-dark);
   letter-spacing: -0.025em;
@@ -91,8 +95,8 @@ h1 {
 
 h2 {
   font-family: var(--font-serif);
-  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
-  line-height: 1.15;
+  font-size: clamp(1.65rem, 3.2vw, 2.5rem);
+  line-height: 1.18;
   font-weight: 700;
   color: var(--text-dark);
   letter-spacing: -0.02em;
@@ -101,11 +105,11 @@ h2 {
 
 h3 {
   font-family: var(--font-serif);
-  font-size: clamp(1.25rem, 2vw, 1.75rem);
-  line-height: 1.25;
-  font-weight: 700;
+  font-size: clamp(1.2rem, 1.9vw, 1.6rem);
+  line-height: 1.28;
+  font-weight: 600;
   color: var(--text-dark);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
   margin-bottom: 0.75rem;
 }
 
@@ -124,11 +128,11 @@ p {
   font-size: 1rem;
   color: var(--text-muted);
   line-height: 1.65;
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: 1rem;
 }
 
-a { transition: opacity 0.2s ease; }
+a { transition: opacity 0.2s ease, color 0.2s ease; }
 
 li {
   font-family: var(--font-sans);
@@ -144,9 +148,7 @@ strong {
 }
 
 /* ==========================================================================
-   TAILWIND UTILITY BRIDGE — Explicit class overrides for custom tokens
-   These ensure class="font-serif text-dark bg-canvas" etc. resolve correctly
-   when the Tailwind @theme tokens don't perfectly map the page's usage.
+   TAILWIND UTILITY BRIDGE
    ========================================================================== */
 
 .font-serif { font-family: var(--font-serif) !important; }
@@ -156,19 +158,18 @@ strong {
 .text-dark            { color: var(--text-dark) !important; }
 .text-muted           { color: var(--text-muted) !important; }
 .text-accent          { color: var(--accent-sky) !important; }
-.text-accent-teal     { color: var(--accent-teal) !important; }
+.text-accent-teal     { color: var(--accent-teal-deep) !important; }
 .text-accent-rose     { color: var(--accent-rose) !important; }
-.text-accent-emerald  { color: var(--accent-emerald) !important; }
+.text-accent-emerald  { color: var(--accent-teal-deep) !important; }
 
 .bg-canvas            { background-color: var(--bg-canvas) !important; }
 .bg-canvas-muted      { background-color: var(--bg-canvas-muted) !important; }
 .border-canvas        { border-color: var(--bg-canvas) !important; }
 .text-canvas          { color: var(--bg-canvas) !important; }
 
-/* Opacity slash variants used on pages as bg-accent/10 etc. */
-.bg-accent\/10        { background-color: rgba(2, 132, 199, 0.1) !important; }
-.bg-accent-teal\/10   { background-color: rgba(13, 148, 136, 0.1) !important; }
-.bg-accent-rose\/10   { background-color: rgba(225, 29, 72, 0.1) !important; }
+.bg-accent\/10        { background-color: rgba(19, 64, 116, 0.1) !important; }
+.bg-accent-teal\/10   { background-color: rgba(0, 168, 150, 0.12) !important; }
+.bg-accent-rose\/10   { background-color: rgba(217, 56, 72, 0.1) !important; }
 
 /* ==========================================================================
    LAYOUT PRIMITIVES
@@ -195,14 +196,12 @@ section { position: relative; z-index: 10; }
   padding-right: 2rem;
 }
 
-/* Tailwind's max-w-7xl but enforced via CSS (not the purged Tailwind one) */
 .max-w-7xl {
   max-width: 80rem;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* Shared subpage section padding: class="max-w-7xl mx-auto px-6" */
 .mx-auto { margin-left: auto; margin-right: auto; }
 .px-6    { padding-left: 1.5rem; padding-right: 1.5rem; }
 
@@ -214,7 +213,7 @@ section { position: relative; z-index: 10; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background-color: rgba(247, 247, 244, 0.88);
+  background-color: rgba(244, 247, 246, 0.90);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-stone);
@@ -228,7 +227,7 @@ section { position: relative; z-index: 10; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background-color: rgba(247, 247, 244, 0.88);
+  background-color: rgba(244, 247, 246, 0.90);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-stone);
   padding: 1rem 2rem;
@@ -260,7 +259,7 @@ section { position: relative; z-index: 10; }
   display: flex;
   align-items: center;
   gap: 0.375rem;
-  background-color: rgba(239, 239, 234, 0.8);
+  background-color: #FFFFFF;
   padding: 0.3rem;
   border-radius: 9999px;
   border: 1px solid var(--border-stone);
@@ -279,9 +278,28 @@ section { position: relative; z-index: 10; }
 
 .nav-link-item:hover,
 .nav-link-item.active {
-  background-color: #FFFFFF;
+  background-color: rgba(0, 168, 150, 0.12);
   color: var(--text-dark);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 3px rgba(11, 37, 69, 0.06);
+}
+
+.mobile-toggle-btn {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-stone);
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dark);
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .mobile-toggle-btn {
+    display: none;
+  }
 }
 
 /* Mobile Menu Drawer (fixes inline style display specificity conflict) */
@@ -290,12 +308,12 @@ section { position: relative; z-index: 10; }
   top: 100%;
   left: 0;
   right: 0;
-  background-color: rgba(247, 247, 244, 0.98);
+  background-color: rgba(244, 247, 246, 0.98);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-stone);
   padding: 1rem 1.5rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 25px rgba(11, 37, 69, 0.08);
   z-index: 100;
 }
 
@@ -322,16 +340,16 @@ section { position: relative; z-index: 10; }
   text-transform: uppercase;
   letter-spacing: 0.05em;
   text-decoration: none;
-  border: none;
+  border: 1px solid rgba(0, 168, 150, 0.35);
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(11, 37, 69, 0.14);
 }
 
 .btn-primary:hover {
-  background-color: #1E293B;
+  background-color: var(--accent-sky);
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 6px 16px rgba(19, 64, 116, 0.22);
 }
 
 .btn-secondary {
@@ -355,8 +373,8 @@ section { position: relative; z-index: 10; }
 }
 
 .btn-secondary:hover {
-  background-color: #F1F5F9;
-  border-color: #CBD5E1;
+  background-color: var(--bg-canvas);
+  border-color: var(--accent-teal);
 }
 
 /* ==========================================================================
@@ -365,8 +383,8 @@ section { position: relative; z-index: 10; }
 
 .hero-title {
   font-family: var(--font-serif);
-  font-size: clamp(2.5rem, 5.5vw, 5rem);
-  line-height: 1.08;
+  font-size: clamp(2.25rem, 4.6vw, 4rem);
+  line-height: 1.1;
   font-weight: 700;
   color: var(--text-dark);
   letter-spacing: -0.025em;
@@ -375,8 +393,8 @@ section { position: relative; z-index: 10; }
 
 .hero-subtitle {
   font-family: var(--font-sans);
-  font-size: clamp(1rem, 1.8vw, 1.25rem);
-  font-weight: 300;
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  font-weight: 400;
   color: var(--text-muted);
   line-height: 1.65;
   max-width: 44rem;
@@ -400,26 +418,26 @@ section { position: relative; z-index: 10; }
 }
 
 .badge-sky {
-  background-color: rgba(2, 132, 199, 0.1);
-  border: 1px solid rgba(2, 132, 199, 0.2);
+  background-color: rgba(19, 64, 116, 0.08);
+  border: 1px solid rgba(19, 64, 116, 0.2);
   color: var(--accent-sky);
 }
 
 .badge-teal {
-  background-color: rgba(13, 148, 136, 0.1);
-  border: 1px solid rgba(13, 148, 136, 0.2);
-  color: var(--accent-teal);
+  background-color: rgba(0, 168, 150, 0.12);
+  border: 1px solid rgba(0, 168, 150, 0.28);
+  color: var(--accent-teal-deep);
 }
 
 .badge-rose {
-  background-color: rgba(225, 29, 72, 0.1);
-  border: 1px solid rgba(225, 29, 72, 0.2);
+  background-color: rgba(217, 56, 72, 0.1);
+  border: 1px solid rgba(217, 56, 72, 0.2);
   color: var(--accent-rose);
 }
 
 .badge-stone {
-  background-color: #F1F5F9;
-  border: 1px solid #E2E8F0;
+  background-color: var(--bg-canvas);
+  border: 1px solid var(--border-stone);
   color: var(--text-dark);
 }
 
@@ -431,9 +449,9 @@ section { position: relative; z-index: 10; }
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.04em;
-  background-color: rgba(2, 132, 199, 0.08);
-  border: 1px solid rgba(2, 132, 199, 0.15);
-  color: var(--accent-sky);
+  background-color: rgba(0, 168, 150, 0.1);
+  border: 1px solid rgba(0, 168, 150, 0.22);
+  color: var(--accent-teal-deep);
   margin-bottom: 1.25rem;
 }
 
@@ -446,11 +464,11 @@ section { position: relative; z-index: 10; }
   border-radius: 1.5rem;
   border: 1px solid var(--border-stone);
   padding: 2.5rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 4px 20px rgba(11, 37, 69, 0.03);
   transition: box-shadow 0.3s ease;
 }
 
-.card-white:hover { box-shadow: 0 12px 32px rgba(0, 0, 0, 0.07); }
+.card-white:hover { box-shadow: 0 12px 32px rgba(11, 37, 69, 0.08); }
 
 .card-dark {
   background-color: var(--bg-dark);
@@ -458,7 +476,7 @@ section { position: relative; z-index: 10; }
   border-radius: 1.5rem;
   border: 1px solid var(--border-dark);
   padding: 2.5rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 30px rgba(11, 37, 69, 0.2);
 }
 
 .blog-card-item {
@@ -467,16 +485,16 @@ section { position: relative; z-index: 10; }
   border: 1px solid var(--border-stone);
   padding: 2rem 2.5rem;
   margin-bottom: 1.5rem;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 2px 12px rgba(11, 37, 69, 0.03);
   transition: box-shadow 0.25s ease;
   display: block;
 }
 
-.blog-card-item:hover { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07); }
+.blog-card-item:hover { box-shadow: 0 8px 24px rgba(11, 37, 69, 0.08); }
 
 .callout-box {
-  background-color: #EFF6FF;
-  border-left: 3px solid var(--accent-sky);
+  background-color: rgba(0, 168, 150, 0.08);
+  border-left: 3px solid var(--accent-teal);
   border-radius: 0 0.75rem 0.75rem 0;
   padding: 1.25rem 1.5rem;
   margin: 1.75rem 0;
@@ -524,8 +542,8 @@ section { position: relative; z-index: 10; }
 
 .blog-title, .article-headline {
   font-family: var(--font-serif);
-  font-size: clamp(2rem, 4vw, 3.25rem);
-  line-height: 1.1;
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  line-height: 1.12;
   font-weight: 700;
   color: var(--text-dark);
   letter-spacing: -0.02em;
@@ -539,7 +557,7 @@ section { position: relative; z-index: 10; }
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--accent-sky);
+  color: var(--accent-teal-deep);
   margin-bottom: 1rem;
 }
 
@@ -590,8 +608,8 @@ textarea {
 }
 
 input:focus, select:focus, textarea:focus {
-  border-color: var(--accent-sky);
-  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
+  border-color: var(--accent-teal);
+  box-shadow: 0 0 0 3px rgba(0, 168, 150, 0.14);
 }
 
 /* ==========================================================================

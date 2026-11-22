@@ -11,13 +11,15 @@ import NephroGuardDashboardPreview from '../components/NephroGuardDashboardPrevi
       name="description"
       content="NephroGuard is a connected dialysis management platform for patient records, treatment sessions, medication safety, and clinical decision support."
     />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#0B2545" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/landing-ref/assets/nephroguard-emblem-circle.png" />
     <title>NephroGuard | Connected Dialysis Care, Clearer Workflows</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;650;700;750;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/landing-ref/styles.css" />
@@ -25,7 +27,7 @@ import NephroGuardDashboardPreview from '../components/NephroGuardDashboardPrevi
       .repositories-section {
         border-top: 1px solid var(--line);
         border-bottom: 1px solid var(--line);
-        background: var(--blue-wash);
+        background: var(--chalk);
       }
       .repos-intro {
         display: flex;
@@ -38,7 +40,7 @@ import NephroGuardDashboardPreview from '../components/NephroGuardDashboardPrevi
         max-width: 440px;
         margin: 0 0 6px;
         color: var(--body);
-        font-size: 18px;
+        font-size: 17px;
         line-height: 1.7;
       }
       .repo-grid {
@@ -52,15 +54,15 @@ import NephroGuardDashboardPreview from '../components/NephroGuardDashboardPrevi
         justify-content: space-between;
         gap: 20px;
         padding: 32px;
-        border: 1px solid #d4e2eb;
-        border-radius: 6px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
         background: var(--white);
         transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
       }
       .repo-card:hover {
-        border-color: var(--blue);
+        border-color: var(--teal);
         transform: translateY(-2px);
-        box-shadow: 0 18px 40px -28px rgba(18, 85, 141, 0.35);
+        box-shadow: 0 18px 40px -28px rgba(11, 37, 69, 0.28);
       }
       .repo-card-top {
         display: flex;
@@ -73,10 +75,10 @@ import NephroGuardDashboardPreview from '../components/NephroGuardDashboardPrevi
         display: inline-flex;
         align-items: center;
         padding: 5px 11px;
-        border: 1px solid #d4e2eb;
-        border-radius: 3px;
-        background: var(--blue-soft);
-        color: var(--blue-dark);
+        border: 1px solid #C5DFDA;
+        border-radius: 4px;
+        background: var(--teal-soft);
+        color: var(--teal-deep);
         font-family: "JetBrains Mono", monospace;
         font-size: 11px;
         font-weight: 600;
@@ -84,7 +86,7 @@ import NephroGuardDashboardPreview from '../components/NephroGuardDashboardPrevi
         text-transform: uppercase;
       }
       .repo-index {
-        color: #7893a6;
+        color: var(--teal-deep);
         font-family: var(--font-display);
         font-size: 14px;
         font-weight: 600;
@@ -93,23 +95,23 @@ import NephroGuardDashboardPreview from '../components/NephroGuardDashboardPrevi
         margin: 0 0 8px;
         color: var(--navy);
         font-family: var(--font-display);
-        font-size: 24px;
-        font-weight: 700;
-        letter-spacing: -0.6px;
+        font-size: 23px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
         line-height: 1.25;
       }
       .repo-card p {
         margin: 0;
         color: var(--body);
-        font-size: 16px;
+        font-size: 15.5px;
         line-height: 1.65;
       }
       .repo-cmd {
         padding: 10px 14px;
-        border: 1px solid #e2eaf0;
-        border-radius: 4px;
-        background: #f8fbfd;
-        color: #214056;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: var(--chalk);
+        color: var(--prussian);
         font-family: "JetBrains Mono", monospace;
         font-size: 12.5px;
         line-height: 1.5;
@@ -122,23 +124,24 @@ import NephroGuardDashboardPreview from '../components/NephroGuardDashboardPrevi
         justify-content: space-between;
         gap: 16px;
         padding-top: 8px;
-        border-top: 1px solid #eef3f7;
+        border-top: 1px solid var(--line);
         flex-wrap: wrap;
       }
       .repo-link {
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        color: var(--blue);
-        font-size: 15px;
+        color: var(--admiral);
+        font-size: 14.5px;
         font-weight: 600;
         transition: color 0.18s ease;
       }
       .repo-link:hover {
-        color: var(--blue-dark);
+        color: var(--teal-deep);
       }
       .repo-link span {
         font-size: 18px;
+        color: var(--teal);
         transition: transform 0.18s ease;
       }
       .repo-link:hover span {
@@ -175,10 +178,7 @@ import NephroGuardDashboardPreview from '../components/NephroGuardDashboardPrevi
       <div class="container header-inner">
         <a class="brand brand-pill" href="#top" aria-label="NephroGuard home">
           <span class="brand-mark" aria-hidden="true">
-            <svg viewBox="0 0 36 36" fill="none">
-              <path d="M18 3.75v28.5M3.75 18h28.5" />
-              <path d="M8 8l20 20M28 8 8 28" class="brand-mark-soft" />
-            </svg>
+            <img src="/landing-ref/assets/nephroguard-logo.png" alt="" width="24" height="27" />
           </span>
           <span class="brand-name">Nephro<span>Guard</span></span>
         </a>
@@ -190,6 +190,7 @@ import NephroGuardDashboardPreview from '../components/NephroGuardDashboardPrevi
           <a class="nav-pill-link" href="#repositories">Repositories</a>
           <a class="nav-pill-link" href="#about">About us</a>
           <a class="nav-pill-link" href="#faq">FAQ</a>
+          <a class="nav-pill-link" href="#pricing">Pricing</a>
         </nav>
 
         <div class="header-actions">
@@ -212,6 +213,7 @@ import NephroGuardDashboardPreview from '../components/NephroGuardDashboardPrevi
         <a class="mobile-pill-link" href="#repositories">Repositories</a>
         <a class="mobile-pill-link" href="#about">About us</a>
         <a class="mobile-pill-link" href="#faq">FAQ</a>
+        <a class="mobile-pill-link" href="#pricing">Pricing</a>
         <a class="mobile-pill-cta" href="https://github.com/AhmedNasser-bug/Graduation-Project-Desktop" target="_blank" rel="noopener noreferrer">Open desktop demo <span aria-hidden="true">↗</span></a>
       </div>
     </header>
@@ -608,6 +610,165 @@ import NephroGuardDashboardPreview from '../components/NephroGuardDashboardPrevi
         </div>
       </section>
 
+      <section class="pricing-section section-pad" id="pricing" aria-labelledby="pricing-title">
+        <div class="container">
+          <div class="pricing-intro">
+            <div>
+              <p class="eyebrow">SaaS tiers &amp; offline licensing</p>
+              <h2 id="pricing-title">Start with paper relief.<br />Scale clinical protection at your pace.</h2>
+            </div>
+            <p>
+              Structured around your unit’s active patient or bed capacity with zero ward hardware capex. Choose modular monthly SaaS subscriptions or a permanent offline institutional license.
+            </p>
+          </div>
+
+          <div class="pricing-grid">
+            <article class="tier-card">
+              <div>
+                <div class="tier-top">
+                  <span class="tier-num">TIER 01</span>
+                  <span class="tier-badge">Offline Wedge</span>
+                </div>
+                <h3>Digitization Wedge</h3>
+                <p class="tier-desc">Replace bedside paper clipboards and fragmented records from Day 1 with offline-first execution.</p>
+                <div class="tier-rate-box">
+                  <span class="tier-rate-label">Custom Quote</span>
+                  <span class="tier-rate-sub">Per active patient / bed · Monthly SaaS</span>
+                </div>
+                <ul class="tier-features">
+                  <li>Nurse mobile bedside flowsheets &amp; Doctor workstation</li>
+                  <li>14-digit National ID intake &amp; duplicate prevention</li>
+                  <li>Automated HBV / HCV / HIV machine isolation checks</li>
+                  <li>100% local basement/ground-floor offline execution</li>
+                </ul>
+              </div>
+              <a class="tier-cta" href="/partner">Request Tier 01 scoping <span aria-hidden="true">↗</span></a>
+            </article>
+
+            <article class="tier-card tier-card-featured">
+              <div>
+                <div class="tier-top">
+                  <span class="tier-num">TIER 02</span>
+                  <span class="tier-badge tier-badge-recommended">Recommended</span>
+                </div>
+                <h3>Clinical Safety CDSS</h3>
+                <p class="tier-desc">Closed-loop doctor-to-nurse coordination, renal dosing guardrails, and legal audit traceability.</p>
+                <div class="tier-rate-box">
+                  <span class="tier-rate-label">Custom Quote</span>
+                  <span class="tier-rate-sub">Per active patient / bed · Monthly SaaS</span>
+                </div>
+                <ul class="tier-features">
+                  <li>Everything in Tier 01, plus:</li>
+                  <li>&lt;1s LAN doctor-to-nurse order &amp; vitals confirmation</li>
+                  <li>Reactive intradialytic vital drop &amp; SpKt/V alerts</li>
+                  <li>4-digit staff PINs for Law 13/2025 &amp; GAHAR/MoH audit export</li>
+                  <li>HL7 FHIR R4 export &amp; weekly QAPI reviews</li>
+                </ul>
+              </div>
+              <a class="tier-cta" href="/partner">Request pilot quote <span aria-hidden="true">↗</span></a>
+            </article>
+
+            <article class="tier-card">
+              <div>
+                <div class="tier-top">
+                  <span class="tier-num">TIER 03</span>
+                  <span class="tier-badge tier-badge-fp">Future Plan</span>
+                </div>
+                <h3>AI CDSS &amp; Operations</h3>
+                <p class="tier-desc">Human-in-the-loop predictive safety warnings paired with automated ward inventory and billing exports.</p>
+                <div class="tier-rate-box">
+                  <span class="tier-rate-label">Custom Quote</span>
+                  <span class="tier-rate-sub">Roadmap tier upgrade · Per unit</span>
+                </div>
+                <ul class="tier-features">
+                  <li>Everything in Tier 02, plus:</li>
+                  <li>30-min predictive BP crash checks (clinician-approved)</li>
+                  <li>Automated ADE &amp; renal prescription safety screening</li>
+                  <li>Consumable stock deduction (filters, bloodlines, EPO)</li>
+                  <li>Printable/Excel accounting &amp; Egyptian ETA e-invoicing</li>
+                </ul>
+              </div>
+              <a class="tier-cta" href="/partner">Join roadmap preview <span aria-hidden="true">↗</span></a>
+            </article>
+
+            <article class="tier-card">
+              <div>
+                <div class="tier-top">
+                  <span class="tier-num">TIER 04</span>
+                  <span class="tier-badge tier-badge-fp">Enterprise · FP</span>
+                </div>
+                <h3>Unit-Wide Risk Shield</h3>
+                <p class="tier-desc">Cross-chair environmental telemetry, multi-branch synchronization, and modular hospital plug-ins.</p>
+                <div class="tier-rate-box">
+                  <span class="tier-rate-label">Custom Quote</span>
+                  <span class="tier-rate-sub">Multi-unit / Hospital network</span>
+                </div>
+                <ul class="tier-features">
+                  <li>Everything in Tier 03, plus:</li>
+                  <li>Cross-chair water quality &amp; mineral drift telemetry</li>
+                  <li>Multi-branch hospital chain &amp; cloud EHR sync</li>
+                  <li>Standalone Doctor, Nurse, or Admin HIS add-on modules</li>
+                  <li>Dedicated cloud AI compute &amp; escalation SLAs</li>
+                </ul>
+              </div>
+              <a class="tier-cta" href="/partner">Contact enterprise team <span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
+
+          <div class="licensing-band" aria-labelledby="licensing-title">
+            <div class="licensing-head">
+              <div>
+                <p class="eyebrow" style="margin-bottom: 6px;">Offline &amp; Institutional Options</p>
+                <h3 id="licensing-title">Prefer non-SaaS deployment or on-premise ownership?</h3>
+              </div>
+              <p>
+                Aligned with our Business Model Canvas for CapEx-preferring clinics, already-digitized hospitals, and insurance-backed care networks.
+              </p>
+            </div>
+
+            <div class="licensing-grid">
+              <article class="licensing-card">
+                <div>
+                  <span class="licensing-card-badge">Offline CapEx · BMC 9.2</span>
+                  <h4>Permanent Offline Feature License</h4>
+                  <p>
+                    Perpetual on-premise software unlock running 100% locally on your existing desktop PCs and nurse tablets — zero internet reliance, zero external cloud fees, and optional Plug-and-Play Starter Kit.
+                  </p>
+                </div>
+                <div class="licensing-meta">Terms: Custom Institutional Quote (Per Footprint)</div>
+              </article>
+
+              <article class="licensing-card">
+                <div>
+                  <span class="licensing-card-badge">Hospital HIS · BMC 9.2</span>
+                  <h4>Upfront HL7 v2 &amp; Annual Maintenance</h4>
+                  <p>
+                    Deploy custom HL7 v2 hospital firewall bridges or standalone Doctor/Nurse/Admin CDSS modules alongside your existing HIS, backed by paid onboarding discovery, 48-hour file conversion, and 2-day weekend training.
+                  </p>
+                </div>
+                <div class="licensing-meta">Terms: Upfront Integration + Annual Maintenance</div>
+              </article>
+
+              <article class="licensing-card">
+                <div>
+                  <span class="licensing-card-badge">Third-Party Payer · BMC 9.6</span>
+                  <h4>Insurer Shared-Savings Track</h4>
+                  <p>
+                    Partner with health insurers to fund ward deployment through verified downstream reductions in preventable ICU admissions, excess EPO anemia dosing, and clotted filter waste.
+                  </p>
+                </div>
+                <div class="licensing-meta">Terms: Custom Shared-Savings Agreement</div>
+              </article>
+            </div>
+
+            <div class="pricing-footnote">
+              <span>All commercial EGP fee schedules, pilot terms, and perpetual license contracts are scoped transparently during clinic discovery with zero hidden hardware capex.</span>
+              <a href="/bmc">Inspect full Business Model Canvas &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="contact-section" id="contact">
         <div class="container contact-layout">
           <div>
@@ -628,7 +789,7 @@ import NephroGuardDashboardPreview from '../components/NephroGuardDashboardPrevi
           <div class="footer-brand">
             <a class="brand" href="#top">
               <span class="brand-mark" aria-hidden="true">
-                <svg viewBox="0 0 36 36" fill="none"><path d="M18 3.75v28.5M3.75 18h28.5" /><path d="M8 8l20 20M28 8 8 28" class="brand-mark-soft" /></svg>
+                <img src="/landing-ref/assets/nephroguard-logo.png" alt="" width="26" height="29" />
               </span>
               <span class="brand-name">Nephro<span>Guard</span></span>
             </a>
@@ -641,6 +802,7 @@ import NephroGuardDashboardPreview from '../components/NephroGuardDashboardPrevi
               <a href="#services">Services</a>
               <a href="#features">Features</a>
               <a href="#repositories">Repositories</a>
+              <a href="#pricing">Pricing &amp; Licensing</a>
               <a href="/architecture">Architecture</a>
               <a href="/evidence">Clinical evidence</a>
             </div>
