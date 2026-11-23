@@ -2,14 +2,14 @@
 // ClinicalResonanceLoader.astro
 // Full-screen algorithmic art preloader
 // Philosophy: "Clinical Resonance" — orbital ECG interference patterns
-// Uses Dual Shield design system colors; fades out revealing the site beneath
+// Uses NephroGuard Brand Book colors; fades out revealing the site beneath
 ---
 
 <div id="clinical-resonance-loader" style="
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: #F7F7F4;
+  background: #F4F7F6;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,22 +31,22 @@
     transition: opacity 1.2s ease 0.4s;
   ">
     <span style="
-      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.5rem;
       font-weight: 700;
-      color: #0F172A;
+      color: #0B2545;
       letter-spacing: -0.02em;
     ">
-      DUAL<span style="font-style: italic; font-weight: 400; color: #0284C7; margin-left: 0.25rem;">Shield</span>
+      Nephro<span style="color: #00A896;">Guard</span>
     </span>
     <div style="
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.625rem;
-      color: #64748B;
+      color: #627588;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       margin-top: 0.35rem;
-    ">Egyptian Dialysis Architecture · Initializing</div>
+    ">Dialysis Clinical Decision Support · Initializing</div>
   </div>
 
   <!-- Pulse progress line -->
@@ -56,7 +56,7 @@
     left: 0;
     height: 2px;
     width: 0%;
-    background: linear-gradient(90deg, #0284C7, #0D9488);
+    background: linear-gradient(90deg, #134074, #00A896);
     transition: width 0.1s linear;
   "></div>
 </div>
@@ -69,18 +69,18 @@
   const SEED          = 7291;
   const NUM_BEDS      = 8;          // 8 patient beds per ward
   const TRAIL_ALPHA   = 18;         // persistence-of-vision trail decay
-  const DURATION_MS   = 3200;       // preload duration before dissolve
+  const DURATION_MS   = 1100;       // preload duration before dissolve
   const FREQ_BASE     = 0.004;      // base orbital frequency
   const NOISE_SCALE   = 0.003;
 
-  // Dual Shield color palette (exact design system tokens)
+  // NephroGuard Brand Book color palette
   const COL = {
-    bg:          [247, 247, 244],   // --bg-canvas
-    sky:         [2,   132, 199],   // --accent-sky
-    teal:        [13,  148, 136],   // --accent-teal
-    rose:        [225,  29,  72],   // --accent-rose
-    dark:        [15,   23,  42],   // --bg-dark
-    muted:       [71,   85, 105],   // --text-muted
+    bg:          [244, 247, 246],   // Chalk White (#F4F7F6)
+    sky:         [19,   64, 116],   // Admiral Blue (#134074)
+    teal:        [0,   168, 150],   // Deep Teal (#00A896)
+    rose:        [217,  56,  72],   // Clinical interference flare
+    dark:        [11,   37,  69],   // Prussian Blue (#0B2545)
+    muted:       [62,   82, 102],   // Slate muted ink
   };
 
   // ─── P5 INSTANCE ─────────────────────────────────────────────────────
@@ -216,12 +216,12 @@
       p.fill(...COL.dark, 200);
       p.ellipse(cx, cy, 8, 8);
 
-      // DS monogram
+      // NG monogram
       p.fill(...COL.dark, 160);
       p.textFont('monospace');
       p.textSize(6);
       p.textAlign(p.CENTER, p.CENTER);
-      p.text('DS', cx, cy);
+      p.text('NG', cx, cy);
     }
 
     // ── ORBIT GUIDE RINGS ────────────────────────────────────────────
@@ -333,23 +333,44 @@
 
       // ── DISSOLVE ───────────────────────────────────────────────────
       if (progress >= 1 && !dissolving) {
-        dissolving = true;
-        const loader = document.getElementById('clinical-resonance-loader');
-        loader.style.opacity = '0';
-        loader.style.pointerEvents = 'none';
-        setTimeout(() => { loader.style.display = 'none'; }, 950);
+        dissolveLoader();
         p.noLoop();
       }
     };
   };
 
+  function dissolveLoader() {
+    if (dissolving) return;
+    dissolving = true;
+    const loader = document.getElementById('clinical-resonance-loader');
+    if (!loader) return;
+    loader.style.opacity = '0';
+    loader.style.pointerEvents = 'none';
+    setTimeout(() => { loader.style.display = 'none'; }, 950);
+  }
+
+  function startLoader() {
+    const wordmark = document.getElementById('cr-wordmark');
+    const progressEl = document.getElementById('cr-progress');
+
+    // Hard fail-safe so the preloader can never trap subpages offline
+    setTimeout(dissolveLoader, DURATION_MS + 350);
+
+    if (typeof p5 === 'undefined') {
+      if (wordmark) wordmark.style.opacity = '1';
+      if (progressEl) progressEl.style.width = '100%';
+      setTimeout(dissolveLoader, 200);
+      return;
+    }
+
+    p5Instance = new p5(sketch);
+  }
+
   // Mount after DOM ready
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      p5Instance = new p5(sketch);
-    });
+    document.addEventListener('DOMContentLoaded', startLoader);
   } else {
-    p5Instance = new p5(sketch);
+    startLoader();
   }
 })();
 </script>

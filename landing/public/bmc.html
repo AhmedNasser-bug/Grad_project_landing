@@ -3,37 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NephroEdge B2B — Interactive Business Model Canvas (BMC)</title>
+  <meta name="theme-color" content="#0B2545">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/landing-ref/assets/nephroguard-emblem-circle.png">
+  <title>NephroGuard — Interactive Business Model Canvas (BMC)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <style>
     :root {
-      --bg-canvas: #F8F9FA;
+      --bg-canvas: #F4F7F6;
       --bg-card: #FFFFFF;
       --bg-card-hover: #FCFDFE;
-      --text-dark: #0F172A;
-      --text-muted: #475569;
-      --text-light: #64748B;
-      --border-stone: #E2E8F0;
-      --border-focus: #0284C7;
+      --text-dark: #0B2545;
+      --text-muted: #3E5266;
+      --text-light: #627588;
+      --border-stone: #DCE5E3;
+      --border-focus: #00A896;
       
-      --accent-sky: #0284C7;
-      --accent-teal: #0D9488;
-      --accent-emerald: #059669;
-      --accent-rose: #E11D48;
-      --accent-purple: #9333EA;
-      --accent-amber: #D97706;
+      --accent-sky: #134074;
+      --accent-teal: #00A896;
+      --accent-teal-deep: #00776A;
+      --accent-emerald: #00A896;
+      --accent-rose: #D93848;
+      --accent-purple: #134074;
+      --accent-amber: #B45309;
 
-      --font-serif: 'Cormorant Garamond', Georgia, serif;
-      --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-serif: 'Poppins', -apple-system, sans-serif;
+      --font-sans: 'Poppins', -apple-system, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
 
-      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+      --shadow-sm: 0 1px 2px 0 rgba(11, 37, 69, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(11, 37, 69, 0.08), 0 2px 4px -1px rgba(11, 37, 69, 0.04);
+      --shadow-lg: 0 10px 15px -3px rgba(11, 37, 69, 0.08), 0 4px 6px -2px rgba(11, 37, 69, 0.04);
     }
 
     *, *::before, *::after {
@@ -70,37 +74,43 @@
     .brand-group {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.875rem;
+      min-width: 175px;
     }
 
     .brand-badge {
       width: 2.75rem;
       height: 2.75rem;
-      border-radius: 0.75rem;
-      background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
-      color: #38BDF8;
+      border-radius: 50%;
+      background: #FFFFFF;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: var(--font-mono);
-      font-weight: 700;
-      font-size: 1rem;
-      border: 1px solid #334155;
+      border: 1.5px solid #00A896;
+      overflow: hidden;
+      flex: 0 0 auto;
+    }
+
+    .brand-badge img {
+      width: 1.85rem;
+      height: 2.05rem;
+      object-fit: contain;
+      display: block;
     }
 
     .brand-title {
-      font-family: var(--font-serif);
-      font-size: 1.75rem;
+      font-family: var(--font-sans);
+      font-size: 1.4rem;
       font-weight: 700;
       line-height: 1.1;
+      letter-spacing: -0.02em;
       color: var(--text-dark);
     }
 
     .brand-title span {
-      font-style: italic;
-      color: var(--accent-sky);
-      font-weight: 400;
-      margin-left: 0.25rem;
+      color: var(--accent-teal-deep);
+      font-weight: 700;
+      margin-left: 0;
     }
 
     .brand-subtitle {
@@ -137,8 +147,8 @@
     }
 
     .btn:hover {
-      background: #F1F5F9;
-      border-color: #CBD5E1;
+      background: var(--bg-canvas);
+      border-color: var(--accent-teal);
       transform: translateY(-1px);
     }
 
@@ -149,8 +159,8 @@
     }
 
     .btn-primary:hover {
-      background: #0369A1;
-      border-color: #0369A1;
+      background: var(--text-dark);
+      border-color: var(--text-dark);
     }
 
     .btn-danger {
@@ -658,8 +668,8 @@
   <div class="print-header">
     <div style="display: flex; justify-content: space-between; align-items: flex-end;">
       <div>
-        <h1 style="font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; margin: 0;">NephroEdge B2B — Clinical Dual Shield Platform</h1>
-        <p style="font-family: var(--font-mono); font-size: 0.75rem; color: #555;">Official Business Model Canvas • Egypt & GCC Dialysis Digitization Architecture</p>
+        <h1 style="font-family: var(--font-sans); font-size: 1.5rem; font-weight: 700; margin: 0;">NephroGuard — Dialysis Decision Support Platform</h1>
+        <p style="font-family: var(--font-mono); font-size: 0.75rem; color: #555;">Official Business Model Canvas • Egypt Dialysis Digitization & Risk Architecture</p>
       </div>
       <div style="text-align: right; font-family: var(--font-mono); font-size: 0.7rem;">
         <span>Generated: <span id="print-date"></span></span><br>
@@ -671,10 +681,12 @@
   <!-- Interactive Application Header -->
   <header class="app-header">
     <div class="brand-group">
-      <div class="brand-badge">NE</div>
+      <div class="brand-badge">
+        <img src="/landing-ref/assets/nephroguard-logo.png" alt="" width="30" height="33" />
+      </div>
       <div>
-        <h1 class="brand-title">NephroEdge<span>B2B</span></h1>
-        <p class="brand-subtitle">Standard Business Model Canvas (BMC) • Dialysis Intelligence Architecture</p>
+        <h1 class="brand-title">Nephro<span>Guard</span></h1>
+        <p class="brand-subtitle">Restructured Business Model Canvas (BMC) • Dialysis Clinical Architecture</p>
       </div>
     </div>
 
@@ -701,7 +713,7 @@
         <i class="fa-solid fa-rotate-left"></i> Reset Defaults
       </button>
 
-      <a href="/" class="btn btn-primary" title="Return to DualShield Portal">
+      <a href="/" class="btn btn-primary" title="Return to NephroGuard Portal">
         <i class="fa-solid fa-arrow-left"></i> Portal Home
       </a>
     </div>
@@ -902,7 +914,7 @@
        CLIENT ENGINE SCRIPT: PROJECT DATA, TWO-WAY BINDING & EDITING
        ═════════════════════════════════════════════════════════════════════ -->
   <script>
-    // Project Learnings Default Canvas Data (NephroEdge B2B Egyptian & GCC Hemodialysis Architecture)
+    // Project Learnings Default Canvas Data (NephroGuard Dialysis Architecture)
     const DEFAULT_BMC_DATA = {
       currency: "EGP",
       kp: [
@@ -1013,37 +1025,37 @@
         {
           id: "vp-1",
           tag: "clinical",
-          title: "Adaptive Decision Support System (ADSS)",
+          title: "Research-Proven Clinical Decision Support",
           desc: "Engineered specifically for increasing unit quality and decreasing mortality risks across Egyptian hemodialysis wards.",
-          metric: "Dual Shield Architecture"
+          metric: "NephroGuard Core"
         },
         {
           id: "vp-2",
           tag: "clinical",
-          title: "Shield 1: Patient Mortality & IDH Crash Prevention",
-          desc: "Sub-second bedside AI warning 15-30 mins prior to cardiovascular collapse; prevents emergency session terminations and dialyzer clotting.",
-          metric: "ROC-AUC 0.89"
+          title: "Patient Mortality & IDH Crash Prevention",
+          desc: "Real-time intradialytic vital crash alerts (MVP) scaling to Level-2 Human-in-the-Loop predictive warnings before cardiovascular collapse.",
+          metric: "Clinical Safety"
         },
         {
           id: "vp-3",
           tag: "regulatory",
-          title: "Shield 2: Ward QAPI Quality & GAHAR Accreditation",
-          desc: "Automated reverse osmosis water conductivity fault detection, nurse-to-chair ratio balancing, and instant 1-click GAHAR/MoH compliance exports.",
-          metric: "Instant Accreditation"
+          title: "Ward QAPI Quality & GAHAR / Law 13-2025 Readiness",
+          desc: "4-digit staff PINs, time-stamped order traceability, HBV/HCV/HIV machine isolation checks, and 1-click GAHAR/MoH audit exports.",
+          metric: "Audit Proof"
         },
         {
           id: "vp-4",
           tag: "edge",
           title: "100% Offline-First Hospital Basement Resilience",
-          desc: "Complete operational autonomy on local tablets when hospital Wi-Fi fails in concrete shielded wards; automatic background sync on reconnect.",
+          desc: "Complete operational autonomy on local clinic PCs and nurse tablets when basement Wi-Fi drops, with <1s LAN synchronization.",
           metric: "Zero Downtime"
         },
         {
           id: "vp-5",
           tag: "core",
-          title: "Eliminating the 'Bus Factor of 1' & Paper Chaos",
-          desc: "Replacing vulnerable Excel sheets and unencrypted scripts with an accredited enterprise C# .NET Modular Monolith.",
-          metric: "Enterprise Robustness"
+          title: "Zero Hardware CapEx & Paper Relief",
+          desc: "Runs on existing clinic computers and phones with zero dialysis-machine cables, reclaiming up to 45 min/nurse/shift.",
+          metric: "Day-1 Adoption"
         }
       ],
       cr: [
@@ -1101,8 +1113,8 @@
         {
           id: "ch-4",
           tag: "core",
-          title: "DualShield Web Portal & Evidence Hub",
-          desc: "Interactive architecture walkthrough, live MDX clinical journals, and transparent trial benchmark dashboards.",
+          title: "NephroGuard Web Portal & Evidence Hub",
+          desc: "Interactive architecture walkthrough, live clinical journals, and 100-patient virtual sandbox portal.",
           metric: "Web Evidence Portal"
         }
       ],
@@ -1147,104 +1159,104 @@
         {
           id: "cost-1",
           tag: "edge",
-          title: "Core Platform & Edge AI Engineering",
-          desc: "Internal Platform Lead engineering, C# .NET modular monolith optimization, ONNX/XGBoost edge model training.",
-          metric: "35k - 45k EGP/mo Base",
-          rawEgp: "35,000 - 45,000 EGP/mo",
-          rawSar: "4,500 - 6,000 SAR/mo",
-          rawUsd: "$1,200 - $1,600 /mo"
+          title: "Product Development & Medical Rule Updates",
+          desc: "Engineering budget for building and maintaining Nurse Mobile App, Doctor Workstation, LAN sync, and Troubleshoot Suite.",
+          metric: "Scoped (TODO · EGP Ledger)",
+          rawEgp: "Custom Internal Budget",
+          rawSar: "Custom Internal Budget",
+          rawUsd: "Custom Internal Budget"
         },
         {
           id: "cost-2",
           tag: "regulatory",
-          title: "GAHAR Accreditation & ISO 13485 Compliance",
-          desc: "Clinical software verification, Egyptian Data Protection Law No. 151 compliance audits, and security vulnerability testing.",
-          metric: "30k - 50k EGP Annual",
-          rawEgp: "30,000 - 50,000 EGP",
-          rawSar: "6,000 - 10,000 SAR",
-          rawUsd: "$1,000 - $1,600"
+          title: "Privacy, Security & Tax Compliance Overhead",
+          desc: "Egyptian Data Protection Law 151/2020, PDPC licensing, Law 13/2025 traceability, EDA SaMD readiness, and ETA e-invoicing.",
+          metric: "Compliance Fixed Base",
+          rawEgp: "Custom Compliance Budget",
+          rawSar: "Custom Compliance Budget",
+          rawUsd: "Custom Compliance Budget"
         },
         {
           id: "cost-3",
-          tag: "edge",
-          title: "Medical Bedside Hardware & IoT Gateways",
-          desc: "Ruggedized Android nurse shift tablets, waterproof protective docks, RS-232 serial telemetry ingestion boxes.",
-          metric: "12k - 18k EGP / Bed",
-          rawEgp: "12,000 - 18,000 EGP/bed",
-          rawSar: "1,500 - 2,500 SAR/bed",
-          rawUsd: "$400 - $650 /bed"
+          tag: "core",
+          title: "Senior Nephrology Validation & Advisory Fees",
+          desc: "External sign-off by Senior Consultant Nephrologists verifying deterministic clinical codes and bedside protocols.",
+          metric: "Clinical Audit Retainer",
+          rawEgp: "Consultant Retainer (TBC)",
+          rawSar: "Consultant Retainer (TBC)",
+          rawUsd: "Consultant Retainer (TBC)"
         },
         {
           id: "cost-4",
           tag: "core",
-          title: "On-Site Nurse Training & 24/7 Ward Support",
-          desc: "Clinical shadowing during morning/evening shifts, continuous nurse certification, dedicated hot-swap support.",
-          metric: "15k - 25k EGP / Center",
-          rawEgp: "15,000 - 25,000 EGP",
-          rawSar: "3,000 - 5,000 SAR",
-          rawUsd: "$500 - $800"
+          title: "48h Weekend Clinic Onboarding & HL7 Teams",
+          desc: "On-site teams executing 48-hour active binder digitization, 2-day weekend nurse/doctor training, and HL7 v2 firewall setup.",
+          metric: "Variable Per Clinic",
+          rawEgp: "Scoped Per Unit (TBC)",
+          rawSar: "Scoped Per Unit (TBC)",
+          rawUsd: "Scoped Per Unit (TBC)"
         },
         {
           id: "cost-5",
           tag: "edge",
-          title: "Cloud Infrastructure & ETA/ZATCA Gateways",
-          desc: "Redundant central PostgreSQL database instances, encrypted off-site disaster recovery backups, e-invoicing servers.",
-          metric: "8k - 15k EGP / mo",
-          rawEgp: "8,000 - 15,000 EGP/mo",
-          rawSar: "1,000 - 2,000 SAR/mo",
-          rawUsd: "$250 - $500 /mo"
+          title: "Low-Footprint Cloud Backups & SMS Alerts",
+          desc: "Near-zero compute overhead because daily ward workflows execute locally offline on clinics' existing PCs and tablets.",
+          metric: "Local-First Minimal OpEx",
+          rawEgp: "Low Per-Unit Variable",
+          rawSar: "Low Per-Unit Variable",
+          rawUsd: "Low Per-Unit Variable"
         }
       ],
       rev: [
         {
           id: "rev-1",
           tag: "economics",
-          title: "Per-Chair-Per-Month (PCPM) SaaS Subscription",
-          desc: "Monthly recurring license per active dialysis bay. Standard tier (session board) to Enterprise tier (real-time AI CDSS).",
-          metric: "800 - 2,200 EGP / chair / mo",
-          rawEgp: "800 - 2,200 EGP/chair/mo",
-          rawSar: "150 - 350 SAR/chair/mo",
-          rawUsd: "$40 - $90 /chair/mo"
+          title: "Tiered System SaaS Subscriptions (Tiers 1–4)",
+          desc: "Monthly fee per active patient or bed: Tier 1 (Digitization Wedge) -> Tier 2 (Clinical Safety CDSS) -> Tier 3 (AI CDSS & Ops FP) -> Tier 4 (Unit-Wide Risk Shield FP).",
+          metric: "Custom Quote (TODO EGP)",
+          rawEgp: "Custom Quote · Per Pt / Bed",
+          rawSar: "Custom Quote · Per Pt / Bed",
+          rawUsd: "Custom Quote · Per Pt / Bed"
         },
         {
           id: "rev-2",
-          tag: "economics",
-          title: "Paid Discovery & Clinic Onboarding Phase",
-          desc: "Mandatory 2-4 week on-site clinical workflow audit, hardware calibration, and staff baseline certification.",
-          metric: "120k - 180k EGP / Center",
-          rawEgp: "120,000 - 180,000 EGP",
-          rawSar: "50,000 - 100,000 SAR",
-          rawUsd: "$4,000 - $7,000"
+          tag: "edge",
+          title: "Permanent Offline Feature License (CapEx Track)",
+          desc: "Perpetual offline software unlock for CapEx-preferring clinics operating locally on clinic desktops & nurse tablets with zero cloud billing.",
+          metric: "Perpetual Offline License",
+          rawEgp: "Custom Institutional Quote",
+          rawSar: "Custom Institutional Quote",
+          rawUsd: "Custom Institutional Quote"
         },
         {
           id: "rev-3",
           tag: "regulatory",
-          title: "ETA & ZATCA E-Invoicing Integration Module",
-          desc: "Mandatory tax authority compliance module linking session logs to certified electronic medical invoicing.",
-          metric: "30k - 50k EGP Setup",
-          rawEgp: "30,000 - 50,000 EGP",
-          rawSar: "15,000 - 25,000 SAR",
-          rawUsd: "$1,000 - $2,000"
+          title: "Upfront HL7 v2 Integration & Standalone Add-Ons",
+          desc: "Hospital HL7 v2 firewall bridge + annual maintenance, plus modular Doctor/Nurse/Admin CDSS plug-ins for already-digitized HIS.",
+          metric: "Upfront + Annual Maintenance",
+          rawEgp: "Custom Hospital Scope",
+          rawSar: "Custom Hospital Scope",
+          rawUsd: "Custom Hospital Scope"
         },
         {
           id: "rev-4",
           tag: "core",
-          title: "Annual Hardware Maintenance (AMC)",
-          desc: "Annual contract for telemetry gateway maintenance, sensor recalibration, and guaranteed hot-swap tablet replacement.",
-          metric: "15% of Hardware Value/yr",
-          rawEgp: "15% Hardware Value",
-          rawSar: "15% Hardware Value",
-          rawUsd: "15% Hardware Value"
+          title: "Paid Onboarding Discovery & 2-Day Weekend Training",
+          desc: "Site readiness audit, 48-hour active paper-binder digitization, Plug-and-Play Starter Kit handoff, and hands-on staff training.",
+          metric: "One-Time Unit Setup (TBC)",
+          rawEgp: "Custom Unit Scope (TBC)",
+          rawSar: "Custom Unit Scope (TBC)",
+          rawUsd: "Custom Unit Scope (TBC)"
         },
         {
           id: "rev-5",
           tag: "clinical",
-          title: "Anonymized RWE Clinical Trial Data Licensing",
-          desc: "De-identified longitudinal cohort data licensing for nephrology pharmaceutical sponsors studying anemia and dialyzer clearance.",
-          metric: "Enterprise Research Grant",
-          rawEgp: "Custom Grant Contracts",
-          rawSar: "Custom Grant Contracts",
-          rawUsd: "Custom Grant Contracts"
+          title: "Third-Party Insurer Shared-Savings Alignment",
+          desc: "Revenue-share agreements with Health Insurance Companies capturing verified reductions in avoidable ICU admissions, clotted filters & EPO excess.",
+          metric: "Insurer Shared-Savings",
+          rawEgp: "Custom Payer Agreement",
+          rawSar: "Custom Payer Agreement",
+          rawUsd: "Custom Payer Agreement"
         }
       ]
     };
@@ -1255,7 +1267,7 @@
     let activeFilter = "all";
     let searchQuery = "";
 
-    const STORAGE_KEY = "NEPHROEDGE_BMC_STATE_2026";
+    const STORAGE_KEY = "NEPHROGUARD_BMC_STATE_2026";
 
     // Initialize State
     function initState() {
@@ -1496,7 +1508,7 @@
         const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(bmcState, null, 2));
         const dlAnchor = document.createElement('a');
         dlAnchor.setAttribute("href", dataStr);
-        dlAnchor.setAttribute("download", `NephroEdge_Business_Model_Canvas_${new Date().toISOString().slice(0, 10)}.json`);
+        dlAnchor.setAttribute("download", `NephroGuard_Business_Model_Canvas_${new Date().toISOString().slice(0, 10)}.json`);
         document.body.appendChild(dlAnchor);
         dlAnchor.click();
         dlAnchor.remove();
@@ -1533,7 +1545,7 @@
 
       // Reset Defaults
       document.getElementById('btn-reset').addEventListener('click', () => {
-        if (confirm("Reset canvas to official NephroEdge project defaults? Any custom unsaved edits will be replaced.")) {
+        if (confirm("Reset canvas to official NephroGuard project defaults? Any custom unsaved edits will be replaced.")) {
           bmcState = JSON.parse(JSON.stringify(DEFAULT_BMC_DATA));
           activeCurrency = "EGP";
           activeFilter = "all";
